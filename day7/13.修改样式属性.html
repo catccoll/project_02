@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        *{margin: 0;padding: 0}
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+     div:nth-child(2){
+         position: relative;
+     }
+        p {
+            width: 150px;
+            height: 60px;
+           
+        
+        }
+
+        p img {
+            width: 100%;
+        }
+
+        h1 {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        h1 img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div> </div>
+    <div>
+    <p><img src="img/th (1)是.jpg" alt=""></p>
+    <h1><img src="img/th.jpg" alt=""></h1>
+</div>
+    <script>
+        // 1.element.
+        var div = document.querySelector('div')
+        div.onclick = function () {
+            this.style.backgroundColor = 'purple'
+            this.style.width = '400px'//修改产生的是行内样式
+        }
+        // 案例
+         var p=document.querySelector('p')
+         var h1=document.querySelector('h1')
+         h1.onclick=function(){
+             p.style.display='none'
+         }
+    </script>
+</body>
+
+</html>

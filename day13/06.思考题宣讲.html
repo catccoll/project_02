@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var name = 'the'
+        var obj = {
+            name: 'that',
+            fn: function () {
+                return function () {
+                    return this.name
+                }
+            }
+        }
+        console.log(obj.fn()());
+        var f = function () {
+            return this.name
+        }
+        f()//相当于立即执行函数,立即函数执行中this指向的是window
+        // (function () {
+        //     return this.name
+        // }())
+
+
+        var name = 'the'
+        var obj = {
+            name: 'that',
+            fn: function () {
+                var that = this
+                return function () {
+                    return that.name
+                }
+            }
+        }
+        console.log(obj.fn()());
+         
+               
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // jQuery可以使用css方法来修改简单元素样式 ，也可以操作类 ，修改多个样式
+        $(function () {
+            console.log($('div').css('width'));  //参数只写属性名，则是返回属性值  但是带有单位
+            // 设置属性
+            $('div').css('width', '300')//属性名必须加引号 ，且后面值是数字的话可以跟单位也可以不跟单位
+            $('div').css({
+                width: 400,
+                height: 500,
+                background: 'red'
+            })   //如果值不是数字，就要加引号，属性可以不加引号
+        })
+    </script>
+</body>
+
+</html>

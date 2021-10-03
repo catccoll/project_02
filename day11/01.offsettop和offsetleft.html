@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 200px auto;
+            position: relative;
+        }
+
+        P {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: blue;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p></p>
+    </div>
+    <script>
+        //offsetLeft&&offsetTop
+        var div = document.querySelector('div')
+        var p = document.querySelector('p')
+        console.log(div.offsetTop);
+        console.log(div.offsetLeft);
+        console.log(p.offsetLeft);//返回作为该元素带有定位的父级元素，如果父级都没有定位则返回body
+        console.log(p.offsetTop);
+
+        // 可以得到元素的大小 宽度和高度  offsetWidth  offsetHeight
+        console.log(div.offsetWidth);
+        console.log(p.offsetHeight);//如果有padding值 盒子会被撑大 border也会撑大
+
+        // offsetParent  返回带有定位的父亲，否则返回的是body
+        console.log(p.offsetParent);
+        console.log(p.parentNode); //返回父亲 是最近一级的父亲 亲爸爸 不管父亲有没有定位
+    </script>
+</body>
+
+</html>

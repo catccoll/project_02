@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft yahei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?qnsis9');
+            src: url('fonts/icomoon.eot?qnsis9#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?qnsis9') format('truetype'),
+                url('fonts/icomoon.woff?qnsis9') format('woff'),
+                url('fonts/icomoon.svg?qnsis9#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .babian {
+
+            width: 100px;
+
+            height: 100px;
+
+            background: #469eeb;
+
+            position: relative;
+
+        }
+
+        .babian:before {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            border-bottom: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+
+
+        }
+
+        .babian:after {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            border-top: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+        }
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        .clearfix:after {
+
+            content: ".";
+
+            display: block;
+
+            clear: both;
+
+            height: 0;
+            visibility: hidden;
+
+        }
+
+        div {
+            width: 500px;
+            height: 200px;
+            margin: 200px auto;
+            border: 1px solid red;
+            font-size: 100px;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        button {
+            display: block;
+            width: 500px;
+            height: 100px;
+            margin: 0 auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div></div>
+    <button>开始</button>
+    <script>
+
+        // 1.Math对象随机数方法   random() 返回一个随机的小数  0 =< x < 1
+        // 2. 这个方法里面不跟参数
+        // 3. 代码验证 
+        console.log(Math.random());
+        // 4. 我们想要得到两个数之间的随机整数 并且 包含这2个整数
+
+ 
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        console.log(getRandom(1, 10));
+        // 5. 随机点名  
+        var arr = ['张三', '张三丰', '张三疯子', '李四', '李思思', 'pink老师'];
+        // console.log(arr[0]);
+        // console.log(arr[getRandom(0, arr.length - 1)]);
+
+
+
+
+        var timer = null
+        var div = document.querySelector('div')
+        var btn = document.querySelector('button')
+        var flag = 0
+        btn.addEventListener('click', function () {
+            if (flag == 0) {
+                timer = setInterval(function () {
+                    var result = arr[getRandom(0, arr.length - 1)]
+                    div.innerHTML = result
+
+                }, 100)
+                flag = 1
+            }
+            else {
+                clearInterval(timer)
+                flag = 0
+            }
+        })
+             
+       
+    </script>
+</body>
+
+</html>

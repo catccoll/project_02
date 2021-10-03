@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft YaHei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul>li {
+            float: left;
+            width: 100px;
+        }
+
+        ol {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            微博
+            <ol>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ol>
+        </li>
+        <li>
+            QQ
+            <ol>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ol>
+
+        </li>
+        <li>
+            微信
+            <ol>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ol>
+        </li>
+        <li>
+            bili
+            <ol>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ol>
+        </li>
+    </ul>
+    <script>
+        $(function () {
+            // $('ul').children('li').mouseover(function () {
+            //     $(this).children('ol').slideDown()
+            // })
+            // $('ul').children('li').mouseout(function () {
+            //     $(this).children('ol').slideUp()
+            // })
+            // $(' ul> li').hover(function () {//事件切换 第一个是经过 第二个是离开  鼠标进入和离开的复合写法
+            //     $(this).children('ol').slideDown()
+            // }, function () {
+            //     $(this).children('ol').slideUp()
+            // })
+
+            $('ul>li').hover(function () {//事件切换 hover 如果只写一个函数 那么鼠标经过和鼠标离开都会触发这个函数
+                $(this).children('ol').stop().slideToggle()  //一般都和toggle搭配使用
+            })
+        })
+        // 显示元素show()   隐藏是hide()
+
+        // 1.事件切换 
+        //    .hover()
+        // 2.动画或效果排队
+        // 动画或者效果一旦触发就会执行，如果触发多次，就造成这个动画排队执行
+        // 3.停止排队
+        // stop()方法必须写到动画的前面
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft yahei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+
+
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        .clearfix:after {
+
+            content: ".";
+
+            display: block;
+
+            clear: both;
+
+            height: 0;
+            visibility: hidden;
+
+        }
+    </style>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            float: left;
+            margin-left: 500px;
+            margin-top: 300px;
+        }
+
+        div img {
+            width: 100%;
+
+        }
+
+        p {
+            width: 100px;
+            height: 100px;
+            background: #fede4f;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+            opacity: 0.4;
+            cursor: move;
+            display: none;
+
+        }
+
+        h1 {
+            width: 300px;
+            height: 300px;
+            border: 5px solid red;
+            position: relative;
+            display: none;
+            float: left;
+            overflow: hidden;
+            margin-top: 200px;
+        }
+
+        h1 img {
+            position: absolute;
+            left: 0;
+            top: 0;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="img/大头.jpeg" alt="">
+        <p></p>
+
+    </div>
+    <h1><img src="img/大头.jpeg" alt="" class="datou"></h1>
+    <script>
+        var div = document.querySelector('div')
+        var p = document.querySelector('p')
+        var h1 = document.querySelector('h1')
+        var img1 = document.querySelector('.datou')
+        div.addEventListener('mouseover', function (e) {
+            p.style.display = 'block'
+            h1.style.display = 'block'
+            div.addEventListener('mouseout', function (e) {
+                p.style.display = 'none'
+                h1.style.display = 'none'
+            })
+            div.addEventListener('mousemove', function (e) {
+                var px = e.pageX - div.offsetLeft - p.offsetHeight / 2
+                var py = e.pageY - div.offsetTop - p.offsetHeight / 2
+                var pmaxx = div.offsetWidth - p.offsetWidth
+                var pmaxy = div.offsetHeight - p.offsetHeight
+                if (px <= 0) {
+                    px = 0
+                }
+                else if (px >= pmaxx) {
+                    px = pmaxx
+                }
+                if (py <= 0) {
+                    py = 0
+                }
+                else if (py >= pmaxy) {
+                    py = pmaxy
+                }
+                p.style.left = px + 'px'
+                p.style.top = py + 'px'
+                var bigad = img1.offsetWidth - h1.offsetWidth
+                var bigad1 = img1.offsetHeight - h1.offsetHeight
+                var nnum1 = px * bigad / pmaxx
+                var nnum2 = py * bigad1 / pmaxy
+
+                img1.style.left = -nnum1 + 'px'
+                img1.style.top = -nnum2 + 'px'
+            })
+        })
+
+    </script>
+</body>
+
+</html>

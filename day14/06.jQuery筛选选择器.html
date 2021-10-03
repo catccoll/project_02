@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>筛选选择器</li>
+        <li>筛选选择器</li>
+        <li>筛选选择器</li>
+        <li>筛选选择器</li>
+        <li>筛选选择器</li>
+        <li>筛选选择器</li>
+    </ul>
+    <ol>
+        <li>加油</li>
+        <li>加油</li>
+        <li>加油</li>
+        <li>加油</li>
+        <li>加油</li>
+        <li>加油</li>
+    </ol>
+    <script>
+        // 1.筛选选择器
+        $(function () {
+            $('ul li:first').css('color', 'red')
+            $('ul li:eq(4)').css('color', 'pink')
+            $('ul li:odd').css('color', 'hotpink')  // 索引号是从0开始的
+            $('ul li:even').css('color', 'skyblue')
+        })
+        // 2.筛选方法(重点)
+    </script>
+</body>
+
+</html>

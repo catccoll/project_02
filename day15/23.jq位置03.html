@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <style>
+        div {
+            margin: 300px auto;
+            width: 400px;
+            height: 1660px;
+            background-color: blueviolet;
+        }
+
+        p {
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            position: fixed;
+            right: 0;
+            top: 500px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <p></p>
+    <script>
+        $(function () {
+            var top = $('div').offset().top
+            $(window).scroll(function () {
+                var top1 = $(document).scrollTop()
+                if (top1 >= top) {
+                    $('p').fadeIn(1000)
+                }
+                else {
+                    $('p').fadeOut()
+                }
+            })
+
+            $('p').on('click', function () {
+                // var num = $(document).scrollTop()
+                // timer = setInterval(function () {
+                //     if (num == 0) {
+                //         clearInterval(timer)
+                //     }
+                //     else {
+                //         num -= 5
+                //         $(document).scrollTop(num)
+                //     }
+
+                // }, 1)
+                $('body,html').stop().animate({//不能是文档  而是html和body元素做动画
+                    scrollTop: 0
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

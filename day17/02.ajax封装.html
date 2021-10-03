@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body><button>发送请求</button>
+    <img src="img/查询字符串.png" alt="">
+
+    <script>
+        /*
+        url:请求的地址
+        query:object 请求携带的参数
+        callback:成功之后所执行的回调函数
+        */
+
+        function getAjax(url, query, callback,isJson) {
+            url += '?'
+            if (query) {
+                for (var k in query) {
+                    url += `${k}:${query[k]}&`
+                }
+                url = url.slice(0, -1)//取出最后对于的&
+            }
+            var xhr = new XMLHttpRequest()
+            xhr.open('GET', url)
+            xhr.send()
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var res = isJson ? JSON.parse(xhr.responseText) : xhr.responseText//看自己是否想要不是字符串的格式
+                        callback(res)
+                    }
+                }
+            }
+        }
+        var btn = document.querySelector('button')
+        btn.addEventListener('click', function () {
+            getAjax('01.ajax-get.php', {
+                id: 3,
+                age: 4
+            }, function (xhr) {
+                console.log(xhr);
+            }
+
+     
+            )
+        })
+          //如需获得来自服务器的响应,请使用XMLHttpRequest()对象的responseText ：获得字符串形式的响应数据
+        // 或responseXML属性 ：获得XML形式的响应数据
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+            position: relative;
+        }
+
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="image/angel.gif" alt="">
+    <script>
+        // document.addEventListener('click', function (e) {
+        //     console.log(e.clientX);//以可视窗口为参考坐标
+        //     console.log(e.clientY);//以可视窗口为参考坐标
+        //     console.log(e.pageX);//以整个页面为参考坐标
+        //     console.log(e.pageY);//以整个页面为参考坐标   //记住这两个
+        //     console.log(e.screenX);//以你电脑屏幕为参考坐标
+        //     console.log(e.screenY);
+        // })
+
+        
+        // 跟随鼠标的天使案例
+        var img = document.querySelector('img')//mousemove只要鼠标移动都会获得新的坐标
+        document.addEventListener('mousemove', function (e) {
+            img.style.top = e.pageY-40 + 'px'
+            img.style.left = e.pageX-50 + 'px'
+        })
+    </script>
+</body>
+
+</html>

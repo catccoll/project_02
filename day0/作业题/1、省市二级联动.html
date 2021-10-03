@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 显示省 -->
+    <select id="province">
+        <option>选择省份</option>
+    </select>
+    <!-- 显示市 -->
+    <select id="city">
+        <option>选择市区</option>
+    </select>
+
+    <script>
+        // 省市地区二级联动，页面加载完毕后显示出可以选择的省份，当省改变显示省份对应的市
+        var data = [
+            {
+                name: '广东省',
+                children: [
+                    '广东省',
+                    '深圳市',
+                    '东莞市'
+
+                ]
+            },
+            {
+                name: '江西省',
+                children: [
+                    '南昌市',
+                    '赣州市',
+                    '新余市'
+                ]
+            }, {
+                name: '湖南省',
+                children: [
+                    '长沙市',
+                    '岳阳市',
+                    '常德市'
+                ]
+            }
+        ]
+        var province = document.querySelector('#province')
+        var city = document.querySelector('#city')
+        data.forEach(function (item, index) {
+            var option = document.createElement('option')
+            option.innerHTML = item.name
+            option.setAttribute('value', index)
+            province.appendChild(option)
+        })
+        province.addEventListener('change', function () {
+            // if (this.value == -1) {
+            //     var option1 = document.createElement('option')
+            //     option1.innerHTML = '请选择市区'
+            //   city.appendChild(option1)
+            // }
+            city.innerHTML = '<option>请选择市区</option>'//每次都要清空
+            data[this.value].children.forEach(function (item) {
+                var option2 = document.createElement('option')
+                option2.innerHTML = item
+                city.appendChild(option2)
+
+            })
+        })
+
+
+
+
+
+        // data.forEach(function (item, index) {
+        //     var optionDom = document.createElement('option')
+        //     optionDom.innerHTML = item.name
+        //     optionDom.setAttribute('value', index)
+        //     document.querySelector('#province').appendChild(optionDom)
+        // })
+
+        // document.querySelector('#province').addEventListener('change', function () {
+        //     if (this.value == false) {
+        //         document.querySelector('#city').innerHTML = '<option>选择市区</option>'
+        //         return
+        //     }
+        //     document.querySelector('#city').innerHTML = '<option>选择市区</option>'
+        //     data[this.value].children.forEach(function (item) {
+        //         var optionDom = document.createElement('option')
+        //         optionDom.innerHTML = item
+        //         document.querySelector('#city').appendChild(optionDom)
+        //     })
+        // })
+
+
+
+    </script>
+</body>
+
+</html>

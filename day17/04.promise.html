@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/util.js"></script>
+</head>
+
+<body><button>发送请求</button>
+    <script>
+        /*
+         promise:承诺,是es6新增的一个对象，我们可以使用promise来许下一个承诺
+         这个对象有三种状态：pending(进行中),Resolved(已完成，又称Fulfilled)和Rejected(已失败)。只有异步操作的结果，可以决定当前是哪一种状态，任何其他的操作都无法改变这个状态
+         作用：把异步代码写成同步的形式
+        */
+        const pro = new Promise((resolve, reject) => {
+            setInterval(() => {
+                var ac = Math.random()
+                if (ac > 0.5) {
+                    resolve()
+                } else {
+                    reject()
+                }
+            }, 1000)
+        })
+        pro.then(() => {
+            console.log('这个数比较大');
+        }).catch(() => {
+            console.log('这个数比较小');
+        })
+        //  promise的封装
+        function fn() {
+            return new Promise(() => {
+
+            })
+        }
+        fn().then(() => {
+
+        }).catch(() => {
+
+        })
+        const btn = document.querySelector('button')
+        btn.onclick = () => {
+            util.promise('01.ajax-get.php', null, true).then((res)=>{
+                console.log(res);
+            })
+        }
+    </script>
+</body>
+
+</html>

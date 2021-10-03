@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        window = onload = function () {
+            function addCookie(key, value, day, path = '/', domain) {
+                var index = window.location.pathname.lastIndexOf('/')
+                var currentPath = window.location.pathname.slice(0, index)
+                path = path || currentPath
+                domain = domain || document.domain
+                // 处理默认的过期事件
+                if (!day) {
+                    document.cookie = key + '=' + value + '; path = ' + path + '; domain = ' + domain + ' '
+                } else {
+                    var data = new Date()
+                    data.setTime(data.getTime() - 8 * 3600 * 1000 + 1000 * day)
+                    document.cookie = `${key}=${value};path=${path};expires=${data}`
+                }
+            }
+            addCookie('gender', 'male', 60)
+            addCookie('name', 'zh', 60)
+            var res = document.cookie.split(';')
+            function getCookie(key) {
+                for (var i = 0; i < res.length; i++) {
+                    var temp = res[i].split('=')
+                    if (temp[0].trim() === key) {
+                        return temp[1]
+                    }
+                }
+            }
+
+            function delCookie(key) {
+                addCookie(key, getCookie(key), -60)
+            }
+            delCookie('name')
+            delCookie('gender')
+        }
+
+        // cookie与localStorage的区别(记忆)
+        // 不同点:
+        // 1、容量不一致cookie大概4k左右localStorage大概5M左右
+        // 2、cookie存在时效性，cookie默认是浏览器关闭就时效，但是localStorage永久保存(手动可以清除)
+        // 3、cookie存在生效的路径限制，localStorage没有路径限制
+        // 4、cookie跟http协议有关系。
+        // localStorage跟http协议没有联系相同点:
+        // 1、都是保存在客户端上
+        // 2、都跟域名有关系
+        
+
+    </script>
+</body>
+
+</html>

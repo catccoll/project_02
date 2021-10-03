@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div>
+        省：<select class="sheng">
+            <option>
+                -请选择-
+            </option>
+        </select>
+        市：<select class="shi">
+            <option>
+                -请选择-
+            </option>
+        </select>
+        区：<select class="qu">
+            <option>
+                -请选择-
+            </option>
+        </select>
+    </div>
+    <script>
+        var obj = [
+            {
+                province: '江西省',
+                city: [{
+                    name: '上饶市',
+                    children: [
+                        '余干县',
+                        '上饶县'
+                    ]
+                }, {
+                    name: '南昌市',
+                    children: [
+                        '南昌县',
+                        '新建县'
+                    ]
+                }
+                ]
+            },
+            {
+
+                province: '广东省',
+                city: [{
+                    name: '深圳市',
+                    children: [
+                        '宝安区',
+                        '福田区'
+                    ]
+                }, {
+                    name: '广州市',
+                    children: [
+                        '仓山区',
+                        '承建区'
+                    ]
+                }
+                ]
+
+            }
+
+        ]
+        var that
+        var sheng = document.querySelector('.sheng')
+        var shi = document.querySelector('.shi')
+        var qu = document.querySelector('.qu')
+        obj.forEach(function (item, index) {
+            var option = document.createElement('option')
+            option.setAttribute('value', index)
+            option.innerHTML = item.province
+            sheng.appendChild(option)
+        })
+        sheng.addEventListener('change', function () {
+            that = this.value
+            shi.innerHTML = '<option>请选择市</option>'
+            obj[this.value].city.forEach(function (item, index) {
+                var option = document.createElement('option')
+                option.setAttribute('value', index)
+                option.innerHTML = item.name
+                shi.appendChild(option)
+            })
+        })
+        setInterval(function () {
+            console.log(obj[that]);
+        }, 1000)
+        shi.addEventListener('change', function (e) {
+
+            qu.innerHTML = '<option>请选择区</option>'
+            var city = obj[that]['city']
+
+            city[this.value].children.forEach(function (item, index) {
+                var option = document.createElement('option')
+                option.innerHTML = item
+                qu.appendChild(option)
+            })
+
+        })
+    </script>
+</body>
+
+</html>

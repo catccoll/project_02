@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft yahei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?qnsis9');
+            src: url('fonts/icomoon.eot?qnsis9#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?qnsis9') format('truetype'),
+                url('fonts/icomoon.woff?qnsis9') format('woff'),
+                url('fonts/icomoon.svg?qnsis9#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .babian {
+
+            width: 100px;
+
+            height: 100px;
+
+            background: #469eeb;
+
+            position: relative;
+
+        }
+
+        .babian:before {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            border-bottom: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+
+
+        }
+
+        .babian:after {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            border-top: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+        }
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        .clearfix:after {
+
+            content: ".";
+
+            display: block;
+
+            clear: both;
+
+            height: 0;
+            visibility: hidden;
+
+        }
+
+        ul {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        ul li {
+            width: 80px;
+            height: 40px;
+            float: left;
+            list-style: none;
+        }
+
+        ul li img {
+            width: 100%;
+            display: block;
+            height: 100%;
+        }
+
+        body {
+            background: url(images/1.jpg) no-repeat center top/100% auto;
+        }
+    </style>
+</head>
+<ul>
+    <li><img src="images/1.jpg" alt=""> </li>
+    <li><img src="images/2.jpg" alt=""></li>
+    <li><img src="images/3.jpg" alt=""></li>
+    <li><img src="images/4.jpg" alt=""></li>
+</ul>
+
+<body>
+    <script>
+        var img = document.getElementsByTagName('img')
+        var body = document.querySelector('body')
+        for (var i = 0; i < img.length; i++) {
+            img[i].onclick = function () {
+                body.style.backgroundImage = 'url(' + this.src + ') '//记得是this，当前的意思                                记得这个写法
+            }
+        }
+        // for (var i = 0; i < lis.length; i++) {
+        //     //     lis[i].onclick=function(){
+        //     //         console.log(this.src);
+        //     //     }
+        //     // }
+        //     if (i == 0) {
+        //         lis[0].onclick = function () {
+
+        //             body.style.backgroundImage = 'images/1.jpg'
+
+
+        //         }
+        //     }
+        //     if (i == 1) {
+        //         lis[1].onclick = function () {
+
+        //             body.style.backgroundImage = 'images/2.jpg'
+
+
+        //         }
+        //     }
+        //     if (i == 2) {
+        //         lis[2].onclick = function () {
+
+        //             body.style.backgroundImage = 'images/3.jpg'
+
+
+        //         }
+        //     }
+        //     if (i == 3) {
+        //         lis[3].onclick = function () {
+
+        //             body.style.backgroundImage = 'images/4.jpg'
+
+
+        //         }
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

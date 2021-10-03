@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="textarea"><button></button>
+    <div></div>
+    <script>
+        //  替换   replace
+        var str = 'andy和red'
+        // var newStr = str.replace('andy', 'baby')
+
+        // g 全局模式
+        // i 忽略大小写
+        // gi忽略大小写 全局
+
+        var newStr = str.replace(/andy/, 'baby')
+        var input = document.querySelector('input')
+        var btn = document.querySelector('button')
+        var div = document.querySelector('div')
+        btn.addEventListener('click', function () {
+            div.innerHTML = input.value.replace(/激情/gi, '**')
+        })
+    </script>
+</body>
+
+</html>

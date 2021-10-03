@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id=""><input type="button">
+    <div></div>
+    <script>
+        var str = '      andy    '
+        console.log(str);
+        var str1 = str.trim()//去除字符串左右两边的空白符
+        console.log(str1);
+        var input = document.querySelectorAll('input')
+        var div = document.querySelector('div')
+        input[1].onclick = function () {
+            if (input[0].value.trim() === '') {
+                alert('请输入字符')
+            } else {
+                div.innerHTML = input[0].value.trim()
+            }
+        }
+    </script>
+</body>
+
+</html>

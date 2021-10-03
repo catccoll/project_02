@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body><button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+
+    <script>
+        //    bind()方法不会调用函数 ，但是能改变函数内部的this指向
+        var o = {
+            name: 'andy'
+        }
+        function fn(a, b) {
+            console.log(this);
+            console.log(a + b);
+        }
+        var fn1 = fn.bind(o, 1, 2)
+        fn1()
+        // 返回的是原函数改变this之后产生的新函数
+        // 如果有的函数我们不需要立即调用 ，但是又想改变这个函数内部的this指向此时用bind
+        // var btn = document.querySelector('button')
+        // btn.onclick = function () {
+        //     btn.disabled = true
+        //     setInterval(function () {
+        //         this.disabled = false
+        //     }.bind(this), 3000)//这个this 指向的是btn这个对象
+        // }
+        var btns = document.querySelectorAll('button')
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                this.disabled = true
+                setInterval(function () {
+                    this.disabled = false
+                }.bind(this), 2000)
+            }
+        }
+    </script>
+</body>
+
+</html>

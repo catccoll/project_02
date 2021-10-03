@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>网页换肤</title>
+	<style type="text/css">
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		#box {
+			width: 100%;
+			height: 0;
+			background: #abcdef;
+			overflow: hidden;
+
+		}
+
+		body {
+			background-size: 100% 100%;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			height: 100%;
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+		}
+
+		li {
+			width: 200px;
+			height: 100px;
+		}
+
+		li:nth-child(1) {
+
+			background-image: url(images/1.jpg);
+			background-position: 200px 100px;
+			background-size: 100% 100%;
+
+		}
+
+		li:nth-child(2) {
+
+			background-image: url(images/2.jpg);
+			background-position: 200px 100px;
+			background-size: 100% 100%;
+		}
+
+		li:nth-child(3) {
+
+			background: url(images/3.jpg) 100% 100%/200px 100px;
+
+		}
+	</style>
+</head>
+
+<body>
+	<div id="box">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<button id="btn">按钮</button>
+</body>
+<script type="text/javascript">
+	// 点击按钮显示出可以使用的图片，当点击到具体图片将背景设置为具体的图片
+	var btn = document.querySelector('#btn')
+	var div = document.querySelector('#box')
+	var timer = null
+	var num = 0
+	var height1
+	var flag = true
+	btn.addEventListener('click', function () {
+		if (flag) {
+			flag = false
+			timer = setInterval(function () {
+				if (height1 == 200) {
+					clearInterval(timer)
+
+				}
+				div.style.height = num + 'px'
+				num += 10
+				height1 = parseInt(window.getComputedStyle(div).height)
+
+			}, 50)
+		}
+	})
+	var body = document.querySelector('body')
+	var lis = document.querySelectorAll('li')
+	for (var i = 0; i < lis.length; i++) {
+		lis[i].addEventListener('click', function () {
+			flag = true
+			for (var i = 0; i < lis.length; i++) {
+				body.style.background = ''
+			}
+			body.style.backgroundImage = window.getComputedStyle(this).backgroundImage
+			timer = setInterval(function () {
+				if (height1 == 0) {
+					clearInterval(timer)
+				}
+				div.style.height = num + 'px'
+				num -= 10
+				height1 = parseInt(window.getComputedStyle(div).height)
+
+			}, 50)
+		})
+	}
+</script>
+
+</html>

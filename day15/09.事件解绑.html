@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li>123</li>
+        <li>456</li>
+        <li>789</li>
+    </ul>
+    <p>123</p>
+    <script>
+        $('div').on({
+            mouseover: function () {
+                console.log(11);
+            },
+            mouseleave: function () {
+                console.log(22);
+            }
+        })
+        // $('div').off()//这个是移除了div身上所有的事件
+        $('div').off('mouseover')//这个是解除了div身上的点击事件
+        $('ul ').on('click', 'li', function () {
+            alert(11)
+        })
+        $('ul').off('click', 'li')//这个是解除了事件委托的方法
+        // 2.one()这个只能触发事件一次
+        $('p').one('click', function () {
+            alert(22)
+        })
+    </script>
+</body>
+
+</html>

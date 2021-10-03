@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //    \d  相当于[0-9]   匹配0-9之间的任意数字
+        //   \D  匹配所以0-9以外的字符  相当于 [^0-9]
+        // \w    匹配任意的字母 数字和下划线  [a-zA-Z0-9_]
+        // \W   匹配除任意的字母 数字和下划线以外的字符  [^a-zA-Z0-9_]
+        // \s              匹配空格(包括回车 空格 制表)
+        // \S       匹配非空格
+        // 座机号码验证  ：全国座机号码   两种格式  010-12345678  或者0530-1234567
+        // 正则里面的或者符号  是  |
+        var rg = /^\d{3}\d{6}|\d{4}-\d{7}$/;
+        // var rg=/^\d{3,4}-\d{7,8}$/
+        console.log(rg.test(010-123456));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.普通函数
+        function fn() {
+            console.log(221);
+            console.log(this);//this指向window
+        }
+        fn(), fn.call()
+        //  2.对象的方法
+        var o = {
+            sayHi: function () {
+                console.log(111);
+                console.log(this);//this指向o
+            }
+        }
+        o.sayHi()
+        // 3.构造函数
+        function Star() {
+            console.log(333);
+            console.log(this);//this指向实例对象 原型对象里面方法的this 指向的也是ldh实例对象
+            Star.prototype.sing = function () {
+
+            }
+        }
+        var ldh = new Star()
+
+        // 4.绑定事件函数
+        // btn.onclick = function () {//点击了按钮就可以调用这个函数
+        //    this指向的是btn
+        // }
+        // 5.定时器函数
+        setInterval(function () {//这个函数是定时器自动1秒钟调用一次
+            //   this指向的是window
+        }, 1000)
+            // 6.立即执行函数
+            (function () {
+                console.log('达到人生巅峰');//自动调用函数
+            }())//this指向的还是window
+    </script>
+</body>
+
+</html>

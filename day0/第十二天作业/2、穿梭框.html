@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft YaHei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        .clearfix:after {
+
+            content: ".";
+
+            display: block;
+
+            clear: both;
+
+            height: 0;
+            visibility: hidden;
+
+        }
+
+        .left,
+        .right,
+        .middle {
+            float: left;
+        }
+
+        .left,
+        .right {
+            border: 1px solid #eee;
+            width: 100px;
+            height: 200px;
+            line-height: 28px;
+            text-align: center;
+        }
+
+        .active {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left">
+        <div>张三</div>
+        <div>李四</div>
+        <div>王五</div>
+        <div>赵六</div>
+        <div>孙七</div>
+        <div>王八</div>
+    </div>
+    <div class="middle">
+        <input type="button" value=">" />
+        <input type="button" value="<" />
+    </div>
+    <div class="right">
+        <ul></ul>
+    </div>
+
+    <script>
+        var that
+        var left = document.querySelector('.left')
+        var right = document.querySelector('.right')
+        var ul = document.querySelector('ul')
+        var input = document.querySelectorAll('input')
+        left.addEventListener('click', function (e) {
+
+            e.target.className = 'active'
+            input[0].addEventListener('click', function () {
+                var li = document.createElement('li')
+                li.innerHTML = e.target.innerHTML
+                ul.insertBefore(li, ul.children[0])
+                e.target.innerHTML = ''
+            })
+        })
+        ul.addEventListener('click', function (e) {
+
+            e.target.className = 'active'
+            input[1].addEventListener('click', function () {
+                var div = document.createElement('div')
+                left.insertBefore(div, left.children[0])
+                div.innerHTML = e.target.innerHTML
+                e.target.innerHTML = ''
+            })
+        })
+
+        // 这属性选择器很好用
+    </script>
+</body>
+
+</html>

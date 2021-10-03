@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>传统注册事件</button>
+    <button> 方法监听注册事件</button>
+    <button>ie9 attachment</button>
+
+    <script>
+        // 传统注册事件  动态绑定
+        var btn = document.querySelectorAll('button')
+        btn[0].onclick = function () {
+            alert('hi')
+        }
+        btn[0].onclick = function () {
+            alert('hao are you')
+        }
+        // 2.事件倾听注册事件
+        btn[1].addEventListener('click', function () {//里面的事件类型是字符串 必定加引号 而且不带on
+            alert(22)
+        })
+        btn[1].addEventListener('click', function () {//里面的事件类型是字符串 必定加引号 而且不带on
+            alert(33)
+        })  //同一个事件可以添加多个侦听器
+
+        // 3. attachEven ie9以前的版本支持(了解)
+            //   detachEvent('onclick',fn) 解绑    形式都和监听差不多
+    </script>
+</body>
+
+</html>

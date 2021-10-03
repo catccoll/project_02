@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <SCript src="JS/util.js"></SCript>
+</head>
+
+<body><button>发送请求</button>
+
+    <script>
+        var btn = document.querySelector('button')
+
+   
+  
+        btn.addEventListener('click', function () {
+            // postAjax('03.post.php', null, function (xhr) {
+            //     console.log(xhr);
+            // }, true
+
+
+            // )
+            util.ajax({
+                method:'get',
+                url:'03.post.php',
+                callback:function(res){
+                    console.log(res);
+                }
+            })
+        })
+        //如需获得来自服务器的响应,请使用XMLHttpRequest()对象的responseText ：获得字符串形式的响应数据
+        // 或responseXML属性 ：获得XML形式的响应数据
+    </script>
+</body>
+
+</html>

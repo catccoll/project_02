@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first {
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+
+        .change {
+            width: 300px;
+            height: 500px;
+            background: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first"></div>
+    <script>
+        var div = document.querySelector('div')
+        div.onclick = function () {
+            // this.style.backgroundColor = 'purple'//样式比较少可以使用
+            this.className = 'change'//让我们当前元素的类名改成为了change，这个样式修改写在css当中，适合修改多种样式，他会覆盖原先的类名
+            // 如果想要保留原先的类名可以这么做
+            this.className = 'first change'
+        }
+    </script>
+</body>
+
+</html>

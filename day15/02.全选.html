@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <style>
+        input {
+            display: block;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" class="g0">
+    <input type="checkbox" class="g1">
+    <input type="checkbox" class="g1">
+    <input type="checkbox" class="g1">
+    <input type="checkbox" class="g0">
+    <script>
+        $(function () {
+            $('.g0 ').change(function () {
+                var qua = $(this).prop('checked')
+                // console.log($(this).prop('checked'));
+                $('.g1, .g0').prop('checked', qua)
+            })
+            $('.g1').change(function () {
+                // 这个是所有的小复选框个数   $('.g1').length
+                if ($('.g1:checked').length === $('.g1').length) {
+                    $('.g0').prop('checked', true)
+                } else {
+                    $('.g0').prop('checked', false)
+                }
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

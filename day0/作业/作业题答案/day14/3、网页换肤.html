@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>网页换肤</title>
+<style type="text/css">
+	html,body{
+		width:100%;
+		height:100%;
+	}
+	#box{
+		width:100%;
+		height:0;
+		background:#abcdef;
+		overflow:hidden;
+		transition:height 2s ease;
+	}
+	ul{
+		list-style:none;
+		padding:0;
+		margin:0;
+		height:100%;
+		display:flex;
+		justify-content:space-evenly;
+		align-items: center;
+	}
+	li{
+		width:200px;
+		height:100px;
+	}
+	li:nth-child(1){
+		background:url(images/1.jpg) 100% 100%/200px 100px;
+	}
+	li:nth-child(2){
+		background:url(images/2.jpg) 100% 100%/200px 100px;
+	}
+	li:nth-child(3){
+		background:url(images/3.jpg) 100% 100%/200px 100px;
+	}
+</style>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<button id="btn">按钮</button>
+</body>
+<script type="text/javascript">
+	// 点击按钮显示出可以使用的图片，当点击到具体图片将背景设置为具体的图片
+	// 使用标识记录当前的状态 false表示当前为收缩状态
+	let flag = false; 
+	document.getElementById('btn').addEventListener('click',function(){
+		if(flag){
+			// 表示目前处于展开状态
+			document.querySelector('#box').style.height = '0px'
+			flag = false;
+		}else{
+			// 表示目前处于收缩状态
+			document.querySelector('#box').style.height = '150px'
+			flag = true;
+		}
+	})
+	let lis = document.querySelectorAll('li');
+
+	for(var i =0;i<lis.length;i++){
+		lis[i].onclick = function(){
+			// 获取当前点击的li的背景图片
+			let img = window.getComputedStyle(this).backgroundImage;
+			document.body.style.background = img + ' no-repeat 100% 100%/100% 100%';
+			// 收缩
+			flag = false;
+			document.querySelector('#box').style.height = '0px'
+		}
+	}
+
+</script>
+</html>

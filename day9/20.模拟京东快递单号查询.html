@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft yahei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+
+
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        .clearfix:after {
+
+            content: ".";
+
+            display: block;
+
+            clear: both;
+
+            height: 0;
+            visibility: hidden;
+
+        }
+
+        input {
+            width: 300px;
+            height: 100px;
+            border: 1px solid blue;
+
+        }
+
+        h1 {
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            border: 1px solid black;
+            top: -100px;
+            display: none;
+        }
+
+        div {
+            width: 200px;
+            margin: 100px auto;
+            position: relative;
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div> <input type="text" placeholder="请输入您的快递单号">
+        <h1></h1>
+    </div>
+    <script>
+        var h1 = document.querySelector('h1')
+        var input = document.querySelector('input')
+        input.addEventListener('keyup', function () {//一般我们都是用keyup
+            if (this.value == '') {
+                h1.style.display = 'none'
+            } else {
+                h1.style.display = 'block'
+                h1.innerHTML = input.value
+                h1.style.fontSize = 25 + 'px'
+            }
+
+        })
+        input.addEventListener('blur', function () {
+            h1.style.display = 'none'
+        })
+        input.addEventListener('focus', function () {
+            if (this.value !== '') {//记得这里
+                h1.style.display = 'block'
+            }
+        })
+    </script>
+</body>
+
+</html>

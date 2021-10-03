@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // forEach 迭代(遍历)数组
+        var arr = [1, 2, 3]
+        var sum = 0
+        arr.forEach(function (value, index, array) {
+            // console.log('每个数组元素' + value);
+            // console.log('每个数组元素的索引号' + index);
+            // console.log('数组本身' + array);
+            sum += value
+        })
+        console.log(sum);
+
+        //筛选数组  迭代遍历
+        // filter()方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素, 主要用于筛选数组
+        // ●注意它直接返回一个新数组
+
+        var arr = [13, 66, 48]
+
+        var newArray = arr.filter(function (value, index) {
+            // return value >= 20
+            return value % 2 === 0
+        })
+        console.log(newArray);
+
+        // some 查找数组中是否有满足条件的元素  返回的值为布尔值，如果找到第一个满足的元素，就停止查找
+        var arr1 = [10, 30, 4]
+        var arr2 = arr1.some(function (value, index) {
+            return value >= 20
+        })
+        console.log(arr2);
+        // forEach 和some的区别
+        // 在forEach，filter里面  return不会终止迭代
+        // 在some里面  遇到return true就是终止遍历 迭代效率更高
+    </script>
+</body>
+
+</html>

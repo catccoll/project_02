@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            width: 200px;
+            height: 100px;
+            border: 1px solid red;
+        }
+
+        .color {
+            background-color: pink;
+        }
+    </style>
+</head>
+<ul>
+    <li class="color"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<body>
+    <!-- table或者ul标签 -->
+    <script>
+        var li = document.querySelectorAll('li')
+        for (var i = 0; i < li.length; i++) {
+            li[i].addEventListener('mouseover', fn)
+            function fn() {
+                for (var i = 0; i < li.length; i++) {
+                    li[i].className = ''
+                }
+                this.className = 'color'
+            }
+        }
+    </script>
+
+</body>
+
+</html>

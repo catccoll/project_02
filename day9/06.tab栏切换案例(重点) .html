@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft yahei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?qnsis9');
+            src: url('fonts/icomoon.eot?qnsis9#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?qnsis9') format('truetype'),
+                url('fonts/icomoon.woff?qnsis9') format('woff'),
+                url('fonts/icomoon.svg?qnsis9#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .babian {
+
+            width: 100px;
+
+            height: 100px;
+
+            background: #469eeb;
+
+            position: relative;
+
+        }
+
+        .babian:before {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            border-bottom: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+
+
+        }
+
+        .babian:after {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            border-top: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+        }
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        .clearfix:after {
+
+            content: ".";
+
+            display: block;
+
+            clear: both;
+
+            height: 0;
+            visibility: hidden;
+
+        }
+
+        .da {
+            width: 400px;
+            margin: 200px auto;
+        }
+
+        .da .shang {
+            width: 500px;
+            height: 40px;
+            line-height: 40px;
+            background: #ccc;
+        }
+
+        .da ul li {
+            float: left;
+            padding: 0 10px;
+
+
+        }
+
+
+
+        .da .xia dd:nth-of-type(n+2) {
+            display: none;
+        }
+
+        .red {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="da">
+        <div class="shang">
+            <ul>
+                <li class="red">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="xia">
+            <dl>
+                <dd>阿斯顿</dd>
+                <dd>收i后地利</dd>
+                <dd>的空间奥地利</dd>
+                <dd>收i后啊的空间奥地利</dd>
+                <dd>收i后啊的空间奥地利</dd>
+            </dl>
+        </div>
+    </div>
+    <script>
+        var dd = document.querySelectorAll('dd')
+        var li = document.querySelector('ul').querySelectorAll('li')
+        for (var i = 0; i < li.length; i++) {
+            li[i].setAttribute('index', i)
+            li[i].onclick = function () {
+                for (var j = 0; j < li.length; j++) {
+                    li[j].className = ''
+                }
+                this.className = 'red'
+                // 第二部
+                var index = this.getAttribute('index')
+                for (var l = 0; l < dd.length; l++) {
+                    dd[l].style.display = 'none'
+                }
+                dd[index].style.display = 'block'
+            }
+        }
+
+    </script>
+</body>
+
+</html>

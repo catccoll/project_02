@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="img/请求消息组成部分.png" alt="">
+    <img src="img/请求行.png" alt="">
+    <img src="img/请求头部字段.png" alt="">
+    <script>
+    // 客户端要以http协议要求的格式把数据提交到服务器
+    // 服务器要以http协议要求的格式把内容响应给客户端
+
+    // http协议交互模型
+    // http协议采用了请求/响应的交互模型
+
+    // http请求消息
+    // 客户端发起的请求叫做http请求，客户端发送到服务器的消息，叫做http请求消息
+    // http请求消息又叫做http请求报文
+
+    // http请求消息的组成部分
+    // http请求消息由请求行  请求头部  空行 请求体4个部分组成
+
+    // 请求行由请求方法、url和http协议版本3个部分组成，他们之间使用空格隔开
+
+    // http 请求头部 由键值对组成，每行的键和值之间用冒号分割
+    // 请求头部用来描述客户端的基本信息，从而把客户端相关的信息告知服务器
+    // 比如: User-Agent 用来说明当前是什么类型的浏览器;Content-Type用来描述发送到服务器的数据格式;Accept 用来描述客户端能够接收什么类型的返回内容;Accept-Language用来描述客户端期望接收哪种人类语言的文本内容。
+    // referer  通知服务器上一次访问的域名是什么
+    // content-type告知服务器我客户端请求体当中实际发送的数据类型是什么： application/json表示传递的参数数据格式为json。application/x-www-form-urlencoded,表示常规form表单提交数据格式(也就是mobile=18270170196&password=123456)  text/plain表示普通的字符串数据格式
+
+    // 空行 （回车符或换行符）  用来分割请求头部与请求体
+
+    // 请求体 请求体存放的，是要通过POST方式提交到服务器的数据
+    // 只有post请求才有请求体，get请求没有请求体，get请求 请求参数在url上，get请求安全系数比post请求安全系数低
+    // get请求只能传递url编码的参数，其他格式无法传递
+    // get请求传递参数的数量存在限制，post没有限制参数的数量
+    </script>
+</body>
+
+</html>

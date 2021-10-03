@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 字符类  1：[]表示有一系列字符可供选择，只要匹配其中一个就可以了
+        var rg = /[abc]/  //只要包含有a 或者 有b 或者有c  都返回true
+        console.log(rg.test('andy'));
+        console.log(rg.test('baby'));
+        console.log(rg.test('color'));
+        var rg2 = /^[abc]$/   //三选一  只有是a  或者是b  或者是c  这三个字母才返回true
+        console.log(rg2.test('a'));
+        console.log(rg2.test('b'));
+        console.log(rg2.test('c'));
+        console.log(rg2.test('aa'));
+
+        var rg3 = /^[a-z]$/   //26个英文字母任意一个字母返回true
+        console.log(rg3.test('z'));
+        console.log(rg3.test('zz'));
+
+        // 字符组合
+        var rg4 = /^[a-zA-Z0-9]$/   //26个英文字母(大写小写都可以0-9数字都可以)
+        console.log(rg4.test(9));
+
+        console.log(rg4.test('Z'));
+
+        var rg5 = /^[^a-zA-Z0-9]$/  //如[]里面有^表示取反的意思  我们边界符^别混淆
+        console.log(rg4.test(9));
+
+        console.log(rg5.test('Z'));
+        console.log(rg5.test('!'));
+
+    </script>
+</body>
+
+</html>

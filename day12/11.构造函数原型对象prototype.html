@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 利用new Object()创建对象
+        var obj1 = new Object()
+        // 利用字面量创建对象
+        var obj2 = {
+
+        }
+        //  利用构造函数创建对象
+        function Star(uname, age) {
+            this.uname = uname
+            this.age = age
+            // this.sing = function () {
+            //     console.log('我会唱歌');
+            // }
+        }
+        var ldh = new Star('刘德华', 18)
+        var zxy = new Star('张学友', 19)
+
+        Star.prototype.sing = function () {
+            console.log('我会唱歌');
+        }
+        //   构造函数的问题
+        // 1.存在浪费内存的问题
+        //   构造函数原型 Prototype
+        console.dir(Star)
+        ldh.sing()
+        zxy.sing()
+        console.log(ldh.sing == zxy.sing);//true 他们在同一个地址上
+        // 1.原型是什么？
+        // 一个对象，我们也称为prototype为原型对象
+        // 2.原型作用是什么
+        // 共享方法
+        // 一般情况下 ，我们的公共属性定义到构造函数里面，公共的方法我们放到  原型对象  身上
+
+        // 对象原型  
+        // 对象都有一个属性-proto-指向构造函数的prototype原型对象，之所以我们的对象可以使用构造函数prototype原型对象的属性和方法  ，就是因为对象有-proto-原型的存在
+        console.log(ldh);//对象身上系统自己添加一个-proto-指向我们的构造函数的原型对象
+        console.log(ldh.__proto__ === Star.prototype);//true
+        // 方法的查找规则：首先看ldh 对象身上是否有sing方法 如果有就执行这个对象上的sing
+        // 如果没有sing这个方法 因为有__proto__的存在，就去构造函数原型对象prototype的身上去找
+
+
+
+        // 对象都会有一个属性_proto_指向构造函数的prototype原型对象，之所以我们对象可以使用构造函数prototype原型对象的属性和方法，就是因为对象有_proto_原型的存在。
+        // _proto_对象原型和原型对象prototype是等价的
+        //  ._proto_对象原型的意义就在于为对象的查找机制提供一个方向，或者说一条路线，但是它是一个非标准属性，因此实际开发中，不可以使用这个属性，它只是内部指向原型对象prototype
+
+    </script>
+</body>
+
+</html>

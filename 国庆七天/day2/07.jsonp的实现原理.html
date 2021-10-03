@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="img/ajax发起jsonp请求.png" alt="">
+    <img src="img/自定义参数及值.png" alt="">
+    <img src="img/jquery中jsonp的实现过程.png" alt="">
+    <script>
+        function success(data) {
+            console.log('拿到了数据');
+            console.log(data);
+        }
+    </script>
+    <script src='http://ajax.frontend.itheima.net:3006/api/jsonp?callback=success&name=ls&age=20'>
+
+    </script>
+</body>
+
+</html>

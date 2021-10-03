@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //假设上传商品图片的应用场景，需要判断上传文件后缀是图片类型
+        var str = "a.a.a.a.jpg"
+        // for (var i = str.length - 1; i >= 0; i--) {
+
+        //     if (str.charAt(i) == '.') {
+        //         i = str.length - 1 - i
+        //         str = str.substr(-i)
+        //     }
+        // }
+
+
+    str=    str.substr(str.lastIndexOf('.'))
+        console.log(str);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            width: 350px;
+            height: 350px;
+
+        }
+
+        li {
+            width: 90px;
+            height: 90px;
+            float: left;
+            background-color: pink;
+            list-style: none;
+            margin: 10px;
+            text-align: center;
+            line-height: 90px;
+        }
+
+        .color {
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li index='0'>1</li>
+        <li index='1'>2</li>
+        <li index='2'>3</li>
+        <li index='3'>4</li>
+        <li index='4'>5</li>
+        <li index='5'>6</li>
+        <li index='6'>7</li>
+        <li index='7'>8</li>
+        <li index='8'>9</li>
+    </ul>
+    <button>按钮</button>
+    <script>
+        //         页面设计： 实现一个九宫格的表格，表格内容是升序1到9，背景颜色默认为白色（即不设置背景色）
+        // 一： 功能需求
+        // 1.点击九宫格的任意位置，对应位置背景颜色变为红色
+        // 2.最多只能有3个位置变色
+        // 3.每次操作后的页面刷新页面后依旧存在
+        // 4.点击重置按钮后背景颜色全部变为初始状态
+        // 5.点击修改按钮后可以修改位置，点击其他位置点击的第一个的位置变为默认状态
+        // 实现以下测试用例
+        // 1.3个位置亮之后，再点击页面不动
+        // 2.刷新页面后状态保持
+        // 3.点击重置按钮表格背景为白色
+        // 4.点击修改后再点击页面把第一次点击的颜色换到这次点击的表格上
+        // 5.重置或修改后点击另一个按钮效果不出错
+
+        // var dd = []
+        // var flag
+        // var ul = document.querySelector('ul')
+        // ul.addEventListener('click', fn)
+        // function fn(e) {
+        //        e.stopPropagation()
+        //     e.target.className = 'color'
+        //     var index = e.target.getAttribute('index')
+        //     dd.push({ index: index, color: ' purple ' })
+        //     saveData(dd)
+        //     if (document.querySelectorAll('ul>.color').length == 3) {
+        //      flag=
+        //     }
+        // }
+        // function saveData(dd) {
+        //     localStorage.setItem('do', JSON.stringify(dd))
+        // }
+        // function load() {
+        //     var data2 = localStorage.getItem('do')
+        //     data2 = JSON.parse(data2)
+        //     data2.forEach(function (item) {
+        //         var lis = document.querySelectorAll('li')
+        //         lis[parseInt(item.index)].className = 'color'
+        //     })
+        // }
+        // load()
+        // var btn = document.querySelector('button')
+        // btn.addEventListener('click', function () {
+        //     var data2 = localStorage.getItem('do')
+        //     data2 = JSON.parse(data2)
+        //     data2 = []
+        //     for (var i = 0; i < ul.children.length; i++) {
+        //         ul.children[i].className = ''
+        //     }
+        //     saveData(data2)
+        //     load()
+
+        // })
+        // var arr1=[1,2,3]
+        //       console.log(arr1.shift());
+        //         var str=[1,2,3]
+
+        //         let obj = {
+        //             a:
+        //             {
+        //                 b: { c: 5 }
+        //             }, d: [
+        //                 { f: 30 }, { h: 50 }]
+        //         };
+
+        //         const getAttribute = (object, attribute, defaultValue) => {
+        //             let strArr = attribute.split('.')
+        //             var object = object[strArr[0]]
+        //             return object ? strArr.length === 1 ? object : (strArr.shift(), getAttribute(object, strArr.join('.'), defaultValue)) : defaultValue
+        //         }
+        //         let atbt = getAttribute(obj, 'd.1.h', 'default')
+        //         console.log(atbt)
+        var str = '白色黄色'
+        var reg = / 黄色/
+        function fn(str) {
+            return str = str.replace(/黄色/gi, '白色')
+        }
+     var st1=   fn(str)
+        console.log(st1);
+        var date = new Date(2016,12,11);
+
+document.write(date.getFullYear() + " ");
+
+document.write(date.getMonth());
+
+
+    </script>
+</body>
+
+</html>

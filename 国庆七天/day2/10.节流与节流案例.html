@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            position: relative;
+        }
+
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body><img src="img/angel.gif" alt="">
+    <img src="img/节流阀用法.png" alt="">
+    <script>
+        /*
+        一、节流策略  顾名思义，可以减少一段时间内事件的触发频率
+         应用场景：
+         1.鼠标连续不断地触发某件事(如点击)，只在单位事件内只触发一次
+         2.懒加载时要监听计算滚动条的位置，但不必每次滑动都触发，可以降低计算的频率，而不去浪费CPU资源
+        */
+        var img = document.querySelector('img')
+        var timer = null//定义一个节流阀
+        document.addEventListener('mousemove', function (e) {
+            if (timer) {//判断定时器是否为空，如果不为空，证明此时有定时器在操作，那么就不需要再开启定时器，直接return出去
+                return
+            }
+            timer = setTimeout(function () {
+                img.style.left = e.pageX - img.offsetWidth / 2 + 'px'
+                img.style.top = e.pageY - img.offsetHeight / 2 + 'px'
+                console.log('ok');
+                timer = null//当设置了鼠标跟随效果后，清空timer节流阀，方便下次开启延时器
+            }, 16)
+
+        })
+
+    </script>
+</body>
+
+</html>

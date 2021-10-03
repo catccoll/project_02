@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <style>
+        li {
+            list-style: none;
+
+        }
+
+        p {
+            width: 200px;
+            height: 20px;
+            border: 1px solid pink;
+            display: inline-block;
+            vertical-align: middle;
+
+        }
+
+        input[type=checkbox] {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <label for="">ToDoList</label><input class="g0" type="text" name="" id="" placeholder="添加ToDo">
+        <section>
+            <h2>正在进行 <span class="g1"></span></h2>
+            <ol class="g2"></ol>
+            <h2>已经完成<span class="g4"></span></h2>
+            <ul class="g3"></ul>
+        </section>
+    </section>
+    <script>
+        // 文本框里面输入内容，按下回车，就可以生成待办事项。
+        // 点击待办事项复选框，就可以把当前教据添加到已完成事项里面。
+        // 点击已完成事项复选框，就可以把当前数据添加到待办事项里面。
+        // 但是本页面内容刷新页面不会丢失。
+        // var todo = [
+        //     {
+        //         title: 'dui',
+        //         done: false
+        //     }, {
+        //         title: 'sad',
+        //         done: 'false'
+        //     }
+        // ]
+        // // 本地存储只能存储字符串的格式  把我们的数组对象转换为字符串格式  JSON.stringify()
+        // localStorage.setItem('todo', JSON.stringify(todo))
+        // var data1 = localStorage.getItem('todo')
+        // //  获取本地存储的数据  我们需要把里面的字符串数据格式转换为 对象格式 JSON.parse()
+        // data = JSON.parse(data1)
+        // console.log(data1);
+        //  绑定回车事件
+        $(function () {
+            load()
+            $('.g0').on('keydown', function (e) {//按下回车 把完整的数据 存储到本地存储里面
+                if (e.keyCode === 13) {
+                    var local = getDate()
+                    // 把local数组进行更新数据  把最新的数据追加给local数组
+                    local.push({ title: $(this).val(), done: false })
+                    //    把这个数组local存储给本地存储
+                    saveDate(local)
+                    // 2.本地存储渲染到页面上
+                    // $('.g2').children('li').remove()
+                    load()
+                }
+            })
+            // 读取本地存储的数据
+            function getDate() {
+                var data = localStorage.getItem('todoList')//本地存储里面的数据是字符串给是的 但是我们需要的是对象格式
+                if (data !== null) {
+                    return JSON.parse(data)
+                } else {
+                    return []
+                }
+            }
+            // 保存本地存储数据
+            function saveDate(data2) {
+                localStorage.setItem('todoList', JSON.stringify(data2))
+            }
+            function load() {
+                $('.g2,.g3').empty()
+                var data3 = getDate()
+                //   遍历之前先要清空ol里面的元素类容
+                $.each(data3, function (i, ele) {
+
+                    if (ele.done) {
+                        $('.g3').prepend('<li> <input type="checkbox" checked>  </input> <p> ' + ele.title + '</p> <a href="javascript:;"  index=    " ' + i + '   ">删除</a>   </li> ')
+                    } else {
+                        $('.g2').prepend('<li> <input type="checkbox">  </input> <p> ' + ele.title + '</p> <a href="javascript:;"  index="' + i + ' " >删除</a>   </li> ')
+                    }
+                })
+            }
+            $('.g2').on('click', 'a', function () {
+                //         点击里面的a链接，不是删除的li，而是删除本地存储对应的数据。
+                //         核心原理∶先获取本地存储数据，删除对应的数据，保存给本地存储，重新渲染列表li我们可以给链接自定义属性记录当前的索引号
+                //        ④根据这个索引号删除相关的数据----数组的splice(i, 1)方法存储修改后的数据，然后存储给本地存储
+                //   ⑥重新渲染加载数据列表
+                //         因为a是动态创建的，我们使用on方法绑定事件
+                var data4 = getDate()
+                var index = parseInt($(this).attr('index'))
+                data4.splice(index, 1)
+                saveDate(data4)
+                load()
+            })
+            $('.g3,.g2').on('click', 'input', function () {
+                var data6 = getDate()
+                var index = parseInt($(this).siblings('a').attr('index'))
+                data6[index].done = $(this).prop('checked')
+                saveDate(data6)
+                load()
+            })
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/axios.js"></script>
+</head>
+
+<body><button class="btn1">发起get请求</button>
+    <button class="btn2">发起post请求</button>
+    <img src="img/axios发起get请求.png" alt="">
+    <img src="img/axios发起post请求.png" alt="">
+    <img src="img/直接使用axios.png" alt="">
+    <script>
+        // axios是专注于网络数据请求的库
+        // 相比于原生的XMLHttpRequest对象，axios简单易用
+        // 相比于jQuery，axios更加轻量化，只专注于网络数据请求
+        document.querySelector('.btn1').addEventListener('click', function () {
+            var url = 'http://www.liulongbin.top:3006/api/get'
+            var f1 = { name: 'zs', age: 20 }
+            axios.get(url, { params: f1 }).then(function (res) {
+                console.log(res.data);//res包装了很多数据，但是data才是我们想要的
+            })
+        })
+
+
+        document.querySelector('.btn2').addEventListener('click', function () {
+            var url = 'http://www.liulongbin.top:3006/api/post'
+            var f1 = { address: '北京', age: '顺义区' }
+            axios.post(url, f1).then(function (res) {
+                console.log(res.data);//res包装了很多数据，但是data才是我们想要的
+            })
+        })
+    </script>
+</body>
+
+</html>

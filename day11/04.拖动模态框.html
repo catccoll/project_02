@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft yahei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+
+
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        .clearfix:after {
+
+            content: ".";
+
+            display: block;
+
+            clear: both;
+
+            height: 0;
+            visibility: hidden;
+
+        }
+
+        .xiao h3 {
+            width: 500px;
+            text-align: center;
+            line-height: 60px;
+            height: 60px;
+        }
+
+        .xiao {
+            width: 500px;
+            height: 300px;
+            background-color: white;
+            border: 1px solid red;
+            position: absolute;
+            left: 50%;
+transform: translateX(-50%);
+            top: 300px;
+            display: none;
+        }
+
+        .xiao label {
+            width: 80px;
+            height: 40px;
+            display: block;
+            float: left;
+            margin-bottom: 50px;
+            text-align: right;
+            line-height: 40px;
+        }
+
+        .xiao input {
+            width: 400px;
+            height: 40px;
+            border: 1px solid #ccc;
+            display: block;
+            float: left;
+            margin-bottom: 50px;
+        }
+
+        button {
+            width: 300px;
+            height: 50px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .xiao span {
+            position: absolute;
+            display: block;
+            background-color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid red;
+            right: -15px;
+            top: -20px;
+        }
+
+        .xiao span a {
+            font: 14px;
+            color: black;
+        }
+
+        .xiao input:nth-of-type(3) {
+            margin: 0 40px;
+        }
+
+        .zhe {
+            width: 100%;
+            height: 700px;
+
+
+        }
+
+        .zhe span {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            font-size: 20px;
+        }
+
+        .zhe span a {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="xiao">
+        <h3>登录会员</h3>
+        <form action="">
+            <label for="">用户名：</label>
+            <input type="text">
+            <label for="">登录密码：</label>
+            <input type="password" name="" id="">
+            <input type="button" value="登录">
+        </form>
+        <span class="guan">关闭</span>
+    </div>
+    <div class="zhe">
+        <span class="dian">点击，弹出登录框</span>
+    </div>
+    <script>
+        var dianji = document.querySelector('.dian')
+        var xiao = document.querySelector('.xiao')
+        var guan = document.querySelector('.guan')
+        var h3 = document.querySelector('h3')
+        dianji.addEventListener('click', function () {
+            dianji.parentNode.style.background = '#999'
+            xiao.style.display = 'block'
+        })
+        guan.addEventListener('click', function () {
+            xiao.style.display = 'none'
+            dianji.parentNode.style.background = 'white'
+        })
+        // 1.当我们鼠标按下 就获得鼠标在盒子内的坐标
+
+        h3.addEventListener('mousedown', function (e) {
+            var left = e.pageX - xiao.offsetLeft
+            var top = e.pageY - xiao.offsetTop
+            xiao.addEventListener('mousemove', fn)
+            function fn(e) {
+                xiao.style.left = e.pageX - left + 'px'
+                xiao.style.top = e.pageY - top + 'px'
+            }
+            h3.addEventListener('mouseup',function(){
+                xiao.removeEventListener('mousemove',fn)
+            })
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // h3.addEventListener('mousedown', function (e) {
+        //     var x = e.pageX - xiao.offsetLeft
+        //     var y = e.pageY - xiao.offsetTop
+        //     console.log(x, y);
+        //     document.addEventListener('mousemove', move)
+        //     function move(e) {
+        //         xiao.style.left = e.pageX - x + 'px'//记得加单位
+        //         xiao.style.top = e.pageY - y + 'px'
+        //     }
+
+        //     document.addEventListener('mouseup', function () {
+        //         document.removeEventListener('mousemove', move)
+        //     })
+        // })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+
+            /*
+             cookie:会话跟踪技术  客户端
+             session：会话跟踪技术  服务端
+            cookie默认不会保存任何的数据
+            cookie作用：因为http协议属于无状态的协议，每一次的请求都是相互独立的，每一次请求服务器端不知道请求者是谁。无法区分。为了解决身份的区分。设置了cookie技术，将网页中的数据保存到我们的浏览器中
+            cookie的生命周期：  默认生命周期是一次会话(只要浏览器关闭就死亡)
+             如果通过expires设置了过期事件，并且过期时间没有过期，那么下次打开浏览器还是存在
+            cookie不能一次性设置多条数据，要想保存多条数据，只能一条一条的设置
+            cookie有大小和个数的限制
+            个数限制：20-50
+            大小限制：4kb左右
+
+            cookie的作用范围:同一个浏览器的同一个路径下访问
+            如果在同一个浏览器中，默认情况下下一级路经就可以访问，想让上一级也能访问，需要在后面添加  path=/
+            如果我们在www.baidu.com 下面保存了一个cookie，那么我们在edu.baidu.com中是无法访问的 如果在edu.baidu.com中也能访问，那么们需要再添加一句代码domain=baidu.com
+            */
+            //  var data=new Date()
+            //  data.setDate(data.getDate()-1)
+            //     document.cookie = 'age=23;expires='+data.toGMTString()+';'
+            //     alert(document.cookie)
+            // document.cookie = 'name= 张三 '
+            // document.cookie = 'age=23'
+            // alert(document.cookie)
+            document.cookie='name=张三;path=/;'
+                   alert(document.cookie)
+        }
+    </script>
+</body>
+
+</html>

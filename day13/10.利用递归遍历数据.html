@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var data = [{
+            id: 1,
+            name: '家电',
+            goods: [
+                {
+                    id: 11,
+                    gname: '冰箱'
+                }, {
+                    id: 12,
+                    gname: '洗衣机'
+                }
+            ]
+        }
+            , {
+            id: 2,
+            name: '服饰'
+        }]
+
+        function fn(obj, id) {
+            var o = {}
+            obj.forEach(function (item) {
+                if (item.id == id) {
+                    return o = item
+                }
+                else if (item.goods && item.goods.length != 0) {
+                    o = fn(item.goods, id)
+                }
+            })
+        return o
+
+        }
+        console.log(fn(data, 11));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // // 我们想要做输入id号，就可以返回的数据对象
+        // function getID(object, d) {
+        //     var o = {}
+        //     object.forEach(function (value) {
+        //         if (value.id == d) {
+        //             o = value//这是最外层的数据
+        //             // 我们想要里层的数据 可以利用递归函数
+        //         }
+        //         else if (value.goods && value.goods.length != 0) {//判断是否有goods这个数组并且数组的长度不为0
+        //             o = getID(value.goods, d)
+        //         }
+        //     })
+        //     return o
+        // }
+        // console.log(getID(data, 11));
+            //如果没有返回值就是undefined
+    </script>
+</body>
+
+</html>

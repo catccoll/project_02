@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+</head>
+
+<body>
+    <div class="gfather">
+        <div class="father">
+            <div class="son"></div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <p>我是p</p>
+        <div>
+            <p>我是屁</p>
+        </div>
+    </div>
+    <ul>
+        <li>筛选选择器</li>
+        <li>筛选选择器</li>
+        <li class="item">筛选选择器</li>
+        <li>筛选选择器</li>
+        <li>筛选选择器</li>
+        <li>筛选选择器</li>
+    </ul>
+    <ol>
+        <li>加油</li>
+        <li>加油</li>
+        <li>加油</li>
+        <li>加油</li>
+        <li>加油</li>
+        <li>加油</li>
+    </ol>
+    <h1 class="idex"></h1>
+    <h1></h1>
+    <script>
+        // 2.筛选方法(重点) 注意一下都是方法  带括号
+        $(function () {
+        // 1.父
+            console.log($('.son').parent());//找的是最近一级的父级元素
+        })
+        // 2.子            ul>li  类似于子代选择器
+        $('.nav').children('p').css('color', 'pink');
+        //  ul li  类似于后代选择器
+        $('.nav').find('p').css('color', 'red')
+        // 3.兄    siblings  除了自身之外的亲兄弟
+        $('ul .item').siblings('li').css('color', 'pink')
+        // 4.第n个元素
+        $('ol li:eq(2)').css('color', 'red')
+        $('ol li').eq(3).css('color', 'pink')//更推荐这种写法
+        //  5.判断是否有这个类名
+        console.log($('h1:first').hasClass('idex'));
+        console.log($('h1:last').hasClass('idex'));
+    </script>
+</body>
+
+</html>

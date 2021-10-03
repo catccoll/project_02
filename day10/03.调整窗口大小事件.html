@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 调整窗口大小事件  onresize
+        var div = document.querySelector('div')
+        window.addEventListener('resize', function () {
+            console.log('你变化了');
+            console.log(window.innerWidth);
+            if (window.innerWidth <= 800) {
+                div.style.display = 'none'
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 500px;
+            height: 50px;
+            margin: 200px auto;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        input {
+
+            width: 400px;
+            border: none;
+            height: 50px;
+            float: left;
+            outline: none;
+        }
+
+        button {
+            position: absolute;
+            right: 50px;
+            top: 0;
+            height: 50px;
+
+            border: 0;
+            outline: none;
+        }
+
+        a {
+            display: inline;
+            float: right;
+            font-size: 8px;
+            margin-top: 20px;
+            color: red;
+            text-decoration: none
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="password">
+        <a href="">忘记密码</a>
+        <button>图标</button>
+    </div>
+    <script>
+        var input = document.querySelector('input')
+        var btn = document.querySelector('button')
+        // 算法 利用flag变量，来判断flag的值，如果是1就切换为文本框。flag设置为0，如果是0就切换为密码框，flag设置为1
+       flag=0
+            btn.addEventListener('click',function(){
+                      if(flag==0){
+                          input.type='text'
+                          flag=1
+                      }
+                      else{
+                          input.type='password'
+                          flag=0
+                      }
+
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // var flag = 0;
+        // btn.onclick = function () {
+        //     if (flag == 0) {
+        //         input.type = 'text'
+        //         flag = 1;                    //可以连续重复切换的效果，死循环
+        //     } else {
+        //         input.type = 'password';
+        //         flag = 0;
+        //     }
+        // }
+      
+
+    </script>
+</body>
+
+</html>

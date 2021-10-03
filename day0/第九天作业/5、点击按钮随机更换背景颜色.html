@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            margin: 200px auto;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button>按钮</button>
+
+    <script>
+        //1、绑定点击事件
+        //2、随机生成一个RGB的颜色值
+        //3、修改body标签的背景色(document.body.style.backgroundColor = 'rgb(1,1,1)')
+        var btn = document.querySelector('button')
+        var div = document.querySelector('div')
+
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+
+        btn.addEventListener('click', function () {
+            var num1 = getRandom(0, 255)
+            var num2 = getRandom(0, 255)
+            var num3 = getRandom(0, 255)
+            div.style.background = 'rgb(' + num1 + ',' + num2 + ',' + num3 + ')'
+        })
+    </script>
+</body>
+
+</html>

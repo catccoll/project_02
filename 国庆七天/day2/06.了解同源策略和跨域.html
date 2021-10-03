@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+</head>
+
+<body><img src="img/同源.png" alt="">
+    <img src="img/同源策略.png" alt="">
+    <img src="img/浏览器对跨域请求的拦截.png" alt="">
+    <img src="img/实现跨域数据请求方法.png" alt="">
+    <script>
+        /*
+        同源：两个页面的协议，域名和端口相同，则两个页面具有相同的源如果没有写的话(端口默认80)
+        同源策略：是浏览器提供的一个安全功能
+        跨域：同源的相反面，出现跨域的根本原因就是浏览器的同源策略不允许非同源的URL之间进行资源的交互
+         解决跨域请求方法：
+         1.JSONP:兼容性好，只支持GET请求，不支持POST请求
+         2.CORS：出现的较晚，W3C标准，不兼容低版本的浏览器，是ajax请求的根本解决方案
+
+         2.2 JSONP的实现原理
+         由于浏览器同源策略的限制，网页中无法通过Ajax请求非同源的接口数据。但是<script>标签不受浏览器同源策略的影响，可以通过src属性，请求非同源的js脚本。因此，JSONP的实现原理，就是通过<script>标签的src属性，请求跨域的数据接口，并通过函数调用的形式，接收跨域接口响应回来的数据。
+        */
+        // $.ajax({
+        //     method: 'GET',
+        //     url: 'http://ajax.frontend.itheima.net:3006/api/jsonp',
+        //     data: {
+        //         name: 'zs',
+        //         age: 20
+        //     },
+        //     success:function(res){
+        //         console.log(res);
+        //     }
+
+        // })
+
+        // jsonp实现原理
+        function success(data) {
+            console.log('拿到了数据');
+            console.log(data);
+        }
+    </script>
+    <script>
+        success({ name: 'zs', age: 20 })
+    </script>
+</body>
+
+</html>

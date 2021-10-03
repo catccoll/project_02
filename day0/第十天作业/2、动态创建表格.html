@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        table tr th,
+        table tr td {
+            border: 1px solid #0094ff;
+        }
+
+        table {
+            table-layout: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="username" />
+        <input type="radio" id="sexOne" checked name="sex" value="男" />男
+        <input type="radio" id="sexTwo" name="sex" value="女" />女
+        <input type="text" id="age" />
+        <button id="add">添加</button>
+    </div>
+    <br />
+    <table cellspacing="0" border="1" width="600px">
+        <tr>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>年龄</td>
+        </tr>
+    </table>
+    <script>
+
+        // input[name='sex']:checked
+        //页面上输入用户的姓名、性别、年龄 确认后 列表的方式显示添加的数据
+        var btn = document.querySelector('button')
+        var text = document.querySelector('#username')
+        var radio = document.querySelector('#sexOne')
+        var radio1 = document.querySelector('#sexTwo')
+        var text1 = document.querySelector('#age')
+        var table = document.querySelector('table')
+        btn.addEventListener('click', function () {
+            var tr = document.createElement('tr')
+            table.appendChild(tr)
+            var td1 = document.createElement('td')
+            var td2 = document.createElement('td')
+            var td3 = document.createElement('td')
+            tr.appendChild(td1)
+            tr.appendChild(td2)
+            tr.appendChild(td3)
+            if (radio.checked) {
+                td2.innerHTML = radio.value
+            } else {
+                td2.innerHTML = radio1.value
+            }
+            td1.innerHTML = text.value
+            td3.innerHTML = text1.value
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

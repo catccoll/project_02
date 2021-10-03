@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const school = '千峰'//1.一定要赋初始值
+        const A = 'b'//2.潜规则 (一般常量要大写)
+        //   A='c'       3.常量的值不能修改
+        // 4.块级作用域
+        {
+            const PLAYER = 'UZI'
+        }
+        // console.log(PLAYER);
+        // 5.对于数组和对象的元素的修改，不算做对常量的修改，不会报错
+        const arr = [1, 2]        //在堆取中指向的地址没有发生改变，只是改变了栈区的值
+        arr[0] =
+            console.log(arr);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="img/readyState.png" alt="">
+    
+    <button>发送请求</button>
+    <script>
+        /*
+        什么是ajax？
+        AJAX是与服务器交换数据并更新部分网页的艺术，在不重加载整个页面的情况下
+        */
+        window.onload = function () {
+            var btn = document.querySelector('button')
+            btn.addEventListener('click', function () {
+                //  1.创建一个异步对象
+                var xmlHttp = new XMLHttpRequest()
+                //  2.设置请求方式和请求地址
+                xmlHttp.open('GET', '01.ajax-get1.php', true)//第三个参数永远传true，ajax存在的意义就是异步
+                /*
+                method:请求的类型：GET或POST
+                url：文件在服务器上的位置
+                async:true（异步）或false（同步）
+                */
+                //  3.发送请求
+                xmlHttp.send()
+                //  4.监听状态的变化
+                xmlHttp.onreadystatechange = function () {
+                    /*
+                    1.服务器链接已建立
+                    2.请求已接受
+                    3.请求处理中
+                    4.请求已完成，且响应已就绪
+                    */
+                    //  5.处理返回的结果
+                    if (xmlHttp.readyState === 4) {
+                        /*
+                      readyState有五个值
+                      0：代表未初始化 ，没有用open方法发送请求
+                      1.完成连接的建立，调用了open方法
+                      2.表示已经调用了send方法，服务端还未做应答
+                      3.表示服务端发送数据，但是数据不全
+                      4.表示服务端已经将全部数据发送完毕
+                      注意：一定要在状态值为4的情况下再去获取响应体的内容
+                       */
+
+                        if (xmlHttp.status >= 200 && xmlHttp.status < 300 || xmlHttp.status === 304) {
+
+                            console.log('服务器接收到返回的数据');
+                        } else {
+                            console.log('服务器没有接收到消息');
+                        }
+                    }
+                }
+            })
+        }
+        // setRequestHeader(请求头名称，值)放在  send和open中间
+        function fn() {
+            console.log(111);
+
+        }
+        console.log(window.fn);
+    </script>
+</body>
+
+</html>

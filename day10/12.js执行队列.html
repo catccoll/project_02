@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // js语言一大特点就是  原先是 单线程
+        // 最新的web worker提出 异步，创建多个任务
+        // js的异步撒通过回调函数实现的
+        // 一般而言，异步任务有以下三种类型
+        // 1.普通事件，比如click，resize
+        // 2.资源加载。如load ，error等
+        // 3.定时器，包括setInterval setTimeout等
+        // 异步任务相关回调函数添加到任务队列中(也成消息队列)
+
+
+        // 1.先执行执行栈中的同步任务。
+        // 2异步任务（回调函数)放入任务队列中。
+        // 3.一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，通过异步进程处理，开始执行。
+               
+        事件循环
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<body>  
+    <div id="tab" class="calendar">  
+        <ul>  
+            <li class="active"><h2>1</h2><p>一月</p></li>  
+            <li><h2>2</h2><p>二月</p></li>  
+            <li><h2>3</h2><p>三月</p></li>  
+            <li><h2>4</h2><p>四月</p></li>  
+            <li><h2>5</h2><p>五月</p></li>  
+            <li><h2>6</h2><p>六月</p></li>  
+            <li><h2>7</h2><p>七月</p></li>  
+            <li><h2>8</h2><p>八月</p></li>  
+            <li><h2>9</h2><p>九月</p></li>  
+            <li><h2>10</h2><p>十月</p></li>  
+            <li><h2>11</h2><p>十一月</p></li>  
+            <li><h2>12</h2><p>十二月</p></li>  
+        </ul>  
+        <div class="text">  
+        </div>  
+              
+    </div>  
+    </body>
+    <style type="text/css">  
+    * { padding: 0;margin: 0; }  
+      
+    li { list-style: none; }  
+      
+    body { background: #f6f9fc; font-family: arial; }  
+      
+    .calendar { width: 210px;  
+                margin: 50px auto 0;   
+                padding: 10px 10px 20px 20px;   
+                background: #eae9e9; }  
+                  
+    .calendar ul { width: 210px;   
+                   overflow: hidden;   
+                   padding-bottom: 10px; }  
+                     
+    .calendar li { float: left;  
+                   width: 58px;   
+                   height: 54px;   
+                   margin: 10px 10px 0 0;   
+                   border: 1px solid #fff;   
+                   background: #424242;  
+                   color: #fff;   
+                   text-align: center;   
+                   cursor: pointer; }  
+                     
+    .calendar li h2 { font-size: 20px; padding-top: 5px; }  
+      
+    .calendar li p { font-size: 14px; }  
+      
+    .calendar .active { border: 1px solid #424242;  
+                        background: #fff;  
+                        color: #e84a7e; }  
+      
+    .calendar .active p { font-weight: bold; }  
+      
+    .calendar .text { width: 178px;   
+                      padding: 0 10px 10px;  
+                      border: 1px solid #fff;   
+                      padding-top: 10px;   
+                      background: #f1f1f1;   
+                      color: #555; }  
+                        
+    .calendar .text h2 {font-size: 14px; margin-bottom: 10px; }  
+      
+    .calendar .text p { font-size: 12px; line-height: 18px; }  
+    </style>
+    <script type="text/javascript">  
+        window.onload=function()  
+        {  
+            var arr=[  
+                '快过年了，大家一起去放鞭炮咯！',  
+                '马上上学了，不开心！',  
+                '妇女节快乐！',  
+                '很平淡的四月',  
+                '劳动光荣！',  
+                '儿童节快乐！',  
+                '好热的七月!',  
+                '八一建军节!',  
+                '又开学了哎！' ,
+                '好热的七月!',  
+                '八一建军节!',  
+                '又开学了哎！'  
+            ];  
+            //鼠标划入后将数组中的内容显示到class为text的标签中。并且划入的有特殊的样式 
+            const lis = document.querySelectorAll('li');
+            for(var i = 0;i<lis.length;i++){
+                // 添加属性记录当前的序号
+                lis[i].setAttribute('data-index',i);
+                // onmouseover 在子元素上触发也会导致触发  onmouseenter在子元素上触发不会导致事件也触发  onmouseleave 与onmouseenter对应 表示鼠标离开
+                lis[i].onmouseenter = function(){
+                    // 将所有的li的class移除
+                    for(var j = 0;j<lis.length;j++){
+                        lis[j].className = '';
+                    }
+                    // 将当前的li添加class
+                    this.className = 'active';
+                    // 获取到当前移入的li标签的序号
+                    
+                    document.querySelector('.text').innerHTML = arr[this.getAttribute('data-index')]
+                }
+            }  
+        };  
+    </script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft yahei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?qnsis9');
+            src: url('fonts/icomoon.eot?qnsis9#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?qnsis9') format('truetype'),
+                url('fonts/icomoon.woff?qnsis9') format('woff'),
+                url('fonts/icomoon.svg?qnsis9#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .babian {
+
+            width: 100px;
+
+            height: 100px;
+
+            background: #469eeb;
+
+            position: relative;
+
+        }
+
+        .babian:before {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            border-bottom: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+
+
+        }
+
+        .babian:after {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            border-top: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+        }
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        .clearfix:after {
+
+            content: ".";
+
+            display: block;
+
+            clear: both;
+
+            height: 0;
+            visibility: hidden;
+
+        }
+
+
+        .da ul {
+            float: left;
+            padding: 5px 0;
+        }
+
+        .da ul li {
+            width: 190px;
+            height: 35px;
+            line-height: 35px;
+            padding: 0 50px 0 24px;
+        }
+
+        .da ul li a {
+            color: black;
+            font-size: 14px;
+        }
+
+        .neirong {
+            width: 717px;
+            height: 524px;
+            float: left;
+            border: 3px solid red;
+            border-radius: 8px;
+            overflow: scroll;
+            padding-left: 30px;
+
+        }
+
+        .da .xiao dl dd {
+            display: none;
+        }
+
+        .da .xiao dl dd h4 {
+            height: 45px;
+            line-height: 60px;
+
+
+        }
+
+        .da .xiao dl dd p {
+            height: 30px;
+            line-height: 30px;
+            font-size: 12px;
+        }
+
+        .da .xiao dl dd a {
+            display: inline-block;
+            padding-right: 10px;
+            color: gray;
+        }
+    </style>
+</head>
+<div class="da">
+    <ul class="taplan">
+        <li><a href="">女装/</a><a href="">内衣/</a><a href="">家居</a></li>
+        <li><a href="">女鞋/</a><a href="">男鞋/</a><a href="">箱包</a></li>
+        <li><a href="">母婴/</a><a href="">童装/</a><a href="">玩具</a></li>
+        <li><a href="">男装/</a><a href="">运动/户外</a></li>
+        <li><a href="">美妆/</a><a href="">彩妆/</a><a href="">个护</a></li>
+        <li><a href="">美妆/</a><a href="">彩妆/</a><a href="">个护</a></li>
+        <li><a href="">美妆/</a><a href="">彩妆/</a><a href="">个护</a></li>
+        <li><a href="">美妆/</a><a href="">彩妆/</a><a href="">个护</a></li>
+        <li><a href="">美妆/</a><a href="">彩妆/</a><a href="">个护</a></li>
+        <li><a href="">美妆/</a><a href="">彩妆/</a><a href="">个护</a></li>
+        <li><a href="">美妆/</a><a href="">彩妆/</a><a href="">个护</a></li>
+        <li><a href="">美妆/</a><a href="">彩妆/</a><a href="">个护</a></li>
+        <li><a href="">美妆/</a><a href="">彩妆/</a><a href="">个护</a></li>
+        <li><a href="">女装/</a><a href="">内衣/</a><a href="">家居</a></li>
+        <li><a href="">女鞋/</a><a href="">男鞋/</a><a href="">箱包</a></li>
+
+    </ul>
+    <div class="xiao">
+        <dl>
+            <dd class="neirong">
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+
+
+            </dd>
+            <dd class="neirong">
+                <h4>下装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+            </dd>
+            <dd class="neirong">
+                <h4>中装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+            </dd>
+            <dd class="neirong">
+                <h4>晚装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+            </dd>
+            <dd class="neirong">
+                <h4>夜装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+                <h4>上装</h4>
+                <p><a href="">毛衣</a><a href="">T恤</a><a href="">衬衫</a><a href="">卫衣</a>
+                    <a href="">马季</a><a href="">雪方山</a>
+                </p>
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<body>
+    <script>
+        var li = document.querySelectorAll('li')
+        var dd = document.querySelectorAll('dd')
+        for (var i = 0; i < li.length; i++) {
+            li[i].setAttribute('index', i)
+            li[i].onmouseover = function () {
+                for (var j = 0; j < li.length; j++) {
+                    li[j].style.background = ''
+                }
+                this.style.background = '#ffe4dc'
+                var index = this.getAttribute('index')
+                for (var l = 0; l < dd.length; l++) {
+                    dd[l].style.display = 'none'
+                }
+                dd[index].style.display = 'block'
+            }
+        }
+    </script>
+</body>
+
+</html>

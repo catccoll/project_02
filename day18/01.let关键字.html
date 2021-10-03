@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let</title>
+    <style>
+        p {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <script>
+        // ES的全程是ECMAScript，他是制定一项脚本语言的标准化规范
+        //  声明变量
+        let a;
+        let b, c, d
+        let f = 521, g = 'iLoveYou', h = []
+
+        // 1.变量不能重复声明
+        // let star='罗志祥'
+        // let  star='小三'
+
+        // 2.块级作用域  全局  函数 ，eval
+        // if else while for
+        // {
+        //     let girl='周扬青'
+        // }
+        // console.log(girl);
+
+        // 3.不存在变量提升
+        // console.log(song);
+        // let song='恋爱达人'  //报错
+
+        // 4.不影响作用域链
+        {
+            let school = '千峰'
+            function fn() {
+                console.log(school);
+            }
+            fn()
+        }
+        var p = document.querySelectorAll('p')
+        for (var i = 0; i < p.length; i++) {
+            p[i].onclick = function () {
+                this.style.background = 'pink'
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: hotpink;
+            display: none;
+        }
+
+        ul {
+            width: 400px;
+            height: 400px;
+        }
+
+        ul li {
+            width: 180px;
+            height: 180px;
+            float: left;
+        }
+
+        ul li img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <button>淡入效果</button>
+    <button>淡出效果</button>
+    <button>淡入淡出切换</button>
+    <button>修改透明度</button>
+    <div></div>
+    <ul>
+        <li><img src="img/p1.jpeg" alt=""></li>
+        <li><img src="img/p2.jpeg" alt=""></li>
+        <li><img src="img/p3.jpeg" alt=""></li>
+        <li><img src="img/p4.jpeg" alt=""></li>
+    </ul>
+    <script>
+        $(function () {
+            $('button').eq(0).click(function () {
+                $('div').fadeIn(1000)
+            })
+            $('button').eq(1).click(function () {
+                $('div').fadeOut(1000)
+            })
+            $('button').eq(2).click(function () {
+                $('div').fadeToggle(1000)
+            })
+            $('button').eq(3).click(function () {
+                $('div').fadeTo(1000, 0.5)//这个速度和透明度一定要写
+                //  fadeTo()修改透明度
+            })
+            $('ul li').mouseover(function () {  //高亮的效果
+                $(this).stop().fadeTo(500, 1).siblings('li').stop().fadeTo(500, 0.2)
+            })
+        })
+
+    </script>
+</body>
+
+</html>

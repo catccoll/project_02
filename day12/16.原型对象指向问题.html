@@ -1,0 +1,40 @@
+<!DOCTYPE html>                   
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var that
+        var obj1 = new Object()
+        // 利用字面量创建对象
+        var obj2 = {
+        }
+        //  利用构造函数创建对象
+        function Star(uname, age) {
+            this.uname = uname
+            this.age = age
+        }
+        Star.prototype.sing = function () {
+            console.log('我会唱歌');
+            that=this
+        }
+        Star.prototype.move = function () {
+            console.log('我会演电影');
+        }
+        // Star.prototype.sex='女'
+        // Object.prototype.sex='女'
+        var ldh = new Star('刘德华', 18)
+        // 1.在构造函数中  ，里面的this指向的是对象实例
+        ldh.sing()
+        console.log(that===ldh);
+        // 2.原型对象函数里面的this指向的是实例对象ldh
+    </script>
+</body>
+
+</html>

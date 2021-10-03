@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 50px;
+            margin: 0 auto;
+            border: 2px solid blue;
+        }
+
+        input {
+            width: 150px;
+            float: left;
+            height: 50px;
+            border: 0;
+            outline: none;
+            color: #999;
+        }
+
+        button {
+            width: 50px;
+            float: left;
+            height: 50px;
+            border: 0;
+            outline: none;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" value="手机">
+        <button>搜索</button>
+    </div>
+    <script>
+        // 表单需要两个新事件，获得焦点onfocus 失去焦点onblur
+        // 如果获得焦点，判断表单里面的内容是否为默认文字，如果是默认文字，就清空表单
+        var input = document.querySelector('input')
+        input.onfocus = function () {
+            if (input.value == '手机') {
+                input.value = ''
+            }
+            //   获得焦点需要把文本框里面的文字颜色变黑
+            input.style.color = 'black'
+        }
+        input.onblur = function () {
+            if (input.value != '') {
+                input.value
+            }
+            else { input.value = '手机' }
+            // 失去焦点需要把文本框里面的颜色变浅
+            input.style.color = '#999'
+        }
+
+    </script>
+</body>
+
+</html>

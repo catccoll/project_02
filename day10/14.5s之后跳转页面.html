@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <div></div>
+    <script>
+        var btn = document.querySelector('button')
+        btn.addEventListener('click', function () {
+            setInterval(function () {
+                location.href = 'http://www.baidu.com'
+            })
+        }, 10000)
+        var div = document.querySelector('div')
+        var time = 5
+
+        // function fn() { //     setInterval(function () {
+        //         if (time == 0) {
+        //             location.href = 'http://www.baidu.com'
+        //         } else {
+        //             div.innerHTML = '  ' + time + '秒钟进入页面'
+        //             time--
+
+        //         }
+        //     }, 1000)
+        // }
+        
+        setInterval(fn, 1000)
+        function fn() {
+            if (time == 0) {
+                location.href = 'http://www.baidu.com'
+        } else {
+                div.innerHTML = '  ' + time + '秒钟进入页面'
+                time--
+
+            }
+
+        }
+        fn()
+    </script>
+</body>
+
+</html>

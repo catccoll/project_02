@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <style>
+        .fa {
+            width: 200px;
+            height: 200px;
+            background-color: blanchedalmond;
+
+            position: relative;
+
+        }
+
+        .so {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fa">
+        <div class="so"></div>
+    </div>
+    <script>
+        $(function () {
+            console.log($('.so').offset());//相对于文档的偏移量 ,跟父级没有关系 
+            $('.so').offset({
+                left: 50, top: 50
+            })
+            console.log($('.so').position());//这个方法只能获取 ，不能设置
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft yahei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+
+
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        .clearfix:after {
+
+            content: ".";
+
+            display: block;
+
+            clear: both;
+
+            height: 0;
+            visibility: hidden;
+
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            text-align: center;
+            border: 1px solid black;
+            margin: 200px auto;
+            table-layout: fixed;
+        }
+
+        table td,
+        table,
+        th {
+            border: 1px solid black;
+        }
+
+        table thead {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        //   1.先准备好学生的数据库
+        var dates = [
+            {                       //数组也可以存放对象
+                name: '魏璎珞',
+                subject: 'javascript',
+                score: 100
+            },
+            {                       //数组也可以存放对象
+                name: '宏力',
+                subject: 'javascript',
+                score: 96
+            },
+            {                       //数组也可以存放对象
+                name: '傅恒',
+                subject: 'javascript',
+                score: 90
+            },
+            {                       //数组也可以存放对象
+                name: '小红',
+                subject: 'javascript',
+                score: 80
+            }
+            ,
+            {                       //数组也可以存放对象
+                name: '小没',
+                subject: 'javascript',
+                score: 90
+            }
+        ]
+        var tbody = document.querySelector('tbody')
+        for (var i = 0; i < dates.length; i++) {
+            var tr = document.createElement('tr')
+            for (var k in dates[i]) {
+                var td = document.createElement('td')
+                td.innerHTML = dates[i][k]
+                tr.appendChild(td)
+            }
+            var td = document.createElement('td')
+            td.innerHTML = '<a href="javascript:;">删除</a>'
+            tr.appendChild(td)
+            tbody.appendChild(tr)
+
+
+
+        }
+        var a = document.querySelectorAll('a')
+
+        for (var i = 0; i < a.length; i++) {
+            a[i].addEventListener('click', function () {
+                tbody.removeChild(this.parentNode.parentNode)
+            })
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // var tbody = document.querySelector('tbody')
+        // for (var i = 0; i < dates.length; i++) {
+        //     var tr = document.createElement('tr')
+        //     tbody.appendChild(tr)
+
+        //     // 3.创建单元格 单元格的数量取决于每个对象里面的属性个数
+        //     for (var k in dates[i]) {
+        //         var td = document.createElement('td')
+        //         tr.appendChild(td)
+        //         // 4.吧对象里面的属性值给td
+        //         td.innerHTML = dates[i][k]
+        //     }
+        //     var td = document.createElement('td')
+        //     td.innerHTML = '<a href ="javascript:;  ">删除</a>        '
+        //     tr.appendChild(td)
+        // }
+        // var a = document.querySelectorAll('a')
+        // for (var i = 0; i < a.length; i++) {
+        //     a[i].onclick = function () {
+        //         tbody.removeChild(this.parentNode.parentNode)
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

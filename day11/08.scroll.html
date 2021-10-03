@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            border: 10px solid red;
+            padding-top: 20px;
+            overflow: auto;
+            margin: 200px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>我是内容我奥迪我阿稍等片刻阿萨德拉萨到家按时来得快傲跑的快sadsad按时打什么的打算买多了按时来的吗AMD
+        我是内容我奥迪我阿稍等片刻阿萨德拉萨到家按时来得快傲跑的快sadsad按时打什么的打算买多了按时来的吗AMD
+        我是内容我奥迪我阿稍等片刻阿萨德拉萨到家按时来得快傲跑的快sadsad按时打什么的打算买多了按时来的吗AMD
+        我是内容我奥迪我阿稍等片刻阿萨德拉萨到家按时来得快傲跑的快sadsad按asd asd asd 时打什么的打算买多了按时来的吗AMD
+        我是内容我奥迪我阿稍等片刻阿萨德拉萨到家按时来得快傲跑的快sadsad按时打什么的打算买多了按时来的吗AMD
+        我是内容我奥迪我阿稍等片刻阿萨德拉萨到家按时来得快傲跑的快sadsad按asd asd asd 时打什么的打算买多了按时来的吗AMD
+        我是内容我奥迪我阿稍等片刻阿萨德拉萨到家按时来得快傲跑的快sadsad按时打什么的打算买多了按时来的吗AMD
+    </div>
+
+
+    <script>
+        var div = document.querySelector('div')
+        console.log(div.scrollHeight)
+        //真正的内容大小  他包含超出的内容，他也不包含边框
+        // // scrollTop  被卷去的上侧的距离，他是从内容开始到被卷去的距离，返回数值不带单位
+        // // scrollLeft  被卷去的左侧的距离，他是从内容开始到被卷去的距离，返回数值不带单位
+        div.addEventListener('scroll', function () {
+            console.log(div.scrollTop);//滚动事件 ，当我们的滚动条发生变化的时候会触发的事件
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+</head>
+
+<body>
+    <button id="d2">发送GET请求</button>
+    <button id="d1">发送带参数的GET请求</button>
+    <button id='d3'>发送POST请求</button>
+    <button id="d4">发送ajax get请求 </button>
+    <button id="d5">发送ajax post请求 </button>
+    <script>
+        /*url  由三部分组成
+        1.客户端与服务器之间的通信协议
+        2.存有该资源的服务器名称
+        3.资源在服务器上具体的存放位置*/
+
+        /*
+        ajx典型的应用场景
+        1.用户名检测
+        2.搜索提示
+        3.数据的分页显示
+        4.数据的增删改查
+        */
+        // $.get(url,[data],[callback])//中阔号是可选的参数
+        // $.post(url,[data],[callback])
+        // $.ajax({
+        // type:'',
+        // url:'',
+        // data:{},
+        // success:function(res){
+
+        // }
+        // })
+        $(function () {//入口函数
+            $('#d2').on('click', function () {
+                $.get('http://www.liulongbin.top:3006/api/getbooks', function (res) {
+                    console.log(res);
+                })
+            })
+            $('#d1').on('click', function () {
+                $.get('http://www.liulongbin.top:3006/api/getbooks', { id: 1 }, function (res) {
+                    console.log(res);
+                })
+            })
+            $('#d3').on('click', function () {
+                $.post('http://www.liulongbin.top:3006/api/addbook', { bookname: '水浒传', author: '施耐庵', publisher: '江西出版社' }, function (res) {
+                    console.log(res);
+                })
+            })
+            $('#d4').on('click', function () {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://www.liulongbin.top:3006/api/getbooks',
+                    data: { id: 1 },
+                    success: function (res) {
+                        console.log(res);
+                    }
+                })
+            })
+            $('#d5').on('click', function () {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://www.liulongbin.top:3006/api/addbook',
+                    data: {
+                        bookname: '张三',
+                        author: '徐赛平',
+                        publisher: '江西出版社'
+                    },
+                    success: function (res) {
+                        console.log(res);
+                    }
+                })
+            })
+        })
+        /*
+        接口的概念：
+        使用ajax请求数据时，被请求的url地址，就叫做数据接口（简称接口）。同时，每个接口必须有请求方式
+        接口测试工具的概念：postman
+        在不写代码的情况下，对接口进行调用和测试
+
+        */
+    </script>
+</body>
+
+</html>

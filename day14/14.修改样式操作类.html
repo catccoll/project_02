@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            transition: all 2s;
+        }
+
+        .bac {
+            background-color: hotpink;
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bac"></div>
+    <script>
+        //   设置类样式方法
+        // 1.添加类 addClass()
+        // $(function () {
+        //     var flag = true
+        //     $('div').click(function () {
+        //         if (flag) {
+        //             $('div').addClass('bac') 这里的点可以不用加
+        //             flag = false
+        //         }
+        //         else {
+        //             $(this).removeClass('bac')
+        //             flag = true
+        //         }
+
+        //     })
+        // })
+
+        // 2.删除类 removeClass()
+        // $('div').removeClass('bac')
+
+        
+        // 3.切换类 toggleClass
+
+        $(function () {
+            $('div').click(function () {
+                $(this).toggleClass('bac')
+            })
+        })
+
+    </script>
+</body>
+
+</html>

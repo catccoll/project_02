@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/snake.css">
+</head>
+
+<body>
+    <script>
+        // 创建地图
+        function Map(width = 40, height = 30) {
+            this.height = height
+            this.width = width
+            this.mapDom = null
+
+        }
+        Map.prototype.show = function () {
+            if (this.mapDom) {
+                return
+            }
+            this.mapDom = document.createElement('div')
+            this.mapDom.className = 'map'
+            this.mapDom.style.width = this.width * 20 + 'px'
+            this.mapDom.style.height = this.height * 20 + 'px'
+            document.body.appendChild(this.mapDom)
+        }
+        let map = new Map()
+        map.show()
+        //  创建食物
+        function Food() {
+            
+
+        }
+    </script>
+</body>
+
+</html>

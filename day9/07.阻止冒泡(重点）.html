@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 200px;
+            height: 100px;
+            background-color: purple;
+            position: relative;
+        }
+
+        .son {
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">123</div>
+    </div>
+    <script>
+        // 阻止事件冒泡的两种方式
+        // 1. event. stopPropagation()
+        // 2.event.cancelBubble=true
+        var son = document.querySelector('.son')
+        son.addEventListener('click', function (e) {
+            alert('son')
+            e.stopPropagation();// event. stopPropagation()
+            // e.cancelBubble=true //非标准  也可以实行这效果
+        }, false);
+        var fath = document.querySelector('.father')
+        fath.addEventListener('click', function (e) {
+            alert('father')
+            e.stopPropagation()
+        }, false)
+        document.addEventListener('click', function () {
+            alert('doc')
+        })
+    </script>
+</body>
+
+</html>

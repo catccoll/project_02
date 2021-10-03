@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <span class="'erweima">*</span>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ol>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+
+    <script>
+        // 为什么学节点操作
+        // 获取元素通常使用两种方式：
+
+        // (1)1.利用DOM提供的方法获取元素
+        // document.getElementByld()
+        // document.getElementsByTagName()
+        // document.querySelector 等
+        // 逻辑性不强、繁琐
+
+        // (2)利用节点层级关系获取元素
+        //   利用父子兄节点关系获取元素
+        //   逻辑性强 但是兼容性稍差
+
+        //节点至少拥有三个基本属性  nodeType(节点类型)、nodeName(节点名称)、nodeValue(节点值)
+        // 元素节点  nodeType:1   属性节点  nodeType:2  文本节点  nodeType:3(文本节点包含文字 空格 换行)   实际开发中  操作的是元素节点
+        // 一 父节点
+        var span = document.querySelector('span')
+        // 得到的是离元素最近的父节点，如果找不到就位 null 找的是亲爸爸
+        console.log(span.parentNode);
+        // 二子节点
+        var ul = document.querySelector('ul')
+        //(1) childNodes 包含所有的子节点 有文本节点 元素节点等  不好用
+        console.log(ul.childNodes);
+
+
+
+        // (2)children 获取所有的子元素节点 
+        console.log(ul.children);// 推荐使用这个
+
+
+
+        // (3)子节点层级 第一个子节点 不管是文本节点还是元素节点
+        console.log(ul.firstChild);
+        //  (4)子节点层级 ，第一个子节点 只获取元素 这个方法好用  但是有兼容性
+        console.log(ul.firstElementChild);
+        console.log(ul.lastElementChild);
+
+        // (5)子节点层级 ，第一个子节点 只获取元素  //推荐使用这个
+        console.log(ul.children[0]);
+        console.log(ul.children[ul.children.length - 1])
+
+        // 三 兄弟节点
+        // (1)
+        //  nextSibling 下一个兄弟节点 包括元素节点或者文本节点
+        //  previousSibling 上一个兄弟节点 包括元素节点或者文本节点
+        // (2)
+        console.log(ul.nextElementSibling);//得到下一个兄弟元素节点
+        console.log(ul.previousElementSibling);//得到上一个兄弟节点  找不到返回null 这两个有兼容性
+
+        // 四、 节点属性
+        // 元素：1
+        // 注释：8
+        // 属性：2
+        // 文本：3
+        // element.nodeType  节点类型
+    //   Element.  nodeName    节点名称    
+    //    Element. nodeValue    节点值
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft YaHei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+
+
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        .clearfix:after {
+
+            content: ".";
+
+            display: block;
+
+            clear: both;
+
+            height: 0;
+            visibility: hidden;
+
+        }
+
+        div {
+            width: 300px;
+            height: 40px;
+            border: 1px solid red;
+        }
+
+        p {
+            width: 0;
+            height: 40px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p></p>
+    </div>
+    <button>开始</button>
+    <button>暂停</button>
+    <button>继续</button>
+    <button>清楚</button>
+    <script>
+
+        var div = document.querySelector('div')
+        var p = document.querySelector('p')
+        var btn = document.querySelectorAll('button')
+
+        var timer = null
+        function fn(dom, attr) {
+            if (window.getComputedStyle(dom)) {
+                return window.getComputedStyle(dom)[attr]
+            }
+            else {
+                return dom.currentStyle[attr]
+            }
+        }
+        var num = parseInt(fn(p, 'width'))       
+        var flag = false
+        btn[0].addEventListener('click', function () {
+            if (flag) { 
+            } else {
+
+                timer = setInterval(function () {
+                    p.style.width = num + 'px'
+                    num += 10
+                }, 500)
+                flag = true
+            }
+        })
+        btn[1].addEventListener('click', function () {
+            clearInterval(timer)
+        })
+
+        btn[2].addEventListener('click', function () {
+            timer = setInterval(function () {
+                p.style.width = num + 'px'
+                num += 10
+            }, 500)
+        })
+        btn[3].addEventListener('click', function () {
+            num = 0
+            p.style.width = num + 'px'
+            clearInterval(timer)
+            flag = false
+        })
+    </script>
+</body>
+
+</html>

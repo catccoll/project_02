@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <style>
+        input {
+            text-align: center;
+        }
+
+        span {
+            width: 80px;
+            display: inline-block;
+            padding-left: 50px;
+        }
+
+        p {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><input type="checkbox" class="g8"> <button class="g0">-</button><input type="text" value="1"
+                class="g2"><button class="g1">+</button>
+            <p>￥14.5</p> <span class="g5">￥14.50</span><a href="javascript:;" class="g6">删除</a>
+        </li>
+        <li><input type="checkbox" class="g8"> <button class="g0">-</button><input type="text" value="1"
+                class="g2"><button class="g1">+</button>
+            <p>￥12.6</p> <span class="g5">￥12.60</span><a href="javascript:;" class="g6">删除</a>
+        </li>
+        <li>
+            <p class="g7">删除指定</p>
+            <p class="g9">清空</p>
+            <p>已经选中<span class="g3"></span>商品</p>
+            <p>总价：<span class="g4"></span></p>
+        </li>
+    </ul>
+
+    <div class="one">
+        <div class="two">
+            <div class="three">
+                <div>我不容易</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+
+            $('.g1').click(function () {
+                var num = $(this).siblings('.g2').val()
+                num++
+                $(this).siblings('.g2').val(num)
+                var p1 = $(this).siblings('p').text()
+                p1 = p1.substr(1)
+                $(this).siblings('span').text('￥' + (p1 * num).toFixed(2))
+                fn()
+            })
+            fn()
+            $('.g0').click(function () {
+                var num = $(this).siblings('.g2').val()
+                if (num == 1) {
+                    $(this).siblings('.g2').val('1')
+                } else {
+                    num--
+                    var p1 = $(this).siblings('p').text()
+                    p1 = p1.substr(1)
+                    $(this).siblings('.g2').val(num)
+                    $(this).siblings('span').text('￥' + (p1 * num).toFixed(2))
+                }
+                fn()
+            })
+            $('.g2').change(function () {
+                var num = $(this).val()
+                var p1 = $(this).siblings('p').text()
+                p1 = p1.substr(1)
+                var sum = (p1 * num).toFixed(2)
+                $(this).siblings('span').text('￥' + sum)
+                fn()
+            })
+
+            function fn() {
+                var num2 = 0
+                var num3 = 0
+                $('.g2').each(function (index, ele) {
+                    num2 += Number($(ele).val())
+
+                })
+                $('.g5').each(function (index, ele) {
+                    var text = $(ele).text()
+                    text = Number(text.substr(1))
+                    num3 += text
+
+                })
+                $('.g3').text(num2)
+                $('.g4').text('￥' + num3.toFixed(2))
+            }
+            $('.g6').click(function () {
+                $(this).parent('li').remove()
+            })
+            $('.g6').click(function () {
+                $(this).parent('li').remove()
+                fn()
+            })
+            $('.g7').click(function () {
+                $('.g8:checked').parent('li').remove()
+                fn()
+            })
+            $('.g9').click(function () {
+                $(this).parent('li').siblings('li').remove()
+                fn()
+            })
+            $('.g8').change(function () {
+                if ($(this).prop('checked') == true) {
+                    $(this).parent('li').css('background', 'pink')
+                }
+                else {
+                    $(this).parent('li').css('background', '')
+                }
+            })
+        })
+
+        // 寻找父亲  parents()返回某一个层次的祖先元素
+        console.log($('div').parents('.one'));
+        // .toFix(n)  保留n位小数
+    </script>
+</body>
+
+</html>

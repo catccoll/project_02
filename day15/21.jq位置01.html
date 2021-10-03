@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 5px solid red;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        p {
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            background-color: black;
+        }
+
+        p>h1 {
+            width: 100px;
+            height: 100px;
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+
+
+    <script>
+        $(function () {
+            console.log($('div').width());
+            $('div').width(400)  //不包含width和height  不包含border和padding
+            console.log($('div').innerHeight());  //包含padding
+            console.log($('div').outerWidth());  //包含padding和border
+            console.log($('div').outerWidth(true));  //包含padding和border和margin
+            // 以上参数为空，为获取值，返回的是数字型
+            // 如果参数为数字 则是修改相应的值  可不写单位
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>

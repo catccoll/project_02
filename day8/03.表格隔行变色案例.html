@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft yahei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?qnsis9');
+            src: url('fonts/icomoon.eot?qnsis9#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?qnsis9') format('truetype'),
+                url('fonts/icomoon.woff?qnsis9') format('woff'),
+                url('fonts/icomoon.svg?qnsis9#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .babian {
+
+            width: 100px;
+
+            height: 100px;
+
+            background: #469eeb;
+
+            position: relative;
+
+        }
+
+        .babian:before {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            border-bottom: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+
+
+        }
+
+        .babian:after {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            border-top: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+        }
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        .clearfix:after {
+
+            content: ".";
+
+            display: block;
+
+            clear: both;
+
+            height: 0;
+            visibility: hidden;
+
+        }
+
+        table {
+            font-size: 14px;
+            margin: 200px auto;
+            border-collapse: collapse;
+            text-align: center;
+            width: 800px;
+        }
+
+        table thead {
+            background: skyblue;
+        }
+
+        table tr {
+            border-bottom: 1px solid red;
+            height: 30px;
+        }
+
+        table thead tr {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>代码</th>
+                <th>名称</th>
+                <th>最新公布净值</th>
+                <th>累计净值</th>
+                <th>前单位净值</th>
+                <th>净值增长率</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>003256</td>
+                <td>浓荫金辉3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.074%</td>
+            </tr>
+            <tr>
+                <td>003256</td>
+                <td>浓荫金辉3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.074%</td>
+            </tr>
+            <tr>
+                <td>003256</td>
+                <td>浓荫金辉3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.074%</td>
+            </tr>
+            <tr>
+                <td>003256</td>
+                <td>浓荫金辉3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.074%</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var tr = document.querySelector('tbody').querySelectorAll('tr')
+        for (var i = 0; i < tr.length; i++) {
+            tr[i].onmouseover = function () {
+                this.style.background = 'pink'
+                // this.onmouseout = function () {
+                //     for (var j = 0; j < tr.length; j++) {
+                //         tr[j].style.backgroundColor=''
+                //     }           
+                // }      //徐赛平写的
+
+            }
+            tr[i].onmouseout = function () {
+                this.style.background = 'white'
+            }
+        }
+
+    </script>
+</body>
+
+</html>

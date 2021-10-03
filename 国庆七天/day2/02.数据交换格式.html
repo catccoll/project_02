@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body><img src="img/JSON对象结构.png" alt="">
+    <img src="img/JSON语法注意事项.png" alt="">
+    <script>
+        //   XML被设计用来传输和存储数据，是数据的载体
+        //  HTML被设计用来描述网页上的内容，是网页内容的载体
+        /*
+        XML
+        <note>
+            <to>ls</to>           XML格式臃肿，和数据无关的代码多，体积大，传输效率低
+           <from>zs</from>         在js中解析XML比较麻烦
+           <heading>通知</heading>
+           <body>晚上开会</body>
+           </note>
+        */
+        /*
+        JSON是对象和数字的字符串表示法，他的本质是字符串
+        */
+        var str = '{"a":1,"b":2} ' 
+        var str2 = JSON.parse(str)//这个操作叫做反序列化
+        console.log(str2);
+        console.log(JSON.stringify(str2),typeof JSON.stringify(str2));//这个操作叫序列化
+    </script>
+</body>
+
+</html>

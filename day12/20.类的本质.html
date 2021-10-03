@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES6之前通过构造函数+原型实现面向对象编程
+        //(1）构造函数有原型对象prototype
+        // (2）构造函数原型对象prototype里面有constructor指向构造函数本身
+        //(3）构造函数可以通过原型对象添加方法
+        // (4）构造函数创建的实例对象有_proto__ 原型指向构造函数的原型对象// ES6 通过类实现面向对象编程
+        class Star {
+
+        }
+        console.log(typeof Star);
+        // 1.类的本质其实还是一个函数 我们也可以简单的认为 类就是 构造函数的另外一个写法
+        // (1.)类有一个原型对象prototype
+        console.log(Star.prototype);
+        // (2）构造函数原型对象prototype里面有constructor指向构造函数本身
+        console.log(Star.prototype.constructor);
+        //(3）构造函数可以通过原型对象添加方法
+        Star.prototype.sing = function () {
+            console.log('冰雨');
+        }
+        var ldh = new Star()
+        console.dir(ldh)
+        console.log(ldh.__proto__ === Star.prototype);
+        // 2.类的所有方法都定义在类的prototype属性上
+        // 3.类创建的实例, 里面也有_proto_指向类的prototype原型对象
+        // 4.所以ES6的类它的绝大部分功能，ES5都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。
+        // 5.所以ES6的类其实就是语法糖.
+
+    </script>
+</body>
+
+</html>

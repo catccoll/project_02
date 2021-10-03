@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //原型对象的应用 扩展  内置对象  方法
+        console.log(Array.prototype);
+        Array.prototype.sum = function () {
+            var sum = 0
+            for (var i = 0; i < this.length; i++) {
+                sum += this[i]
+            }
+            return sum
+        }
+
+        // Array.prototype = {
+        //   
+        //     sum = function () {
+        //         var sum = 0
+        //         for (var i = 0; i < this.length; i++) {
+        //             sum += this[i]
+        //         }              //这里虽然覆盖了原有的函数 得到了sum  但是吧创建数组的方法也覆盖了 所以报错
+        //         return sum
+        //     }
+        // }
+        var arr = [1, 2, 3]
+        console.log(arr.sum());
+        console.log(Array.prototype);//自定义的函数要高亮一下 自带的不高亮
+        var arr1 = new Array(11, 22, 33)
+        console.log(arr1.sum());
+    </script>
+</body>
+
+</html>

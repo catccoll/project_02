@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="img/响应消息的组成.png" alt="">
+    <img src="img/状态码的分类.png" alt="">
+    <img src="img/错误响应状态码.png" alt="">
+    <script>
+//  http响应消息  由状态行 响应头部  空行 响应体 四部分组成
+//   1.状态行 由http协议版本  状态码 和状态码的描述文本三个部分组成 空格分隔开来
+// 2.响应头部用来描述服务器的基本信息，响应头部由多行键值对，每行的键值对用冒号分割
+// 3.空行 用来通知客户端响应头部至此结束 用来分割响应头部与响应体
+// 4.响应体中存放的是服务器响应给客户端的资源内容
+
+
+// 响应状态码：属于http协议的一部分，用来标识响应的状态，它是由三个十进制数字组成，第一个十进制数字定义了状态码的类型，后两个数字用来对状态码进行细分，会随着响应消息一起发送至客户端浏览器，浏览器根据服务器返回的响应状态码，就知道这次的http请求的结果是成功还是失败
+
+// 2**范围的状态码   200  ok 请求成功 一般用于GET与POST请求
+//                  201  Created  已创建  成功请求并创建了新的资源，通常用于POST或PUT请求
+
+
+
+    </script>
+</body>
+
+</html>

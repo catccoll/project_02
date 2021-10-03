@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+
+<body>
+    <form action="" id="form1">
+        <input type="text" name="username" id="" autocomplete="off">
+        <input type="password" name="upwd" id="">
+        <button type="submit">提交</button>
+    </form>
+
+    <input type="file" class="f1">
+    <button class="f2">上传文件</button>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0"
+            aria-valuemax="100" id="h1" style="width: 0"><span class="sr-only"></span>
+        </div>
+        <img src="" alt="" class="f3">
+        <script>
+            /*
+            XMLHttpRequest level2新功能
+            1.可以设置HTTP请求的时限   xhr.timeout=3000
+            2.可以设置FormData对象管理表单数据
+            3.可以上传文件
+            4.可以获取数据传输的进度信息
+            */
+
+            // 1.可以设置HTTP请求的时限   xhr.timeout=3000
+            // var xhr = new XMLHttpRequest()
+            // // 设置超时事件
+            // xhr.timeout = 30
+            // xhr.ontimeout = function () {
+            //     console.log('请求超时了!');
+            // }
+            // xhr.open('GET', 'http://www.liulongbin.top:3006/api/getbooks')
+            // xhr.send()
+            // xhr.onreadystatechange = function () {
+            //     if (xhr.readyState === 4 && xhr.status === 200) {
+            //         console.log(xhr.responseText);
+            //     }
+            // }
+
+            // 2.可以设置FormData对象管理表单数据
+            //1.创建FormData实例
+            // var fd = new FormData()
+            // // 2.调用append函数，向fd中追加数据
+            // fd.append('uname', 'zs')
+            // fd.append('upwd', '123456')
+            // var xhr = new XMLHttpRequest()
+            // xhr.open('POST', 'http://www.liulongbin.top:3006/api/formdata')
+            // xhr.send(fd)
+            // xhr.onreadystatechange = function () {
+            //     if (xhr.readyState === 4 && xhr.status === 200) {
+            //         console.log(JSON.parse(xhr.responseText));
+            //     }
+            // }
+
+
+            // 3.快速获取表单页面的值
+            //1.通过DOM操作获取form表单元素
+            var form = document.querySelector('#form1')
+            form.addEventListener('submit', function (e) {
+                e.preventDefault()
+                //2.创建formdata，快速获取form表单中的数据
+                var fd = new FormData(form)
+                var xhr = new XMLHttpRequest()
+                xhr.open('POST', 'http://www.liulongbin.top:3006/api/formdata')
+                //3.将数据发送到服务器
+                xhr.send(fd)
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        console.log(JSON.parse(xhr.responseText));
+                    }
+                }
+            })
+
+
+            // 4.上传文件
+            var btn = document.querySelector('.f2')
+            btn.addEventListener('click', function () {
+                // 获取到文件列表,得到的文件列表是一个数组
+                var file = document.querySelector('.f1').files
+                if (file.length <= 0) {
+                    return alert('请上传文件')
+                }
+                var fd = new FormData()
+                fd.append('avatar', file[0])
+                var xhr = new XMLHttpRequest()
+                xhr.upload.onprogress = function (e) {//显示文件上传进度
+                    if (e.lengthComputable) {
+                        var g1 = Math.ceil((e.loaded / e.total) * 100)
+                        document.querySelector('#h1').style.width = `${g1}%`
+                    }
+                }
+                xhr.open('POST', 'http://www.liulongbin.top:3006/api/upload/avatar')
+                //3.将数据发送到服务器
+                xhr.send(fd)
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var data = JSON.parse(xhr.responseText)
+                        console.log(data);
+                        if (data.status === 200) {//上传文件成功
+                            document.querySelector('.f3').src = `http://liulongbin.top:306${data.url}`
+                        } else {//上传文件失败
+                            console.log(data.message);
+                        }
+                    }
+                }
+            })
+
+        // 5.显示文件上传进度
+
+        </script>
+</body>
+
+</html>

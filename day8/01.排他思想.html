@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <script>
+        var btns = document.getElementsByTagName('button')
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                // 把按钮先全都变为白色背景
+                for (var j = 0; j < btns.length; j++) {
+                    btns[j].style.background = ''
+                }
+                this.style.background = 'pink'//记得这里是用this
+            }
+        }
+        // 循环排他思想
+        // 1.所有元素全部清除样式
+        // 2.再给自己用样式
+    </script>
+</body>
+
+</html>

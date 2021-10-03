@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script src="JS/template-web.js"></script>
+    <!-- 在window全局，多了一个函数，叫做template('模板的ID','需要渲染的数据对象') -->
+</head>
+
+<body>
+    <div id='title'></div>
+    <div>姓名:<span id="name"></span> </div>
+    <div>年龄:<span id="age"></span> </div>
+    <div>会员：<span id="isVip"></span> </div>
+    <div>注册时间：<span id="regTime"></span> </div>
+    <div>爱好： <ul>
+
+
+        </ul>
+    </div>
+    <script type="text/html" id='g1'>
+    <h1> {{name}}  {{age}} </h1>
+    </script>//定义模板
+    <script>
+        /*
+        art-template的使用步骤
+        1.导入art-template
+        2.定义数据
+        3.定义模板 (一定要写在script当中)
+        4.调用template函数
+        5.渲染XTML结构
+        */
+        var data = {//2.定义需要渲染的数据
+            title: '<h3>用户信息</h3>', name: 'zs',
+            age: 20,
+            isvIP: true,
+            regTime: new Date(),
+            hobby: ['吃饭', '睡觉', '打豆豆']
+        }
+        // $('#name').text(data.name)
+        // $('#age').text(data.age)
+        // $('#isVip').text(data.isvIP)
+        // $('#regTime').text(data.regTime)
+        // $.each(data.hobby, function (i, ele) {
+        //     str = `<li>${ele}</li>`
+        //     $('ul').append(str)
+        // })
+      var res=  template('g1',data)
+      console.log(res);
+    </script>
+</body>
+
+</html>

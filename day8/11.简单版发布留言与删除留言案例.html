@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft yahei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?qnsis9');
+            src: url('fonts/icomoon.eot?qnsis9#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?qnsis9') format('truetype'),
+                url('fonts/icomoon.woff?qnsis9') format('woff'),
+                url('fonts/icomoon.svg?qnsis9#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .babian {
+
+            width: 100px;
+
+            height: 100px;
+
+            background: #469eeb;
+
+            position: relative;
+
+        }
+
+        .babian:before {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            border-bottom: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+
+
+        }
+
+        .babian:after {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            border-top: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+        }
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        .clearfix:after {
+
+            content: ".";
+
+            display: block;
+
+            clear: both;
+
+            height: 0;
+            visibility: hidden;
+
+        }
+
+
+
+        textarea {
+            width: 200px;
+            height: 100px;
+            border: 1px solid red;
+
+        }
+
+        button {
+
+            width: 30px;
+            height: 30px;
+
+
+        }
+
+        ul li {
+            width: 200px;
+        }
+
+        li a {
+            float: right;
+        }
+    </style>
+
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>按钮</button>
+    <ul>
+
+    </ul>
+    <script>
+        // var button = document.querySelector('button')
+        // var textarea = document.querySelector('textarea')
+        // var ul = document.querySelector('ul')
+        // button.onclick = function () {
+        //     if (textarea.value == '') {
+        //         alert('请输入内容')
+        //     } else {
+        //         var li = document.createElement('li')
+        //         var neirong = textarea.value + " <a href='javascript:;' >删除</a> "//javascript:;组织链接跳转
+        //         li.innerHTML = neirong
+        //         ul.insertBefore(li, ul.children[0])
+        //         var a = document.querySelectorAll('a')
+        //         for (var i = 0; i < a.length; i++) {
+        //             a[i].onclick = function () {
+        //                 ul.removeChild(this.parentNode)//这里语法很坑爹
+        //             }
+        //         }
+        //     }
+        // }
+
+        var button = document.querySelector('button')
+        var ul = document.querySelector('ul')
+        var textarea = document.querySelector('textarea')
+        button.addEventListener('click', function () {
+            var li = document.createElement('li')
+            li.innerHTML = textarea.value + ' <a href="javascript:;" >删除</a>  '
+            ul.insertBefore(li,ul.children[0])
+            var a = document.querySelectorAll('a')
+            for (var i = 0; i < a.length; i++) {
+                a[i].onclick = function () {
+                    ul.removeChild(this.parentNode)
+                }
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

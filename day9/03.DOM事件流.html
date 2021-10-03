@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 200px;
+            height: 100px;
+            background-color: purple;
+            position: relative;
+        }
+
+        .son {
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">123</div>
+    </div>
+    <script>
+        // dom事件流分为三个阶段：
+        //     1.捕获阶段
+        //     2.当前目标阶段  onclick和attachEvent只能是冒泡阶段
+        //     3.冒泡阶段 如果addEventListener 第三个参数是true则处于捕获阶段 如果是false则是冒泡阶段(开发中冒泡用的多)//默认就是false
+        var son = document.querySelector('.son')
+        son.addEventListener('click', function () {
+            alert('son')
+        }, false)
+        var fath = document.querySelector('.father')
+        fath.addEventListener('click', function () {
+            alert('father')
+        }, false)
+        document.addEventListener('click',function(){
+            alert('doc')
+        })
+    </script>
+</body>
+
+</html>

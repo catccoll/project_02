@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 1.DOM对象，用原生js获取过来的对象就是DOM对象
+        var div = document.querySelector('div')
+        console.dir(div)
+        // 2.jQuery:用jQuery方式获取过来的对象是jQuery对象，本质是通过$把dom元素进行了包装
+        $('div')   //$('div')是一个jQuery对象       jQuery本质是：利用$对DOM对象包装后产生的对象（伪数组形式存储）
+        console.dir($('div'))
+        // 3.jQuery对象只能使用jQuery方法，DOM对象则只能使用原生的js的属性和方法  他们只能在各自的领域使用自己的方法，不能混淆使用方法
+
+
+        //3. DOM对象与jQuery对象之间是可以相互转换的
+        //   1.DOM对象转换为JQuery对象
+        $('div')
+        //  var divDom=document.querySelector('div')
+        // $('divDom')
+
+        //  2.jQuery对象转换为DOM对象
+        $('div')[0]
+        $('div').get(0)
+    </script>
+</body>
+
+</html>

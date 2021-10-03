@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="liu">刘德华</button>
+    <button id="zhang">张学友</button><br>
+    <img src="img/th (1)是.jpg" title="">
+    <script>
+        // 1.获取元素
+        var liu = document.getElementById('liu');
+        var zhang = document.getElementById('zhang');
+        var img = document.querySelector('img')
+        //  2.注册事件 处理程序
+        zhang.onclick = function () {
+            img.src = 'img/th.jpg';
+            img.title = '张学友'
+        }
+        liu.onclick = function () {
+            img.src = 'img/th (1)是.jpg'
+            img.title = '刘德华'
+        }
+    </script>
+</body>
+
+</html>

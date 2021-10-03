@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "microsoft yahei";
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+   
+        .babian {
+
+            width: 100px;
+
+            height: 100px;
+
+            background: #469eeb;
+
+            position: relative;
+
+        }
+
+        .babian:before {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            border-bottom: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+
+
+        }
+
+        .babian:after {
+
+            content: "";
+
+            width: 40px;
+
+            height: 0;
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            border-top: 30px solid #469eeb;
+
+            border-left: 30px solid #fff;
+
+            border-right: 30px solid #fff;
+
+        }
+
+        body {
+            height: 10000px;
+        }
+
+        button,
+        input {
+            border: 0;
+            outline: none;
+
+            font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+        }
+
+        ul li:nth-child(1) {
+            width: 800px;
+            height: 400px;
+            background-color: brown;
+        }
+
+        ul li:nth-child(2) {
+            width: 800px;
+            height: 400px;
+            background-color: blueviolet;
+        }
+
+        ul li:nth-child(3) {
+            width: 800px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        dl dd {
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+        }
+
+        span {
+            display: none;
+        }
+
+        dl {
+            position: absolute;
+            left: 800px;
+            top: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>head</li>
+        <li>banner</li>
+        <li>主题部分</li>
+    </ul>
+    <dl>
+        <dd></dd>
+        <dd><span>返回顶部</span></dd>
+    </dl>
+    <script>
+        var ul = document.querySelector('ul')
+        var dl = document.querySelector('dl')
+        var span = document.querySelector('span')
+        console.log(ul.children[1].offsetTop);
+        document.addEventListener('scroll', function () {
+            if (window.pageYOffset >= ul.children[1].offsetTop) {//pageYoffset得到页面被卷进去多少
+
+                dl.style.position = 'fixed'
+                dl.style.top = 600-ul.children[1].offsetTop+'px'
+                dl.style.left = 800 + 'px'
+
+            } else {
+                dl.style.position = 'absolute'
+                dl.style.top = 600 + 'px'
+                dl.style.left = 800 + 'px'
+
+            }
+            if (window.pageYOffset >= ul.children[2].offsetTop) {
+                span.style.display = 'block'
+            }
+            else {
+                span.style.display = 'none'
+            }
+        })
+    </script>
+</body>
+
+</html>

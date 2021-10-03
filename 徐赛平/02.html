@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 560px;
+            height: 312px;
+            background-color: rgb(249, 247, 248);
+            border: 1px solid rgb(222, 222, 222);
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .left {
+            width: 456px;
+            float: left;
+        }
+
+        .left img {
+            width: 440px;
+            height: 293px;
+            margin-left: 8px;
+            margin-top: 8px;
+        }
+
+        .right {
+            height: 293px;
+            margin-left: 8px;
+            margin-top: 8px;
+        }
+
+        .right img {
+            width: 95px;
+            height: 62px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="left"><img src="img/p1.jpeg" /></div>
+        <div class="right">
+            <img src="img/p1.jpeg" />
+            <img src="img/p2.jpeg" />
+            <img src="img/p3.jpeg" />
+            <img src="img/p4.jpeg" />
+        </div>
+    </div>
+    <script>
+
+        var left = document.querySelector('.left')
+
+        var right = document.querySelector('.right')
+        for (var i = 0; i < right.children.length; i++) {
+            right.children[i].addEventListener('mouseenter', function () {
+                for (let i = 0; i < right.children.length; i++) {
+                    right.children[i].style.opacity = 0.5
+                }
+                clearInterval(timer)
+                this.style.opacity = 1
+                left.children[0].src = this.src
+
+            })
+        }
+        for (var i = 0; i < right.children.length; i++) {
+            right.children[i].addEventListener('mouseleave', function () {
+                var timer = setInterval(function () {
+
+                    if (num == 4) {
+                        num = 0
+                        left.children[0].src = `img/p1.jpeg`
+                    }
+                    num++
+                    left.children[0].src = `img/p${num}.jpeg`
+                    for (var i = 0; i < right.children.length; i++) {
+                        right.children[i].style.opacity = 0.5
+                    }
+                    right.children[num - 1].style.opacity = 1
+                }, 1000)
+            })
+        }
+        var num = 1
+        var timer = setInterval(function () {
+            if (num == 4) {
+                num = 0
+                left.children[0].src = `img/p1.jpeg`
+            }
+            num++
+            left.children[0].src = `img/p${num}.jpeg`
+            for (var i = 0; i < right.children.length; i++) {
+                right.children[i].style.opacity = 0.5
+            }
+            right.children[num - 1].style.opacity = 1
+        }, 2000)
+
+    </script>
+</body>
+
+</html>
