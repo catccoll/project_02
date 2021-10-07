@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <label for="license"> (这里有不懂)
+            <input type="checkbox" name="" id="license" v-model='isAgree'>同意协议
+        </label>
+        <h2>你选择的是{{isAgree}}</h2>
+
+        <label for="">
+            <input type="checkbox" value="唱" v-model='hobbies'>唱
+            <input type="checkbox" value="跳" v-model='hobbies'>跳
+            <input type="checkbox" value="rap" v-model='hobbies'>rap
+            <input type="checkbox" value="篮球" v-model='hobbies'>篮球
+            <h2>您的爱好是{{hobbies}} </h2>
+        </label>
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                isAgree: false,//单选框
+                hobbies: []//多选框
+                
+            }
+        })
+    </script>
+</body>
+
+</html>

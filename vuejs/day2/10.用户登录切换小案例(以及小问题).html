@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <form action="" v-if='isShow'>
+            <label for="username">用户名：</label><input type="text" placeholder='请输入用户名' id="username" key="username">
+            <!-- key作为标识符，要想让Vue不复用，两个input的key值必须不相等 -->
+        </form>
+        <form action="" v-else>
+            <label for="password">密码：</label><input type="password" placeholder='请输入密码' id="password" key="password">
+
+        </form>
+        <button @click='qie'>切换类型</button>
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                isShow: true
+            },
+            methods: {
+                qie() {
+                    this.isShow = !this.isShow
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

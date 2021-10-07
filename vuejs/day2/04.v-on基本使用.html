@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Mustache语法 -->
+        <h2> {{counter}}</h2>
+        <button @click="add">+</button>
+        <!-- 1.当事件监听的时候
+            2.当该方法不需要传入参数的时候，
+            方法后面的()可以不添加
+        -->
+        <button @click="sub">-</button>
+        <!-- <button @click="counter++">+</button>
+        <button @click="counter--">-</button> -->
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+
+            },
+            methods: {
+                add() {
+                    this.counter++
+                },
+                sub() {
+                    this.counter--
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

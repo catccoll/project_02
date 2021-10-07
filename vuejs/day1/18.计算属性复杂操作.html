@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Mustache语法 -->
+        <h2> 总价格为：{{TotalPrice}} </h2>
+
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                books: [{ id: 10, name: 'Unix编程艺术', price: 100 },
+                { id: 10, name: '代码大全', price: 130 },
+                { id: 10, name: '深入理解计算机原理', price: 250 },
+                { id: 10, name: '现代操作系统', price: 200 }
+                ]
+
+            },
+            computed: {
+                TotalPrice: function () {
+                    var sum = 0
+                    for (let i = 0; i < this.books.length; i++) {
+                        sum += this.books[i].price
+                    }
+                    return sum
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

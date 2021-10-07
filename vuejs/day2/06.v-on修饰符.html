@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-on:click='divclick'>
+            aaa
+            <button @click.stop='btnclick'>按钮</button>
+            <!--1. .stop的修饰符的使用 =e.stopPropagation()-->
+        </div>
+        <br>
+        <br>
+        <form action="baidu">
+            <input type="submit" name="" id="" value="提交" @click.prevent='submit'>
+            <!--2. .prevent调用e.preventDefault()阻止默认事件 -->
+        </form>
+        <br>
+        <br>
+        <input type="text" name="" id="" @keyup.enter='keyup'>
+        <!-- 3.监听某个键盘的键帽 -->
+        <br>
+        <br>
+        <button @click.once='btn2click'>按钮3</button>
+        <!-- 4.只触发一次回调 -->
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+
+            },
+            methods: {
+                divclick() {
+                    console.log(11);
+                },
+                btnclick() {
+                    console.log(22);
+                },
+                submit() {
+                    console.log(11);
+                },  <br>
+        <br>
+                keyup() {
+                    console.log(44);
+                },
+                btn2click() {
+                    console.log(55);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

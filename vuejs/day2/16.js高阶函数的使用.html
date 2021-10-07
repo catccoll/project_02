@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 编程范式：命令式编程/声明式编程/面向对象编程(第一公民：对象)/函数式编程(第一个公民：函数)
+        // 1.filter有一个要求：必须返回一个布尔值
+        // 当返回为true时，函数内部会自动将这次回调的n加入到新的数组中
+        // 当返回为false时，函数内部会过滤掉这次的n
+        const num = [1, 5, 6, 7, 9, 7, 2, 6, 50, 6, 4, 7, 8, 9, 10]
+        // let newNum = num.filter(function (n) {
+        //     return n > 7
+        // })
+
+
+        // //   2. map函数的使用
+        // let new2 = newNum.map(function (n) {
+        //     return n * 2
+        // })
+        // console.log(new2); //18 100 16 18 20 
+
+
+        // // 3.reduce函数的作用对数组中所有的内容进行汇总
+        // let total = new2.reduce(function (preValue, n) {
+        //     return preValue + n
+        // }, 0)
+        // 第一次：preValue：0 n：18
+        // 第二次：preValue:18 n:100
+        // 第三次:preValue:118 n:16
+        // 第四次:preValue:134  n:18
+        // 第五次:preValue:152  n:20
+        // 172
+   
+
+        // let total = num.filter(function (n) {
+        //     return n > 7
+        // }).map(function (n) {
+        //     return n * 2
+        // }).reduce(function (preValue, n) {
+        //     return preValue + n
+        // }, 0)
+        let total = num.filter(n => n > 7).map(n => n * 2).reduce((preValue, n) => preValue + n)
+        console.log(total);
+
+    </script>
+</body>
+
+</html>

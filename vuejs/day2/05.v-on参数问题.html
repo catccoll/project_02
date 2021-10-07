@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click='btn1click'>按钮1</button>
+        <button @click='btn2click(123)'>按钮2</button>
+        <button @click='btn3click'>按钮3</button>
+        <!-- 在事件定义时，写方法时忽略了小括号，但是方法本身是需要一个参数的，这个时候Vue会默认将浏览器生产的even事件对象作为参数传入到方法 -->
+
+        <button @click='btn4click($event,456)'>按钮4</button>
+        <!-- 方法定义式，我们需要event对象，同时又需要其他参数 -->
+
+
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+
+
+            },
+            methods: {
+                btn1click() {
+                    console.log(22);
+                },
+                btn2click(abc) {
+                    console.log(abc);
+                },
+                btn3click(event) {
+                    console.log(event);
+                },
+                btn4click(event, abc) {
+                    console.log(event, abc);
+                },
+
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Mustache语法 -->
+        <!-- <h2 v-bind:style='{key(属性名):value(属性值)}'> {{message}}</h2> -->
+        <!-- <h2 v-bind:style='{fontSize:"50px"}'> {{message}}</h2> -->
+        <!-- 50px必须加上双引号，否则当成变量去使用 -->
+        <h2 v-bind:style='fn()'> {{message}}</h2>
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                finalSize: '100px',
+                finalColor: 'red'
+            },
+            methods: {
+                fn: function () {
+                    return { fontSize: this.finalSize, color: this.finalColor }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Mustache语法 -->
+        <h2> {{message}}</h2>
+        <h2 v-pre>{{message}} </h2>
+        <!-- 把里面的东西原封不动展示出来 不需要解析 -->
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+
+            }
+        })
+    </script>
+</body>
+
+</html>

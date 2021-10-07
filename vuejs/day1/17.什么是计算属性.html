@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Mustache语法 -->
+        <h2>{{first}} {{last}} </h2>
+        <h2>{{first+' '+last}} </h2>
+        <h2>{{getFullName()}} </h2>
+        <h2> {{fullName}} </h2>
+        <!--  这里不需要加括号-->
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                first: 'xu',
+                last: 'saigao'
+
+            },
+            computed: {//计算属性()
+                fullName: function () {
+                    return this.first + ' ' + this.last
+                }
+            },
+            methods: {
+                getFullName: function () {
+                    return this.first + ' ' + this.last
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

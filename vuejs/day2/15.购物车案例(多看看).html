@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th,
+        td {
+            border: 1px solid #ccc;
+
+            padding: 20px 40px;
+
+        }
+
+        table {
+            text-align: center;
+            margin: 200px auto;
+            border-spacing: 0;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        th {
+            background-color: #f7f7f7;
+            color: #5c6b77;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if='books.length!=0'>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>书籍名称</th>
+                        <th>出版日期</th>
+                        <th>价格</th>
+                        <th>购买数量</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for='(item,index) in books'>
+                        <!-- <td v-for='value in item' >{{value}} </td> -->
+                        <!-- 使用以下操作便于往里面加东西 -->
+                        <td>{{item.id}} </td>
+                        <td>{{item.name}} </td>
+                        <td>{{item.data}} </td>
+                        <td>{{item.price|showPrice}}</td>//过滤器
+                        <td><button @click='sub(item)' v-bind:disabled='item.count<=1'>-</button>{{item.count}} <button
+                                @click='add(item)'>+</button></td>
+                        <td><button @click='removeHandle(index)'>移除</button></td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <h1>最终的价格为:{{totalPrice|showPrice}} </h1>
+        </div>
+        <div v-else>
+            <h2>购物车为空</h2>
+        </div>
+
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                books: [{
+                    id: 1,
+                    name: '《算法导论》',
+                    data: '2006-9',
+                    price: 85.00,
+                    count: 1
+                },
+                {
+                    id: 2,
+                    name: '《UNIX编程艺术》',
+                    data: '2006-2',
+                    price: 59.00,
+                    count: 1
+                },
+                {
+                    id: 3,
+                    name: '《编程珠玑》',
+                    data: '2008-10',
+                    price: 39.00,
+                    count: 1
+                },
+                {
+                    id: 4,
+                    name: '《算法导论》',
+                    data: '2006-9',
+                    price: 119.00,
+                    count: 1
+                },
+                ],
+
+            },
+            filters: {
+                showPrice(price) {
+                    return `￥${price.toFixed(2)}`
+                }
+            },
+            computed: {
+                totalPrice() {
+                    // 1.普通for循环
+
+                    // for (let i = 0; i < this.books.length; i++) {
+                    //     sum += this.books[i].price * this.books[i].count
+                    // }
+                    // return sum
+
+                    // 2.for(let i in this.books)
+                    // for (let i in this.books) {
+                    //     sum += this.books[i].price * this.books[i].count
+                    // }
+                    // return sum
+
+                    // for (let item of this.books) {//3.for( let item in 对象)
+                    //     sum += item.price + item.count
+                    // }
+                    return this.books.reduce(function (preValue, book) {
+                        return preValue + book.price * book.count
+                    }, 0)
+                }
+            },
+            //   编程范式：命令式编程/声明式编程/面向对象编程(第一公民：对象)/函数式编程(第一个公民：函数)
+            methods: {
+                add(item) {
+                    item.count++
+                },
+                sub(item) {
+                    item.count--
+                },
+                removeHandle(index) {
+                    this.books.splice(index, 1)
+                }
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Mustache语法 -->
+        <h2> {{fullName}}</h2>
+
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+
+                firstName: 'xu',
+                lastName: 'saiGao'
+
+            },
+            computed: {
+                // fullName: function () {
+                //     return this.firstName + ' ' + this.lastName
+                // }
+                fullName: {
+                    //计算属性一般是没有set方法，是一个只读属性
+                    set: function (newvalue) {
+                        const name = newvalue.split(',')
+                        this.firstName = name[0]
+                        this.lastName = name[1]
+                    },
+                    get: function () {
+                        return this.firstName + ' ' + this.lastName
+                    }
+                },
+                // fullName: function () {
+                //     return this.firstName + ' ' + this.lastName
+                // }
+            }
+
+        })
+    </script>
+</body>
+
+</html>
