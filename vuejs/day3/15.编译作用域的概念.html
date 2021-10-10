@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn v-show='isShow'></cpn>
+        <!-- 组件在模板里面，且在使用变量，都是在实例里面去找 -->
+    </div>
+    <template id='cpn'>
+        <div>
+            <h2>我是子组件</h2>
+            <h1>哈哈哈</h1>
+            <button v-show='isShow'></button>
+            <!-- 在自己的组件里面去使用变量，就去自己的组件里面去找 -->
+        </div>
+    </template>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                isShow: true
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                        return {
+                            isShow:false
+                        }
+                    }
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

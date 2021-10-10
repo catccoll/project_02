@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
+    <script src="common.js"></script>
+    <script>
+        window.onload = function(){
+            ajax({
+                url:'http://39.98.112.34/szhtml2112/news.php',
+                success: function(res){
+                    if(res.code != 100){
+                        alert('网络出小差！！！');
+                        return;
+                    }
+                    let html = '';
+                    res.data.forEach(function(item){
+                        html+= `
+                        <tr>
+                            <td><a href="content.html?id=${item.id}">${item.title}</a></td>
+                        </tr>`
+                    });
+                    document.getElementById('contents').innerHTML = html;
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <table class="layui-table">
+        <colgroup>
+          <col width="150">
+          <col width="200">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>国内新闻</th>
+
+          </tr> 
+        </thead>
+        <tbody id="contents">
+      
+        </tbody>
+    </table>
+</body>
+</html>

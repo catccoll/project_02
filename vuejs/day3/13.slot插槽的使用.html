@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <cpn><button>按钮</button> </cpn>
+
+        <cpn><i>我是i标签</i></cpn>
+
+        <cpn></cpn>
+
+        <cpn>
+            <input type="text" name="" id="">
+            <input type="text" name="" id="">
+        </cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <h2>我是组件</h2>
+            <h2>我是插槽</h2>
+            <slot><button>大事件</button></slot>
+            <!--1. 预留插槽 ，2.其中也可以给默认值，如果没有给值 那就是默认值，3.如果有多个值，同时放入到组件进行替换时，一起作为替换元素-->
+        </div>
+    </template>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        //    组件插槽的目的是为了让组件有更好的扩展性
+        const app = new Vue({
+            el: '#app',
+            components: {
+                cpn: {
+                    template: '#cpn'
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

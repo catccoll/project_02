@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- -->
+        <cpn @change1='changee1' @change2='changee2' :ddnum1='dnum1' :ddnum2='dnum2'></cpn>
+        <h1>父{{dnum1}}</h1>
+        <h1>父{{dnum2}}</h1>
+    </div>
+    <template id="cpn">
+        <div>
+
+            <h2>{{num1}}</h2>
+            <input type="text" name="" id="" :value='num1' @input='iptchange1'>
+            <h2>{{num2}}</h2>
+            <input type="text" name="" id="" :value='num2' @input='iptchange2'>
+        </div>
+    </template>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            methods: {
+                changee1(s1) {
+                    this.dnum1 = s1
+                }, changee2(s2) {
+                    this.dnum2 = s2
+                }
+            },
+            data: {
+                dnum1: 1,
+                dnum2: 2
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                        return {
+                            num1: this.ddnum1,
+                            num2: this.ddnum2
+                        }
+                    },
+                    methods: {
+                        iptchange1(event) {
+                            this.num1 = event.target.value
+                            this.$emit('change1', this.num1)
+                        },
+                        iptchange2(event) {
+                            this.num2 = event.target.value
+                            this.$emit('change2', this.num2)
+                        }
+                    },
+                    props: {
+                        ddnum1: {
+                            type: Number,
+                            default() {
+
+                            },
+                            required: true
+                        },
+                        ddnum2: {
+                            type: Number,
+                            default() {
+
+                            },
+                            required: true
+                        }
+                    }
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

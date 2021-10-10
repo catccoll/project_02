@@ -31,7 +31,11 @@ var util = {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     var res = params.isJson ? JSON.parse(xhr.responseText) : xhr.responseText//看自己是否想要不是字符串的格式
-                    params.callback(res)
+                    params.success(res)
+                    // 封装promise的用法
+                    // function success(res) {
+                    //     resolve(res)
+                    // }
                 }
             }
         }
@@ -104,7 +108,7 @@ var util = {
     },
     promise1: function (url, query, isJson) {
         if (query) {
-           var str=''
+            var str = ''
             for (var i in query) {
                 str += `${i}=${query[i]}&`
             }
@@ -113,7 +117,7 @@ var util = {
         return new Promise((resolve, reject) => {
             var xhr = new XMLHttpRequest()
             xhr.open('POST', url)
-            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
             xhr.send(str)
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === 4) {

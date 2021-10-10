@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 父组件模板 -->
+    <div id="app">
+        <cpn v-on:itemclick='cpnClick'></cpn>
+    </div>
+    <!-- 子组件模板 -->
+    <template id="cpn">
+        <div>
+            <button v-for='item in categories' @click='btnClick(item)'>{{item.name}}</button>
+        </div>
+    </template>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        // 父传子 props
+        const app = new Vue({
+            el: '#app',
+            data: {
+                movies: ['海王', '海贼王', '海尔兄弟'],
+                message: '我很好'
+            },
+            methods: {
+                cpnClick(item) { 
+                    console.log(11, item); 
+                }
+            },
+            components: {//子组件
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                        return {
+                            categories: [
+                                { id: 1, name: '热门推荐' },
+                                { id: 2, name: '手机' },
+                                { id: 3, name: '家电' },
+                                { id: 4, name: '生活用品' },
+                            ]
+                        }
+                    },
+                    methods: {
+                        btnClick(item) {
+                            // 发送事件,自定义事件
+                            this.$emit('itemclick', item)
+                        }
+                    }
+
+
+
+                }
+            }
+        })
+          /*
+父子之间如何通信
+通过props向子组件传递数据
+通过事件向父组件发送消息
+*/
+    </script>
+</body>
+
+</html>

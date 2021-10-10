@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn :number1='num1' :number2='num2'></cpn>
+  
+    </div>
+    <template id="cpn">
+        <div>
+            <h2>{{number1}}</h2>
+            <input type="text" name="" id="" v-model='dnum1'>
+            <h3>{{dnum1}}</h3>
+            <h1>{{number2}}</h1>
+            <input type="text" name="" id="" v-model='dnum2'>
+            <h3>{{dnum2}}</h3>
+        </div>
+    </template>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                num1: 1,
+                num2: 2,
+            }
+            , components: {
+                cpn: {
+                    template: '#cpn',
+                    props: {
+                        number1: Number,
+                        number2: Number,
+                    }
+                    , data() {
+                        return {
+                            dnum1: this.number1,
+                            dnum2: this.number2,
+
+                        }
+                    }
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

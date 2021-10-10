@@ -29,7 +29,7 @@
     <!-- 列表评论 -->
 
     <ul class="list-group">
-       
+
     </ul>
 
     <script>
@@ -64,7 +64,7 @@
                 $.ajax({
                     method: 'POST',
                     url: 'http://www.liulongbin.top:3006/api/addcmt',
-                    data: data,
+                    data,
                     success: function (res) {
                         if (res.status !== 201) return alert('发表评论失败')
                         getM()

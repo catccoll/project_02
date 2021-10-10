@@ -10,12 +10,28 @@
 
 <body>
     <div id="app">
-        <!-- Mustache语法 -->
-        <h1>{{message}} </h1>
+        <!-- 3.使用组件 -->
+        <mycpn></mycpn>
+        <mycpn></mycpn>
+        <mycpn>
+            
+        </mycpn>
+     
     </div>
     <script src="../JS/vue.js">
     </script>
     <script>
+        // 1.创建组件构造器对象
+        const cpnC = Vue.extend({
+            template: ` <div>
+                   <h2>我是标题</h2> 
+                   <p>我是嘻嘻</p>
+                   <p>我是哈哈</p>               
+                </div> `
+        })
+        // 2.注册组件
+        Vue.component('mycpn', cpnC)
+
         const app = new Vue({
             el: '#app',
             data: {
@@ -23,6 +39,14 @@
 
             }
         })
+
+        /*
+        component 组件
+        组件的使用分成三个步骤：
+        1.创建组件构造器
+        2.注册组件
+        3.使用组件
+        */
     </script>
 </body>
 

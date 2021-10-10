@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <cpn>
+            <div slot-scope='slot'>
+                <span v-for='item in slot.data'>{{item}} - </span>
+            </div>
+        </cpn>
+        <cpn>
+            <div slot-scope='slot'>
+                <span>{{slot.data.join(' * ')}}</span>
+            </div>
+        </cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <!-- data名字不是唯一确定的 -->
+            <slot :data='pl'>
+                <ul>
+                    <li v-for='item in pl'>{{item}}</li>
+                </ul>
+            </slot>
+        </div>
+    </template>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                        return {
+                            pl: ['js', 'Swift', 'Go', 'C#', 'Python', 'Java', 'C++']
+                        }
+                    }
+                }
+            }
+
+        })
+        // 作用域插槽：父组件替换插槽的标签，但是内容由子组件来提供
+    </script>
+</body>
+
+</html>

@@ -59,6 +59,7 @@
                     url: `https://suggest.taobao.com/sug?q=${data}`,
                     dataType: 'jsonp',
                     success: function (res) {
+                        
                         fn1(res)
 
                     }
@@ -77,7 +78,7 @@
                 var arr = []
               
                 $.each(res.result, function (i, ele) {
-                    arr.push(`<div class='suggest-item'>${ele[0]}</div>`)
+                    arr.push(`<div >${ele[0]}</div>`)
 
                 })
                 $('#suggest-list').empty().append(arr.join(''))

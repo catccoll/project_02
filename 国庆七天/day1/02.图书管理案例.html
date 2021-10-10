@@ -69,6 +69,7 @@
                     arr.push(`<tr><td>${ele.id}</td><td>${ele.bookname}</td><td>${ele.author}</td><td>${ele.publisher}</td><td><a href='javascript:;' class= "del" data-id=${ele.id}>删除</a></td></tr>`)
 
                 })
+                console.log(arr);
                 $('tbody').empty().append(arr.join(','))//每次这里都要清空一下
 
             })
@@ -92,8 +93,8 @@
                 author: g2,
                 publisher: g3
             }, function (res) {
-              if(res.status!==201) return alert('添加图书失败')
-              getBook()
+                if (res.status !== 201) return alert('添加图书失败')
+                getBook()
             })
         })
 

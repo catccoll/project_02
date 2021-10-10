@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
+    <script src="common.js"></script>
+    <script>
+        window.onload = function () {
+            // 获取URL地址上ID参数确认显示的新闻时哪一篇
+            let newsId = getParam('id');
+            // 获取到登录用户的标识
+           var userId = getCookie('userId');
+
+            // 根据ID值获取到新闻的内容
+            if (!newsId) {
+                alert('非法请求，已记录Ip地址');
+            }
+            ajax({
+                url: ' http://39.98.112.34/szhtml2112/getContent.php',
+                data: {
+                    id: newsId
+                },
+                success: function (backData) {
+                    if (backData.code == 100) {
+                        // 显示内容
+                        document.querySelector('.title').innerHTML = backData.data.title;
+                        document.querySelector('.content').innerHTML = backData.data.content;
+                    }
+                }
+            });
+
+            // 获取当前新闻的评论信息
+            ajax({
+                url: 'http://39.98.112.34/szhtml2112/getComment.php',
+                data: {
+                    newsId,
+                    userId: userId ? userId : 0
+                },
+                success: function (response) {
+                    let html = '';
+                    response.data.forEach(function (item) {
+                        // 如果当前的评论是自己发布的就显示删除否则就不显示
+                        html += '<tr data-commentId="' + item.id + '"><td>' + item.content + '</td><td>';
+                        if (item.hasLike == 0) {
+                            html += '<button type="button" class="layui-btn layui-btn-xs" data-type="like">点赞</button>'
+                        }
+                        // 如果用户登录了并且当前的评论时用户所发布的就显示删除按钮
+                        if (userId && userId == item.user_id) {
+                            html += '<button data-type="delete" type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>';
+                        }
+
+                        html += '</td></tr>';
+                    });
+                    document.querySelector('#comments').innerHTML = html;
+                }
+            })
+            // 发布评论的操作
+            document.querySelector('#send').onclick = function () {
+                // 没有登录先去登录否则发送请求发布评论
+                if (!userId) {
+                    // 记录一下登录完成之后要跳转的地址
+                    localStorage.setItem('goback', 'content.html?id=' + newsId);
+                    // 目前用户没有登录
+                    location.href = 'login.html';
+                } else {
+                    // 获取到评论内容
+                    let content = document.querySelector('textarea').value;
+                    ajax({
+                        url: 'http://39.98.112.34/szhtml2112/addComment.php',
+                        methods: 'post',
+                        data: { userId, newsId, content },
+                        success: function (backData) {
+
+                            if (backData.code == 100) {
+                                // 正常发布评论，需要将评论内容显示出来
+                                let comment = document.createElement('tr');
+                                comment.setAttribute('data-commentId', backData.data.id);
+                                comment.innerHTML = '<td>' + content + '</td><td><button type="button" class="layui-btn layui-btn-xs" data-type="like">点赞</button><button type="button" class="layui-btn layui-btn-danger layui-btn-xs" data-type="delete">删除</button></td>'
+                                document.querySelector('#comments').appendChild(comment);
+                                // 发布完成后清楚已有的内容
+                                document.querySelector('textarea').value = '';
+                            }
+                        }
+                    });
+                }
+            }
+            // 删除评论
+            document.querySelector('#comments').addEventListener('click', function (event) {
+                let e = event || window.event;
+                // 获取到评论的ID
+                let commentId = e.target.parentNode.parentNode.getAttribute('data-commentId');
+
+                if (e.target.getAttribute('data-type') == 'delete') {
+                    //删除评论
+                    ajax({
+                        url: 'http://39.98.112.34/szhtml2112/deleteComment.php',
+                        data: { userId, commentId },
+                        success: function (backData) {
+                            if (backData.code == 100) {
+                                // 删除当前的tr标签
+                                // document.querySelector('#comments').removeChild(e.target.parentNode.parentNode);
+                                e.target.parentNode.parentNode.remove();
+                            }
+                        }
+                    });
+                } else if (e.target.getAttribute('data-type') == 'like') {
+                    // 点赞操作
+                    ajax({
+                        url: 'http://39.98.112.34/szhtml2112/commentLike.php',
+                        methods: 'post',
+                        data: { userId, commentId },
+                        success: function (response) {
+                            if (response.code == 100) {
+                                // 完成点赞操作需要移除按钮
+                                e.target.remove();
+                            }
+                        }
+                    })
+                }
+            })
+        }
+    </script>
+</head>
+
+<body style="padding: 20px;">
+    <h1 class="title"></h1>
+    <div class="content" style="margin: 20px; line-height: 28px;"></div>
+
+    <hr />
+    <h1>发布评论</h1>
+    <form class="layui-form" action="" style="margin-top: 10px;">
+        <div class="layui-form-item">
+            <textarea name="" required lay-verify="required" placeholder="请输入" class="layui-textarea"></textarea>
+        </div>
+        <div class="layui-form-item">
+            <button type="button" class="layui-btn" id="send">立即提交</button>
+        </div>
+    </form>
+    <table class="layui-table comment">
+        <thead>
+            <tr>
+                <th>评论列表</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="comments">
+
+        </tbody>
+    </table>
+</body>
+
+</html>
