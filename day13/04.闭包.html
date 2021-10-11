@@ -32,20 +32,17 @@
         // fn()
         function fn() {
             var num = 10
-            // function fun() {
-            //     console.log(num);
-            // }
-            // return fun //将fun这个地址返回fn fn在调用这个函数 fun就调用  fun就访问里面的变量
-            return function () {
+                // function fun() {
+                //     console.log(num);
+                // }
+                // return fun //将fun这个地址返回fn fn再调用这个函数 fun就调用  fun就访问里面的变量
+            return function() {
                 console.log(num);
             }
         }
         fn()
         var fn1 = fn()
         fn1()
-
-
-
     </script>
 </body>
 
