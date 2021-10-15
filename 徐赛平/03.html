@@ -26,35 +26,46 @@
     <img src='img/0.jpg'>
     <img src='img/0.jpg'>
     <script>
-        var img = document.querySelectorAll('img')
-        setInterval(fn
-            , 1000)
-        function fn() {
-            var date1 = new Date()
-            var h = date1.getHours()
-            h < 10 ? '0' + h : h;
-            h = h.toString()
-            var h1 = h.substr(1)
-            var h2 = h.substr(-2, 1)
+        // var img = document.querySelectorAll('img')
+        // setInterval(fn
+        //     , 1000)
+        // function fn() {
+        //     var date1 = new Date()
+        //     var h = date1.getHours()
+        //     h < 10 ? '0' + h : h;
+        //     h = h.toString()
+        //     var h1 = h.substr(1)
+        //     var h2 = h.substr(-2, 1)
 
-            var m = date1.getMinutes()
-            m = m < 10 ? '0' + m : m;
-            m = m.toString()
-            var m1 = m.substr(1)
-            var m2 = m.substr(-2, 1)
-            var s = date1.getSeconds()
-            s = s < 10 ? '0' + s : s;
-            s = s.toString()
-            var s1 = s.substr(1)
-            var s2 = s.substr(-2, 1)
-            img[0].src = `img/${parseInt(h2)}.jpg`
-            img[1].src = `img/${parseInt(h1)}.jpg`
-            img[2].src = `img/${parseInt(m2)}.jpg`
-            img[3].src = `img/${parseInt(m1)}.jpg`
-            img[4].src = `img/${parseInt(s2)}.jpg`
-            img[5].src = `img/${parseInt(s1)}.jpg`
+        //     var m = date1.getMinutes()
+        //     m = m < 10 ? '0' + m : m;
+        //     m = m.toString()
+        //     var m1 = m.substr(1)
+        //     var m2 = m.substr(-2, 1)
+        //     var s = date1.getSeconds()
+        //     s = s < 10 ? '0' + s : s;
+        //     s = s.toString()
+        //     var s1 = s.substr(1)
+        //     var s2 = s.substr(-2, 1)
+        //     img[0].src = `img/${parseInt(h2)}.jpg`
+        //     img[1].src = `img/${parseInt(h1)}.jpg`
+        //     img[2].src = `img/${parseInt(m2)}.jpg`
+        //     img[3].src = `img/${parseInt(m1)}.jpg`
+        //     img[4].src = `img/${parseInt(s2)}.jpg`
+        //     img[5].src = `img/${parseInt(s1)}.jpg`
+        // }
+        // fn()
+        let aa = null
+        function fn(a) {
+            function fn1(a) {
+                console.log(a);
+            }
+            if (!aa) {
+                aa = new fn1()
+            }
+            return aa
         }
-        fn()
+        console.log(fn(33) == fn(44));
 
     </script>
 </body>

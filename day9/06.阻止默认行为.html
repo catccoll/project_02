@@ -30,13 +30,13 @@
             console.log(e.type);
         }
         // 2.阻止默认的行为(事件)  让链接不跳转 或者提交按钮不提交
-        var a = document.querySelector('a')
-        a.addEventListener('click', fn)
-        function fn(e) {              //这个一般用于form表单里面去禁止
-            e.preventDefault()//普通版本浏览器 e.preventDefault()
-            // e.returnValue 低版本 ie678
+        // var a = document.querySelector('a')
+        // a.addEventListener('click', fn)
+        // function fn(e) {              //这个一般用于form表单里面去禁止
+        //     e.preventDefault()//普通版本浏览器 e.preventDefault()
+        //     // e.returnValue=false 低版本 ie678
 
-        }
+        // }
             // return false 也能阻止默认的行为 没有兼容性问题  传统方式注册事件才有的 a标签才有的
             // javascript：；也是阻止a标签的默认行为
     </script>

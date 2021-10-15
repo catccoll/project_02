@@ -10,6 +10,7 @@
 
 <body>
     <script>
+
         // 改变函数内的this指向 js提供了三种方法  call  apply() bind()
         //      call方法
         var o = {
@@ -20,7 +21,7 @@
             console.log(a + b);
         }
         fn.call(o, 3, 2)
-        // call的主要作用可以实现继承
+        // call的主要作用可以实现继承(借用继承)
         // call 第一个可以调用函数 第二个功能可以改变函数内的this指向
         function Father(uname, age, sex) {
             this.uname = uname,

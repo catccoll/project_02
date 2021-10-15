@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引出生命周期</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-if='a'>你好啊</h1>
+        <h2 :style="{opacity}">学习vue</h2>
+        <h3 v-bind:n='n'>当前的n值是：{{n}}</h3>
+        <!-- 绑定了就消魂不了 -->
+        <button @click='add'>点我n+1</button>
+        <button @click='xiaohun'>点我消魂vm</button>
+        <button @click='stop'>点我停止变换</button>
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        Vue.config.productionTip = false//阻止vue在启动时生成成产提示
+
+        // 关键的时间点调用关键的函数，这些关键的函数统称为生命周期函数
+
+        /*
+        生命周期：
+        1.又名：生命周期回调函数、生命周期函数、生命周期钩子
+        2.是什么：vue在关键时刻帮我们调用的一些特殊名称的函数
+        3.生命周期函数的名字不可更改，但函数的具体内容是程序员根据需求编写的
+        4.生命周期函数中的this指向是vm或组件实例对象
+        */
+        new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                opacity: 1,
+                a: false,
+                n: 1,
+                id: null
+            },
+            methods: {
+                add() {
+                    this.n++
+                    console.log(11);
+                },
+                xiaohun() {
+                    // this.$destroy()
+                    // console.log(11);
+                },
+                stop() {
+
+                }
+
+            },
+            watch: {
+                n() {
+                    console.log('n变了');
+                }
+            },
+            beforeCreate() {//创建数据监测，创建数据代理
+
+                console.log(this);
+                //debugger//分析到哪，断点打到哪
+            },
+            created() {
+                console.log(this);
+                // debugger
+            },
+            beforeMount() {
+                console.log(this);
+                // debugger
+            },
+
+            // Vue完整模板的解析并把真时的DOM元素放入页面后(完成挂载)调用mounted
+
+            mounted() {//很重要
+                this.id = setInterval(() => {
+                    this.opacity -= 0.01
+                    if (this.opacity <= 0) {
+                        this.opacity = 1
+                    }
+                }, 16);
+                // console.log(this);
+                // debugger
+            },
+            beforeUpdate() {
+                console.log(11);
+                console.log(this.n);
+                // debugger
+            },
+            updated() {
+                console.log(this.n);
+                this.n = 99
+                // debugger
+            },
+            beforeDestroy() {//很重要
+                clearInterval(this.id)
+                console.log(this.n);//处在这个生命钩子，数据和方法都可以访问到，但是页面的数据不在更新
+            },
+            destroy() {
+                console.log('销毁了');
+            },
+            // 组件特有的生命钩子
+            activated() {
+                //  组件出现在你面前  激活了
+            },
+            deactivated() { }
+            //   组件消失在你面前  失活了
+        })
+        // $nextTick
+        
+        // 函数没有返回值。返回的就是undefined
+        // 通过外部的定时器实现(不推荐)
+        // setInterval(() => {
+        //     app.opacity -= 0.01
+        //     if (app.opacity <= 0) {//小于等于是因为js不擅长加减法，万一忽略跨过了零也会执行下面的代码，所以是<=0
+        //         app.opacity = 1
+        //     }
+        // }, 16);
+
+
+        /*
+         常用的生命周期钩子:
+     1.mounted:发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】.2.beforeDestroy:清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】.
+         关于销毁Vue实例
+       1.销毁后借助Vue开发者工具看不到任何信息。
+       2.销毁后自定义事件会失效,但原生DOM事件依然有效。
+       3.一般不会在beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。
+        */
+
+    </script>
+</body>
+
+</html>

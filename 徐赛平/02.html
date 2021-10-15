@@ -59,11 +59,15 @@
 
         var right = document.querySelector('.right')
         for (var i = 0; i < right.children.length; i++) {
+            right.children[i].setAttribute('index', i)
             right.children[i].addEventListener('mouseenter', function () {
+
+                clearInterval(timer)
                 for (let i = 0; i < right.children.length; i++) {
                     right.children[i].style.opacity = 0.5
                 }
-                clearInterval(timer)
+                var index = this.getAttribute('index')
+                num = index
                 this.style.opacity = 1
                 left.children[0].src = this.src
 
@@ -71,23 +75,15 @@
         }
         for (var i = 0; i < right.children.length; i++) {
             right.children[i].addEventListener('mouseleave', function () {
-                var timer = setInterval(function () {
-
-                    if (num == 4) {
-                        num = 0
-                        left.children[0].src = `img/p1.jpeg`
-                    }
-                    num++
-                    left.children[0].src = `img/p${num}.jpeg`
-                    for (var i = 0; i < right.children.length; i++) {
-                        right.children[i].style.opacity = 0.5
-                    }
-                    right.children[num - 1].style.opacity = 1
-                }, 1000)
+                var index = this.getAttribute('index')
+                 num = index
+                var timer = setInterval(fn, 2000)
             })
         }
-        var num = 1
-        var timer = setInterval(function () {
+        var num = 0
+        var timer = setInterval(fn
+            , 2000)
+        function fn() {
             if (num == 4) {
                 num = 0
                 left.children[0].src = `img/p1.jpeg`
@@ -98,7 +94,8 @@
                 right.children[i].style.opacity = 0.5
             }
             right.children[num - 1].style.opacity = 1
-        }, 2000)
+        }
+        fn()
 
     </script>
 </body>

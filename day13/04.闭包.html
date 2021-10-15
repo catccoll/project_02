@@ -26,23 +26,32 @@
         //     var num = 10
         //     function fun() {
         //         console.log(num);
-        //     }
+        //     }`
         //     fun() //我们fun这个函数作用域访问了另外一个函数fn里面的局部变量num
         // }
         // fn()
-        function fn() {
-            var num = 10
-                // function fun() {
-                //     console.log(num);
-                // }
-                // return fun //将fun这个地址返回fn fn再调用这个函数 fun就调用  fun就访问里面的变量
-            return function() {
-                console.log(num);
+        // function fn() {
+        //     var num = 10
+        //         // function fun() {
+        //         //     console.log(num);
+        //         // }
+        //         // return fun //将fun这个地址返回fn fn再调用这个函数 fun就调用  fun就访问里面的变量
+        //     return function() {
+        //         console.log(num);
+        //     }
+        // }
+        // fn()
+        // var fn1 = fn()
+        // fn1()
+
+
+        function fn1() {
+            this.a = function() {
+                return this
             }
         }
-        fn()
-        var fn1 = fn()
-        fn1()
+        let fn2 = fn1
+        fn2()
     </script>
 </body>
 
