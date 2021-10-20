@@ -13,7 +13,8 @@
         <cpn></cpn>
         <cpn>
             <div slot-scope='slot'>
-                <span v-for='item in slot.data'>{{item}} - </span>
+            
+                       
             </div>
         </cpn>
         <cpn>
@@ -42,8 +43,9 @@
                     template: '#cpn',
                     data() {
                         return {
-                            pl: ['js', 'Swift', 'Go', 'C#', 'Python', 'Java', 'C++']
+                            pl: ['js', 'Swift', 'Go', 'C#', 'Python', 'Java', 'C++'],   message:'22'
                         }
+                     
                     }
                 }
             }

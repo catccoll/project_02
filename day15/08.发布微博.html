@@ -25,10 +25,11 @@
     <button>发布</button>
     <ul></ul>
     <script>
+        // 如果添加的是页面上存在的元素(也就是添加的是选择器append('$('p')'))，则相当于是剪切的功能
         $('button').on('click', function () {
             var text = $('input').val()
             var li = $('<li> ' + text + ' <a href="javascript:;">删除</a> </li>')
-            $('ul').prepend(li)//prepend这个是放在最前面
+            $('ul').prepend(li)//prepend这个是放在最前面还有before和after这是加在外面
             $('ul li').slideDown(500)
             $('input').val('')
             // $('a').click(function () {

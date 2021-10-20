@@ -35,11 +35,9 @@
     </ul>
 
     <script>
-
         $(function () {
             let sx = '★'
             let kx = '☆'
-
             var index = -1
             $('li').on('mouseenter', function () {
 
@@ -48,50 +46,37 @@
                 } else {
                     $(this).text(sx).prevAll().text(sx)
                 }
-
-
-
-
-
-
             })
             $('li').on('mouseleave', function () {
-
-
-
                 $('li').text(kx)
                 if (index >= 0) {
                     $('li').eq(index).text(sx).prevAll().text(sx)
                 }
-
             })
             $('li').on('click', function () {
                 index = $(this).index()
 
                 console.log(index);
-
-
-
             })
         })
-        // $('div').on({
-        //     mouseover: function () {
-        //         console.log(11);
-        //     },
-        //     mouseleave: function () {
-        //         console.log(22);
-        //     }
-        // })
-        // // $('div').off()//这个是移除了div身上所有的事件
-        // $('div').off('mouseover')//这个是解除了div身上的点击事件
-        // $('ul ').on('click', 'li', function () {
-        //     alert(11)
-        // })
-        // $('ul').off('click', 'li')//这个是解除了事件委托的方法
-        // // 2.one()这个只能触发事件一次
-        // $('p').one('click', function () {
-        //     alert(22)
-        // })
+        $('div').on({
+            mouseover: function () {
+                console.log(11);
+            },
+            mouseleave: function () {
+                console.log(22);
+            }
+        })
+        // $('div').off()//这个是移除了div身上所有的事件
+        $('div').off('mouseover')//这个是解除了div身上的点击事件
+        $('ul ').on('click', 'li', function () {
+            alert(11)
+        })
+        $('ul').off('click', 'li')//这个是解除了事件委托的方法
+        // 2.one()这个只能触发事件一次
+        $('p').one('click', function () {
+            alert(22)
+        })
     </script>
 </body>
 

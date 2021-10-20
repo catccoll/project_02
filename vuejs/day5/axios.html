@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Vue中发送网络请求有非常多的方式
+        1.传统的ajax基于XMLHttpRequest
+        2.jQuery-Ajax
+        3.Vue-resource
+        4.axios是一个框架 优点：
+               4.1.在浏览器中发送请求
+               4.2.在node.js中发送http请求
+               4.3.支持PromiseAPI
+               4.4.拦截请求和响应
+               4.5.转换请求和响应数据
+         get请求的参数写的是params:{id:2}  post是data：{key：'aa'}
+        */
+        axios.all([axios(), axios()]), then(axios.spread((res1, res2) => {
+            console.log(res1);
+            console.log(res2);
+        }))
+    //  配置相关的信息
+    // 配置默认的根路径，因为访问的时候，前面的路经都是相同的，所以可以设置一个默认的路经来减少代码
+
+ axios.defaults.baseURL='www.baidu.com'
+//  设置超时的时间
+ axios.defaults.timeout=5000
+
+    </script>
+</body>
+
+</html>

@@ -11,6 +11,11 @@
 <body>
     <script>
 
+function Box(){this.name='zhang';}
+     function Desk(){this.age=100;}
+     function Table(){this.lever=1000}
+     Desk.prototype=new Box();//通过原型链继承
+     var desk=new Desk();     var table=new Table();
     </script>
 </body>
 

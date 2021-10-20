@@ -13,34 +13,19 @@
     <button>按钮</button>
 
     <script>
-        //    bind()方法不会调用函数 ，但是能改变函数内部的this指向
-        var o = {
-            name: 'andy'
+     forEach=function (arr,fn) {
+    for(var i=0,l=arr.length;i<l;i++){
+        var c=arr[i];
+        if(fn.call(c,i,c)===false){
+            return false;
         }
-        function fn(a, b) {
-            console.log(this);
-            console.log(a + b);
-        }
-        var fn1 = fn.bind(o, 1, 2)
-        fn1()
-        // 返回的是原函数改变this之后产生的新函数
-        // 如果有的函数我们不需要立即调用 ，但是又想改变这个函数内部的this指向此时用bind
-        // var btn = document.querySelector('button')
-        // btn.onclick = function () {
-        //     btn.disabled = true
-        //     setInterval(function () {
-        //         this.disabled = false
-        //     }.bind(this), 3000)//这个this 指向的是btn这个对象
-        // }
-        var btns = document.querySelectorAll('button')
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].onclick = function () {
-                this.disabled = true
-                setInterval(function () {
-                    this.disabled = false
-                }.bind(this), 2000)
-            }
-        }
+    }
+};
+function box1(index,num) {
+    console.log(index,num);
+}
+var arr=[10,9,8,7,6,5,4];
+forEach(arr,box1)
     </script>
 </body>
 

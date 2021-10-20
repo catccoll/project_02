@@ -1,0 +1,29 @@
+@charset "UTF-8";
+h1 {
+  width: 100px;
+  height: 100px;
+}
+h1 p {
+  border: 1px solid yellow;
+  background-color: red;
+  font-size: 16px;
+}
+h1 p > i {
+  width: 200px;
+}
+h1:hover {
+  color: red;
+}
+h1 h2 {
+  border-width: 100px;
+  border-height: 100px;
+}
+h1 h3 {
+  border: 2px solid red;
+}
+
+/*！
+这是注释
+*/
+
+/*# sourceMappingURL=sass1.css.map */

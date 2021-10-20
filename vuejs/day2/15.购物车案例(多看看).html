@@ -124,11 +124,23 @@
             computed: {
                 total() {
                     let sum = 0
-                    for (let item of this.books) {
-                        sum += item.price * item.count
+                    // for of
+                    //     for (let item of this.books) {
+                    //         sum += item.price * item.count
+                    //     }
+                    //     return sum
+                    //  for in
+                    for (let i in this.books) {
+                        sum += this.books[i].price * this.books[i].count
+                    }
+                    // 普通的for循环
+                    for (let i = 0; i < this.books.length; i++) {
+                        sum += this.books[i].price * this.books[i].count
                     }
                     return sum
                 }
+
+
             }
 
 

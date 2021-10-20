@@ -1,0 +1,33 @@
+$fontSize:16px;
+@mixin fn2($a,$b,$c:red){
+    border: $a $b $c;
+}
+h1{
+    width: 100px;
+    height: 100px;
+    p{
+        border:1px solid yellow;
+        background-color: red;
+        font-size: $fontSize;
+        > i{
+        width: 200px;
+        }
+    }
+    &:hover{
+        color: red;
+    }
+    h2{
+        border: {
+          width: 100px;
+          height: 100px;
+        }
+    }
+     h3{
+        @include fn2(2px,solid)
+     }
+}
+// 单行注释不显示
+
+/*！
+这是注释
+*/

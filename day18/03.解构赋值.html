@@ -19,14 +19,18 @@
         console.log(d);//4
 
         const zhao = {
-            name: '赵本山',
+            name: {
+                age:18,
+                height:1.88,
+            },
             age: 66,
             action: function () {
                 console.log('小平');
             }
         }
-        let { name, age, action } = zhao
+        let { name:{height}, age, action } = zhao
         console.log(action);
+        console.log(height);
         action()
     </script>
 </body>
