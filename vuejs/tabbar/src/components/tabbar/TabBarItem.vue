@@ -35,7 +35,11 @@ export default {
   },
   methods:{
       itemClick(){
-         this.$router.push(this.path)//父传子
+         this.$router.push(this.path)//父传子传递过来的属性
+         console.log(
+           this.path
+         );
+         
     
       }
   }
