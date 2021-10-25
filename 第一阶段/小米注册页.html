@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/xiaomizhuceye.css" />
+	<link rel="stylesheet" href="css/xiaomidenglu.css">
+	<style type="text/css">
+		@font-face {
+			font-family: 'icomoon';
+			src: url('fonts/icomoon.eot?qnsis9');
+			src: url('fonts/icomoon.eot?qnsis9#iefix') format('embedded-opentype'),
+				url('fonts/icomoon.ttf?qnsis9') format('truetype'),
+				url('fonts/icomoon.woff?qnsis9') format('woff'),
+				url('fonts/icomoon.svg?qnsis9#icomoon') format('svg');
+			font-weight: normal;
+			font-style: normal;
+			font-display: block;
+		}
+
+		.red {
+			color: black !important;
+			border-bottom: 3px solid red;
+			font-weight: 700;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="tupian"></div>
+	<!-- 登录页面 -->
+	<div class="right">
+		<ul>
+			<li></li>
+			<li>
+				<ol>
+					<li></li>
+
+					<li><a class="regist" href="javascript:;">登录</a> <a class="login" href="javascript:;">注册</a></li>
+
+					<li><input type="text" placeholder="邮箱/手机号码/后台管理"></li>
+					<li></li>
+					<li><input type="password" placeholder="密码"></li>
+					<li><input class="checkbox" type="checkbox" name="" id="">记住密码</li>
+					<li><button >登录</button></li>
+					<li></li>
+					<li><a href="">忘记密码？</a><a href="">手机号码登录</a></li>
+					<li></li>
+					<li><a href="">其他方式登录</a></li>
+					<li></li>
+					<li><a href=""></a><a href=""></a><a href=""></a><a href=""></a></li>
+					<li></li>
+
+				</ol>
+
+			</li>
+			<li></li>
+		</ul>
+
+	</div>
+	<!-- 注册页面 -->
+	<div class="left">
+		<ul>
+			<li></li>
+			<li>
+				<ol>
+					<li></li>
+
+					<li><a class="regist" href="javascript:;">登录</a> <a class="login" href="javascript:;">注册</a></li>
+					<li><input class="mobile" name='mobile' type="text" placeholder="输入手机号码"></li>
+					<li><input class="verifyCode" type="text" placeholder="输入验证码"><button>发送验证码</button></li>
+					<li><input class="password" type="password" placeholder="输入密码"></li>
+					<li></li>
+					<li><button>注册</button></li>
+					<li></li>
+
+				</ol>
+
+			</li>
+			<li></li>
+		</ul>
+
+	</div>
+</body>
+
+</html>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/loginregist.js"> </script>
+<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="./js/common.js"></script>
+<script>
+	document.querySelector('.left').style.display = 'none'
+</script>

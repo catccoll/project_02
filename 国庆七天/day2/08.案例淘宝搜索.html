@@ -75,8 +75,9 @@
             }
             //渲染ui结构
             function fn1(res) {
+                console.log(res);
                 var arr = []
-              
+     
                 $.each(res.result, function (i, ele) {
                     arr.push(`<div >${ele[0]}</div>`)
 

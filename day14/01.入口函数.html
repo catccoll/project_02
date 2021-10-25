@@ -17,6 +17,7 @@
 </head>
 
 <body>
+ 
     <script>
         // 常见的JavaScript库
         // jQuery
@@ -43,7 +44,109 @@
 
         //  等着DOM结构渲染完毕即可执行内部代码 不必等到所有外部资源加载完成，Jquery帮我们完成了封装
         // 相当于js中的DOMContentLoaded
-        // 不同于js中的load事件等页面文档，外部的js文件，css文件，图片加载完毕才执行内部代码
+        // 不同于js中的load事件等页面文档，外部的js文件，css文件，图片加载完毕才执行内部代码   {
+        "count": 4,
+        "data": [
+            {
+                "id": 1,
+                "cateName": "家用电器",
+                "icon": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f33903e1162959f500360a39896f2306.png?thumb=1&w=40&h=40&f=webp&q=90",
+                "parentId": 0,
+                "children": [
+                    {
+                        "id": 3,
+                        "cateName": "电视",
+                        "icon": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c89e7b3a3495acaa0a4df271d9da59ea.png?thumb=1&w=40&h=40&f=webp&q=90",
+                        "parentId": 1,
+                        "children": [
+                            {
+                                "id": 10,
+                                "cateName": "全屏电视",
+                                "icon": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/d3bace6e62cecb7901e306b05502535f.jpg?thumb=1&w=40&h=40",
+                                "parentId": 3
+                            },
+                            {
+                                "id": 11,
+                                "cateName": "教育电视",
+                                "icon": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d219d8b9c4a74eda4ae6c0222d194cd2.png?thumb=1&w=40&h=40&f=webp&q=90",
+                                "parentId": 3
+                            },
+                            {
+                                "id": 12,
+                                "cateName": "4K超清",
+                                "icon": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1c0d83dd59a3dd91372d867864b35554.png?thumb=1&w=40&h=40&f=webp&q=90",
+                                "parentId": 3
+                            }
+                        ]
+                    },
+                    {
+                        "id": 4,
+                        "cateName": "空调",
+                        "icon": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7b7e7228d1708665b7e6fe5e07ad4929.png?thumb=1&w=40&h=40&f=webp&q=90",
+                        "parentId": 1,
+                        "children": [
+                            {
+                                "id": 13,
+                                "cateName": "中央空调",
+                                "icon": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/970c6b287eb89620f5ee8e2b347f6f3d.png?thumb=1&w=40&h=40&f=webp&q=90",
+                                "parentId": 4
+                            },
+                            {
+                                "id": 14,
+                                "cateName": "变频空调",
+                                "icon": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/39c8ccbebd08687bc6780373b7ef2a95.jpg?thumb=1&w=40&h=40",
+                                "parentId": 4
+                            },
+                            {
+                                "id": 15,
+                                "cateName": "一级能效",
+                                "icon": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f7f39b7ac49227fc59c3f2b2105d25d6.jpg?thumb=1&w=40&h=40&f=webp&q=90",
+                                "parentId": 4
+                            }
+                        ]
+                    },
+                    {
+                        "id": 8,
+                        "cateName": "洗衣机",
+                        "icon": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ab956ee82c24bdd83d21bc212aad3eb5.png?thumb=1&w=40&h=40&f=webp&q=90",
+                        "parentId": 1
+                    },
+                    {
+                        "id": 6,
+                        "cateName": "冰箱",
+                        "icon": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fa2bae1f43611e80a8e4877719c76bdb.png?thumb=1&w=40&h=40&f=webp&q=90",
+                        "parentId": 1
+                    },
+                    {
+                        "id": 9,
+                        "cateName": "生活电器",
+                        "icon": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b656495821144d92bd932d91eedcf659.png?thumb=1&w=40&h=40&f=webp&q=90",
+                        "parentId": 1
+                    }
+                ]
+            },
+            {
+                "id": 16,
+                "cateName": "电脑办公",
+                "icon": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/d3bace6e62cecb7901e306b05502535f.jpg?thumb=1&w=40&h=40",
+                "parentId": 0
+            },
+            {
+                "id": 17,
+                "cateName": "男装女装",
+                "icon": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/067f4a6f0ffb264ed40734a97deae52d.jpg?thumb=1&w=40&h=40",
+                "parentId": 0
+            },
+            {
+                "id": 2,
+                "cateName": "手机",
+                "icon": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ab956ee82c24bdd83d21bc212aad3eb5.png?thumb=1&w=40&h=40&f=webp&q=90",
+                "parentId": 0
+            }
+        ],
+        "msg": "ok",
+        "code": 0
+    }
     </script>
     <div></div>
 

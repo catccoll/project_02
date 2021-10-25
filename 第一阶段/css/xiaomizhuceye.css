@@ -1,0 +1,235 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+em,
+i {
+	font-style: normal;
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	border: 0;
+	vertical-align: middle;
+}
+
+button {
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+button,
+input {
+	border: 0;
+	outline: none;
+	font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+}
+
+.clearfix:after {
+
+	content: ".";
+
+	display: block;
+
+	clear: both;
+
+	height: 0;
+
+	visibility: hidden;
+
+}
+
+body,
+html {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	height: 100%;
+}
+
+.tupian {
+	width: 375px;
+
+	height: 100%;
+	background: url(../images/小米注册_01.gif) no-repeat;
+	background-size: 100% 100%;
+}
+
+.right {
+	flex: 1;
+	background-color: #FFFFFF;
+	display: flex;
+
+}
+
+.right ul {
+	display: flex;
+	flex: 1;
+}
+
+.right ul li:nth-child(1) {
+	flex: 0.31;
+
+}
+
+.right ul li:nth-child(2) {
+	flex: 0.36;
+	background-color: #fefefe;
+	display: flex;
+}
+
+.right ul li:nth-child(3) {
+	flex: 0.33;
+
+}
+
+.right ul li:nth-child(2) ol {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(1) {
+	flex: 0.095;
+
+}
+
+.right ul li:nth-child(2) ol li:nth-child(2) {
+	display: flex;
+	flex: 0.125;
+	position: relative;
+	font-size: 22px;
+	align-items: center;
+
+}
+
+.right ul li:nth-child(2) ol li:nth-child(2) a {
+	color: #bbc1d3;
+	display: block;
+	margin-right: 20px;
+}
+.right ul li:nth-child(2) ol li:nth-child(2) a:nth-child(1) {color: black;
+	border-bottom: 3px solid red;
+	font-weight: 700;
+	
+}
+
+
+.right ul li:nth-child(2) ol li:nth-child(3) {
+	flex: 0.110;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(3) input {
+	width: 100%;
+	height: 100%;
+	background-color: #f9f9f9;
+	color: #bbc1d3;
+	padding-left: 20px;
+	font-size: 17px;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(4) {
+	flex: 0.025;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(5) input {
+	width: 100%;
+	height: 100%;
+	background-color: #f9f9f9;
+	color: #bbc1d3;
+	padding-left: 20px;
+	font-size: 17px;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(5) {
+	flex: 0.110;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(6) {
+	flex: 0.025;
+	margin: 20px 0;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(7) {
+
+	font-size: 20px;
+	flex: 0.095;
+
+	
+}
+
+.right ul li:nth-child(2) ol li:nth-child(7) button {
+	width: 100%;
+	height: 100%;
+	background-color: #f2ba9b;
+	color: white;
+	padding-left: 20px;
+	font-size: 19px;
+border-radius: 5px;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(8) {
+	flex: 0.025;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(9) {
+	flex: 0.037;
+	display: flex;
+	justify-content: space-between;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(9) a {
+	color: #e8592a;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(10) {
+	flex: 0.167;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(11) {
+	flex: 0.041;
+	text-align: center;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(11) a {
+	color: #adadad;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(12) {
+	flex: 0.025;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(13) {
+	flex: 0.079;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 0 80px;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(13) a {
+	font-family: 'icomoon';
+	color: #e85d5c;
+	font-size: 40px;
+}
+
+.right ul li:nth-child(2) ol li:nth-child(2)::after {
+	position: absolute;
+	content: '';
+	width: 64px;
+	height: 64px;
+	background: url(../images/小米注册_05.gif) no-repeat;
+	background-size: 100% auto;
+	right: 0;
+	top: -25px;
+}

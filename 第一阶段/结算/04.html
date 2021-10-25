@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/jquery.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: auto;
+            text-decoration: none;
+            list-style: none;
+            font-size: 12px;
+            background-color: #F5F5F5;
+        }
+
+        .shoppingBar {
+            width: 1130px;
+            border: 2px solid #F5F5F5;
+            margin: 40px auto;
+            position: relative;
+            background-color: white;
+            font-size: 16px;
+        }
+
+        .shoppingBar h2 {
+            height: 60px;
+            line-height: 60px;
+            color: black;
+            text-indent: 40px;
+        }
+
+        .shoppingBar table {
+            width: 100%;
+            margin-bottom: 60px;
+        }
+
+        .shoppingBar table .money {
+            color: red;
+        }
+
+        .shoppingBar table .commodity {
+            border: 3px solid #F5F5F5;
+            height: 150px;
+        }
+
+        .shoppingBar>table tr th input {
+            width: 25px;
+            height: 25px;
+            margin-left: 30px;
+        }
+
+        .shoppingBar table tr:first-of-type {
+            height: 80px;
+            color: #424242;
+            font-size: 14px;
+            border-top: 1px solid #F5F5F5;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .shoppingBar table tr th img {
+            width: 120px;
+            height: 100px;
+            float: left;
+        }
+
+        .shoppingBar table tr th p {
+            float: right;
+            width: 100px;
+            font-size: 18px;
+            color: #424242;
+        }
+
+        .shoppingBar table tr .content {
+            width: 220px;
+            padding: 0 100px;
+        }
+
+        .shoppingBar table tr #delete {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .shoppingBar table tr #delete:hover {
+            color: red;
+        }
+
+        .shoppingBar .shoppingBar-footer {
+            border: 1px solid #F5F5F5;
+            width: 1130px;
+            height: 60px;
+            position: absolute;
+            margin-top: 10px;
+            color: #757575;
+            font-size: 14px;
+            background-color: white;
+        }
+
+        .shoppingBar .shoppingBar-footer .manage {
+            float: left;
+            height: 40px;
+        }
+
+        .shoppingBar .shoppingBar-footer .manage .delAll,
+        .return {
+            cursor: pointer;
+            background: #F5F5F5;
+            color: #757575;
+            line-height: 60px;
+            margin: 0px 30px;
+        }
+
+        .shoppingBar .shoppingBar-footer .manage .delAll,
+        .return:hover {
+            color: #FF6700;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .shoppingBar .shoppingBar-footer .buy {
+            float: right;
+            height: 40px;
+            line-height: 60px;
+        }
+
+        .shoppingBar .shoppingBar-footer #go {
+            float: right;
+            height: 60px;
+            width: 110px;
+            font-weight: 400;
+            font-size: 18px;
+            outline: none;
+            background-color: #E0E0E0;
+            border: none;
+            border-radius: 2px;
+            margin-left: 10px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .shoppingBar .shoppingBar-footer .active {
+            background-color: #FF6700;
+        }
+
+        .shoppingBar .shoppingBar-footer .buy span {
+            font-weight: bold;
+            font-size: 30px;
+            color: red;
+        }
+
+        .shoppingBar .shoppingBar-footer #go:hover {
+            background-color: red;
+            transition: all 0.5s ease 0s;
+        }
+
+        a {
+            text-decoration: none;
+            color: #FF6700;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="shoppingBar">
+            <h2>购物清单</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th><input type="checkbox" title="全选" class="g6"></th>
+                        <th>商品名称</th>
+                        <th>数量</th>
+                        <th>单价（元）</th>
+                        <th>金额（元）</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr class="commodity">
+                        <th><input type="checkbox" class="input" value="1"></th>
+                        <th class="content"><img src="img/c1.png" width="100px" height="100px">
+                            <p>电视机 </p>
+                        </th>
+                        <th><button type="button" class="g1">
+                                -
+                            </button> <span class='g3'>
+                                1
+                            </span> <button type="button" class="g2">
+                                +
+                            </button></th>
+                        <th class="g4">
+                            200
+                        </th>
+                        <th class="money">
+                            200
+                        </th>
+                        <th><a href="javascript:;" class="glyphicon">删除
+                            </a></th>
+                    </tr>
+                    <tr class="commodity">
+                        <th><input type="checkbox" class="input" value="2"></th>
+                        <th class="content"><img src="img/c2.png" width="100px" height="100px">
+                            <p>洗衣机 </p>
+                        </th>
+                        <th><button type="button" class="g1">
+                                -
+                            </button> <span class="g3">
+                                1
+                            </span> <button type="button" class="g2">
+                                +
+                            </button></th>
+                        <th class="g4">
+                            150
+                        </th>
+                        <th class="money">
+                            150
+                        </th>
+                        <th><a href="javascript:;" class="glyphicon">删除
+                            </a></th>
+                    </tr>
+                    <tr class="commodity">
+                        <th><input type="checkbox" class="input" value="3"></th>
+                        <th class="content"><img src="img/c3.png" width="100px" height="100px">
+                            <p>冰箱 </p>
+                        </th>
+                        <th><button type="button" class="g1">
+                                -
+                            </button> <span class="g3">
+                                1
+                            </span> <button type="button" class="g2">
+                                +
+                            </button></th>
+                        <th class="g4">
+                            100
+                        </th>
+                        <th class="money">
+                            100
+                        </th>
+                        <th><a href="javascript:;" class="glyphicon ">删除
+                            </a></th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="shoppingBar-footer">
+                <div class="manage"><span class="delAll">
+                        删除所选商品
+                    </span> <span class="return">
+                        继续购物
+                    </span></div> <button id="go" type="button">
+                    去结算
+                </button>
+                <div class="buy"><span class="g5">
+                        0
+                    </span>
+                    件商品总计:
+                    <span class="g6">
+                        ￥0
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $('.g2').click(function () {
+            var num = parseInt($(this).siblings('.g3').text())
+
+            num++
+            $(this).siblings('.g3').text(num)
+            var num4 = parseInt($(this).parent().siblings('.g4').text())
+            $(this).parent().siblings('.money').text(num4 * num)
+            fn()
+        })
+
+        $('.g1').click(function () {
+            var num = parseInt($(this).siblings('.g3').text())
+            if (num <= 1) {
+                alert('这是最小了')
+                $(this).siblings('.g3').text(1)
+            }
+            else {
+                num--
+                $(this).siblings('.g3').text(num)
+                var num4 = parseInt($(this).parent().siblings('.g4').text())
+                $(this).parent().siblings('.money').text(num4 * num)
+            }
+            fn()
+        })
+        function fn() {
+            var num2 = 0
+            var num3 = 0
+            $('.g3').each(function (index, ele) {
+                num2 += parseInt($(ele).text())
+            })
+            $('.g5').text(num2)
+            $('.money').each(function (index, ele) {
+                num3 += parseInt($(ele).text())
+            })
+            $('.g6').text(num3)
+        }
+        fn()
+        $('.glyphicon').click(function () {
+            $(this).parents('.commodity').remove()
+            fn()
+        })
+        $('.g6').change(function () {
+            if ($(this).prop('checked')) {
+                $('.input').prop('checked', true)
+            }
+            else {
+                $('.input').prop('checked', false)
+            }
+        })
+        $('.input').change(function () {
+            if ($('.input:checked').length === 3) {
+                $('.g6').prop('checked', true)
+            }
+            else {
+                $('.g6').prop('checked', false)
+            }
+        })
+        $('.delAll').click(function () {
+                  $('.input:checked').parents('.commodity').remove()
+                  fn()
+        })
+
+    })
+  
+</script>
+
+</html>

@@ -1,0 +1,356 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+em,
+i {
+	font-style: normal;
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	border: 0;
+	vertical-align: middle;
+}
+
+button {
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+
+button,
+input {
+	border: 0;
+	outline: none;
+
+	font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+}
+
+.clearfix:after {
+
+	content: ".";
+
+	display: block;
+
+	clear: both;
+
+	height: 0;
+
+	visibility: hidden;
+
+}
+
+#box1 {
+	height: 100px;
+	width: 100%;
+}
+
+.main {
+	margin: 0 auto;
+	width: 1102px;
+}
+
+#box1 .main {
+	height: 100%;
+	padding-top: 29px;
+	position: relative;
+}
+
+#box1 .main h1 a {
+	display: block;
+	width: 205px;
+	height: 49px;
+	background: url(../images/扣丁课堂1_03.gif) no-repeat;
+	font-size: 0;
+	vertical-align: middle;
+
+}
+
+#box1 .main .search {
+	width: 298px;
+	height: 52px;
+	border: 1px solid #ccc;
+	position: absolute;
+	top: 27px;
+	right: 0;
+
+}
+
+#box1 .main .search input {
+	float: left;
+	width: 247px;
+	border-right: 1px solid #ccc;
+	height: 50px;
+}
+
+#box1 .main .search button {
+	font-family: 'icomoon';
+	float: left;
+	width: 49px;
+	height: 50px;
+	background-color: white;
+	font-size: 20px;
+
+}
+
+#box2 {
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	background-color: #2b2b2b;
+}
+
+#box2 .main {
+	height: 100%;
+}
+
+#box2 .main ul li {
+	float: left;
+}
+
+#box2 .main ul li a {
+	display: block;
+	height: 60px;
+	width: 120px;
+	color: white;
+	text-align: center;
+	border-right: 1px solid #4a4a4a;
+}
+
+#box2 .main ul li:nth-child(9) a {
+	border-right: 0;
+}
+
+#box3 {
+	height: 434px;
+	width: 100%;
+}
+
+#box3 img {
+	width: 100%;
+	height: 100%;
+}
+
+#box4 {
+	width: 100%;
+	height: 282px;
+
+}
+
+#box4 .main {
+	height: 100%;
+	position: relative;
+}
+
+#box4 .main dl {
+	width: 492px;
+	padding-top: 34px;
+	float: left;
+}
+
+#box4 .main dl span {
+	float: right;
+}
+
+#box4 .main dl dt {
+	margin-bottom: 18px;
+}
+
+#box4 .main dl dd {
+	font-size: 12px;
+	color: black;
+	line-height: 23px;
+}
+
+#box4 .main dl dd a {
+	color: black;
+}
+
+#box4 .main ul {
+	width: 351px;
+	height: 253px;
+	background-color: #f5f5f5;
+	padding: 34px 42px 38px 27px;
+	margin-left: 20px;
+	float: left;
+}
+
+#box4 .main ul li:nth-child(2) {
+	margin-bottom: 20px;
+}
+
+#box4 .main ul li:nth-child(1) {
+	margin-bottom: 18px;
+}
+
+#box4 .main ul li:nth-child(n+2) a {
+	font-size: 12px;
+	color: black;
+	line-height: 22px;
+}
+
+#box4 .main ul li:nth-child(3) a {
+	color: #bababa;
+}
+
+#box4 .main ol {
+	width: 239px;
+	padding: 34px 0 0 27px;
+	background-color: #fbfbfb;
+	float: left;
+	height: 253px;
+}
+
+#box4 .main ol li:nth-child(1) {
+	margin-bottom: 18px;
+}
+
+#box4 .main ol li:nth-child(1) {
+	line-height: 24px;
+	font-size: 12px;
+}
+
+#box4 .main ol li:nth-child(2) a {
+	color: #717171;
+}
+
+#box4 .main ol li:nth-child(3) a {
+	display: block;
+	width: 70px;
+	height: 18px;
+	background-color: #b0b0b0;
+	color: white;
+	font-size: 5px;
+	text-align: center;
+	line-height: 18px;
+	border-radius: 4px;
+	margin-top: 50px;
+}
+
+#box4 .main ol li:nth-child(3) a::after {
+	content: '\eba1';
+	font-family: 'icomoon';
+}
+
+#box4 .main .tu {
+	position: absolute;
+	right: 0;
+	top: 130px;
+}
+
+#box5 {
+	width: 100%;
+	height: 286px;
+	background-color: #f5f5f5;
+	padding: 45px 22px 45px 25px;
+}
+
+#box5 .main {
+	background-color: white;
+	height: 100%;
+	padding: 21px 36px 19px 20px;
+}
+
+#box5 .main .pian {
+	float: left;
+	margin-right: 26px;
+}
+
+#box5 .main ul {
+	float: left;
+}
+
+#box5 .main ul li {
+	width: 696px;
+}
+
+#box5 .main ul li:nth-child(2) {
+	font-size: 14px;
+	margin: 18px 0;
+}
+
+#box5 .main ul li:nth-child(2) span {
+	color: #63a450;
+	display: inline-block;
+	margin: 0 44px 0 20px;
+}
+
+#box5 .main ul li:nth-child(3) {
+	font-size: 15px;
+	line-height: 23px;
+	color: #9e978f;
+}
+
+#box6 {
+	height: 418px;
+	width: 100%;
+}
+
+#box6 .main {
+	height: 100%;
+}
+
+#box6 .main .shu {
+	height: 80px;
+	border-bottom: 1px solid #ccc;
+	line-height: 95px;
+	width: 100%;
+	overflow: hidden;
+}
+
+#box6 .main .shu h1 {
+	float: left;
+	font-size: 22px;
+}
+
+#box6 .main .shu p {
+	float: right;
+	
+}
+#box6 .main .shu p  a{color: red;}
+#box6 .main .shu p::after {
+	content: '\fc8d';
+	font-family: 'icomoon';
+	color: red;
+}
+
+#box6 .main ul {
+	width: 263px;
+	height: 295px;
+	background-color: #eff3f6;
+	padding: 22px 20px 0 20px;
+	float: left;
+	margin-right: 16px;
+
+
+}
+#box6 .main ul:nth-of-type(4){margin-right: 0;}
+#box6 .main ul li:nth-child(1){text-align: center;}
+#box6 .main ul li:nth-child(2) {
+	margin-top: 14px;text-align: center;
+}
+
+#box6 .main ul li:nth-child(3) {
+	width: 144px;
+	height: 27px;
+	color: white;
+	background: #61a0fd;
+	text-align: center;
+	line-height: 27px;
+	margin: 10px auto 15px;
+	font-size: 14px;
+}
+#box6 .main ul li:nth-child(4){width: 100%;height: 1px;background-color: #CCCCCC; margin-bottom: 14px;}
+#box6 .main ul li:nth-child(5){font-size: 12px;color: #5a645b;line-height: 24px;}
+#box7{width: 100%;height: 126px;background-color: #111b24;text-align: center;color: #9a959b;font-size: 14px;padding-top:40px;}
+#box7 p{line-height: 27px;}

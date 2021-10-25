@@ -1,0 +1,235 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+em,
+i {
+	font-style: normal;
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	border: 0;
+	vertical-align: middle;
+}
+
+button {
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+button,
+input {
+	border: 0;
+	outline: none;
+	font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+}
+
+.clearfix:after {
+
+	content: ".";
+
+	display: block;
+
+	clear: both;
+
+	height: 0;
+
+	visibility: hidden;
+
+}
+
+body,
+html {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	height: 100%;
+}
+
+.tupian {
+	width: 375px;
+
+	height: 100%;
+	background: url(../images/小米注册_01.gif) no-repeat;
+	background-size: 100% 100%;
+}
+
+.left {
+	flex: 1;
+	background-color: #FFFFFF;
+	display: flex;
+
+}
+
+.left ul {
+	display: flex;
+	flex: 1;
+}
+
+.left ul li:nth-child(1) {
+	flex: 0.31;
+
+}
+
+.left ul li:nth-child(2) {
+	flex: 0.36;
+	background-color: #fefefe;
+	display: flex;
+}
+
+.left ul li:nth-child(3) {
+	flex: 0.33;
+
+}
+
+.left ul li:nth-child(2) ol {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(1) {
+	flex: 0.095;
+
+}
+
+.left ul li:nth-child(2) ol li:nth-child(2) {
+	display: flex;
+	flex: 0.125;
+	position: relative;
+	font-size: 22px;
+	align-items: center;
+
+}
+
+.left ul li:nth-child(2) ol li:nth-child(2) a {
+	color: #bbc1d3;
+	display: block;
+	margin-left: 20px;
+}
+
+
+
+.left ul li:nth-child(2) ol li:nth-child(3) {
+	flex: 0.110;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(3) input {
+	width: 100%;
+	height: 100%;
+	background-color: #f9f9f9;
+	color: #bbc1d3;
+	padding-left: 20px;
+	font-size: 17px;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(4) {
+	flex: 0.110;
+    margin: 30px 0;
+}
+.left ul li:nth-child(2) ol li:nth-child(4) input {
+	width: 60%;
+	height: 100%;
+	background-color: #f9f9f9;
+	color: #bbc1d3;
+	padding-left: 20px;
+	font-size: 17px;
+}
+.left ul li:nth-child(2) ol li:nth-child(4) button {
+	width: 40%;
+	height: 100%;
+	background-color: #f9f9f9;
+	color: #bbc1d3;
+	
+	font-size: 17px;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(5) input {
+	width: 100%;
+	height: 100%;
+	background-color: #f9f9f9;
+	color: #bbc1d3;
+	padding-left: 20px;
+	font-size: 17px;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(5) {
+	flex: 0.110;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(6) {
+	flex: 0.025;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(7) {
+
+	font-size: 20px;
+	flex: 0.095;
+
+	
+}
+
+.left ul li:nth-child(2) ol li:nth-child(7) button {
+	width: 100%;
+	height: 100%;
+	background-color: #f2ba9b;
+	color: white;
+	padding-left: 20px;
+	font-size: 19px;
+border-radius: 5px;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(8) {
+	flex: 0.025;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(9) {
+	flex: 0.037;
+	display: flex;
+	justify-content: space-between;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(9) a {
+	color: #e8592a;
+}
+
+
+
+.left ul li:nth-child(2) ol li:nth-child(11) {
+	flex: 0.041;
+	text-align: center;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(11) a {
+	color: #adadad;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(12) {
+	flex: 0.025;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(13) {
+	flex: 0.079;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 0 80px;
+}
+
+.left ul li:nth-child(2) ol li:nth-child(13) a {
+	font-family: 'icomoon';
+	color: #e85d5c;
+	font-size: 40px;
+}
+
