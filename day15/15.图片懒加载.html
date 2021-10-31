@@ -11,7 +11,19 @@
 <body>
     <script>
 // 图片懒加载 (图片使用延时加载可提高网页下载速度。他能帮助减轻服务器负载),当我们页面滑动到可视区域，再加载图片
- 
+forEach=function (arr,fn) {
+    for(var i=0,l=arr.length;i<l;i++){
+        var c=arr[i];
+        if(fn.call(c,i,c)===false){
+            return false;
+        }
+    }
+};
+function box1(index,num) {
+    console.log(index,num);
+}
+var arr=[10,9,8,7,6,5,4];
+forEach(arr,box1)
     </script>
 </body>
 

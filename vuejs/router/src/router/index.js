@@ -23,7 +23,7 @@ const routes = [
 
     // 这就是懒加载的形式  profile “档案”
     component: () => import('../components/Home'),
-    meta:{title:'首页'},//描述数据的数据meta
+    meta:{title:'首页'},//描述路由组件的数据meta
     children: [
       // {
       //   path: '',
@@ -73,9 +73,7 @@ router.beforeEach((to,from,next)=>{
 })
 //全局后置钩子
 // router.afterEach((to,from)=>{
-
 // })
-
 // 3.将router对象传入到Vue实例
 export default router
 
