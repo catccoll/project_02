@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 80px;
+            width: 80px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 准备好一个"容器" -->
+    <div id="test"></div>
+
+    <!-- 引入react核心库 -->
+    <script src="../js/react.development.js"></script>
+
+    <!-- 引入react-dom，用于支持react操作Dom -->
+    <script src="../js/react-dom.development.js"></script>
+
+    <!-- 引入babel，用于将jsx转化为js -->
+    <script src="../js/babel.min.js"></script>
+
+    <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
+    <script type="text/babel">
+        function getSizImage(imgUrl, size) {
+            // 这方法可以改变服务器提供给你的图片大小
+            return `${imgUrl}?param=${size}*${size}`
+        }
+        class App extends React.Component {
+            state = {
+                title: '标题',
+                imgUrl: "https://img2.baidu.com/it/u=1945464906,1635022113&fm=26&fmt=auto",
+                link: 'http://www.baidu.com',
+                    isBox:false,
+                    active:true
+            }
+            render() {
+                return (
+                    <div>
+                        {/*每一个标签都有一个title属性*/}
+                        <h2 title={this.state.title}>我是标题</h2>
+                        {/*这里可以调用class外面的函数 ，牛逼*/}
+                        <img src={getSizImage(this.state.imgUrl, 60)} alt="" />
+                        <a href={this.state.link} target="blank">百度一下</a>
+
+
+                        {/*绑定class*/}
+                        <div className='box'>我是div元素</div>
+                        <div className={"box " + (this.state.active?' box1':'')}>我是div元素</div>
+                        <div className={this.state.isBox?"box":''}>我也是div元素</div>
+                         
+
+                        {/*绑定style*/} 
+                        <div style={{color:'red',fontSize:"50px"}}>我是超人</div>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('test'))
+    </script>
+
+</body>
+
+</html>

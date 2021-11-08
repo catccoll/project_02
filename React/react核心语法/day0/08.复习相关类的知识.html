@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 创建一个Person类
+        class Person {
+            // 构造器方法
+            constructor(name, age) {
+                // 构造器中的this是谁——类的实例对象
+                this.name = name
+                this.age = age
+            }
+            // 一般方法
+            speak() {
+                //    speak方法放在了哪里？——类的原型对象上,供实例使用
+                // 通过Person实例调用speak时，speak中的this指向的是实例 
+                console.log(this.name, this.age);
+
+            }
+        }
+        const person = new Person('tom', 18)
+        const person1 = new Person('sai', 19)
+        console.log(person, person1);
+
+
+
+        // 创建一个Student类，继承于Person
+        class Student extends Person {
+            constructor(name, age, height) {
+                super(name, age)//这里面的参数写的是共有的属性，且这放在首位
+                this.height = height
+                this.school = '千峰'//每一个new出来的实例对象都有这个school属性
+            }
+            speak() {
+                console.log(this.name, this.age, this.height);
+            }
+        }
+        // 当继承的时候，他也会把构造器里面的内容继承过来，当想要有自己的独有属性时，还可以自己一个构造器
+        const s1 = new Student('lisi', 15, 1.99)
+        console.log(s1);
+        console.log(s1.height);
+        s1.speak()//就近原则,
+        /*
+        1.类中的构造器不是必须写的，要对实例进行一些初始化的操作，如添加指定的属性时，才写，
+        2.如果A类继承了B类，且A类中写了构造器，nameA类构造器中的super是必须调用的
+        3.类中所定义的方法，都是放在了类的原型对象上，供实例对象去使用
+        */
+        class Car {
+            constructor(name, price) {
+                this.name = name
+                this.price = price
+
+            }
+            //    类中可以直接写赋值语句，如下的代码含义是：给car的实例对象添加一个属性，名为wheel，值为4
+            wheels = 4//这个是往Car new 实例对象身上加属性
+            static demo = 100  //这种方式是往构造函数Car身上加属性
+        }
+        const c1 = new Car('奔驰c63', 199)
+        console.log(c1);
+        console.log(Car.demo);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr1 = [1, 2, 3]
+        arr2 = [4, 5, 6]
+        console.log(...arr1);//展开一个数组
+        let = arr3 = [...arr1, ...arr2]//连接数组
+        console.log(arr3);
+
+
+        //    在函数中使用    
+        function sum(...numbers) {//numbers得到的是一个数组
+            return numbers.reduce((preValue, item) => {
+                return preValue + item
+            }, 0)
+        }
+        console.log(sum(1, 2, 3, 4));
+
+
+
+
+        //  构造字面量对象时使用展开语法
+        let person = { name: 'tom', age: 18 }
+        // console.log(...person);//报错 ，扩展运算符不能展开对象
+        let person2 = { ...person }//外面要包一个花括号
+        person2.name = '小三'
+        console.log(person2);
+
+        //   合并
+        let person3 = { ...person, name: 'jack', address: '地球' }
+        console.log(person3);
+    </script>
+</body>
+
+</html>

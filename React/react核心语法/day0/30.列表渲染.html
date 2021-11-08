@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 准备好一个"容器" -->
+    <div id="test"></div>
+
+    <!-- 引入react核心库 -->
+    <script src="../js/react.development.js"></script>
+
+    <!-- 引入react-dom，用于支持react操作Dom -->
+    <script src="../js/react-dom.development.js"></script>
+
+    <!-- 引入babel，用于将jsx转化为js -->
+    <script src="../js/babel.min.js"></script>
+
+    <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
+    <script type="text/babel">
+        class App extends React.Component {
+            state = {
+                movies: ['海王', '大海', '我不知道了'],
+                numbers: [110, 555, 666, 445, 2, 1, 66, 33,99,55,16]
+            }
+            render() {
+                const { movies, numbers } = this.state
+                return (
+                    <div>
+                        <ul>
+                            {movies.map((ele, index) => {
+                                return <li>{ele}</li>
+                            })}
+                        </ul>
+                        <h2>数字列表</h2>
+                        {numbers.filter((ele, index) => {
+                            {/*   ele %2 ==0  代表的就是偶数*/ }
+                            return ele >= 50
+                        }).map((ele, index) => {
+                            return <li>{ele}</li>
+                        })}
+                        <h2>数字列表(截取)</h2>
+                        {numbers.splice(0,8).map((ele)=>{
+                            return <li>{ele}</li>
+                        })}
+                       
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('test'))
+    </script>
+
+</body>
+
+</html>

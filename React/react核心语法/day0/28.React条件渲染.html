@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 准备好一个"容器" -->
+    <div id="test"></div>
+
+    <!-- 引入react核心库 -->
+    <script src="../js/react.development.js"></script>
+
+    <!-- 引入react-dom，用于支持react操作Dom -->
+    <script src="../js/react-dom.development.js"></script>
+
+    <!-- 引入babel，用于将jsx转化为js -->
+    <script src="../js/babel.min.js"></script>
+
+    <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
+    <script type="text/babel">
+        class App extends React.Component {
+            state = {
+                isLogin: true
+            }
+            render() {
+                const { isLogin } = this.state
+                //方案一、 通过if判断(适合逻辑代码非常多的情况下)
+                let welcome = null
+                if (isLogin) {
+                    welcome = <h2>欢迎回来</h2>
+                } else {
+                    welcome = <h2>请先登录</h2>
+                }
+
+                return (
+                    <div>
+                        {welcome}
+                        {/*方案二、 三元运算符*/}
+                        <button onClick={() => { this.btnClick() }}>{isLogin ? '登录' : '退出'}</button>
+                        <br />
+                        {/*方案三、 逻辑与的写法*/}
+                        <h2>{isLogin && '你好呀'}</h2>
+                    </div>
+                )
+            }
+            btnClick() {
+                this.setState({
+                    isLogin: !this.state.isLogin
+                })
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('test'))
+    </script>
+
+</body>
+
+</html>

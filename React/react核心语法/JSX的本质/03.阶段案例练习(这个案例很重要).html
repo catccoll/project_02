@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid #eee;
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 1000px;
+            margin: 200px auto;
+            table-layout: fixed;
+            text-align: center;
+
+        }
+
+        td,
+        th {
+            border: 1px solid #eee;
+            padding: 10px 16px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 准备好一个"容器" -->
+    <div id="test"></div>
+
+    <!-- 引入react核心库 -->
+    <script src="../js/react.development.js"></script>
+
+    <!-- 引入react-dom，用于支持react操作Dom -->
+    <script src="../js/react-dom.development.js"></script>
+
+    <!-- 引入babel，用于将jsx转化为js -->
+    <script src="../js/babel.min.js"></script>
+
+    <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
+    <script type="text/babel">
+        class App extends React.Component {
+            state = {
+                books: [{
+                    id: 1,
+                    name: '《算法导论》',
+                    data: '2006-9',
+                    price: 85.00,
+                    count: 1
+                },
+                {
+                    id: 2,
+                    name: '《UNIX编程艺术》',
+                    data: '2006-2',
+                    price: 59.00,
+                    count: 1
+                },
+                {
+                    id: 3,
+                    name: '《编程珠玑》',
+                    data: '2008-10',
+                    price: 39.00,
+                    count: 1
+                },
+                {
+                    id: 4,
+                    name: '《算法导论》',
+                    data: '2006-9',
+                    price: 119.00,
+                    count: 1
+                },
+                ],
+
+            }
+            // 这秒呀
+            render() {
+                return this.state.books.length ? this.renderBooks() : this.renderTip()
+            }
+            renderBooks() {
+                return (<div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>书籍名称</th>
+                                <th>出版日期</th>
+                                <th>价格</th>
+                                <th>购买数量</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.books.map((item, index) => {
+                                return <tr>
+                                    <td>{item.id}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.data}</td>
+                                    <td>￥{item.price.toFixed(2)}</td>
+                                    <td><button disabled={item.count <= 1 ? true : false} onClick={() => { this.changeCount(index, -1) }}>-</button>{item.count} <button onClick={() => { this.changeCount(index, +1) }}>+</button> </td>
+                                    <td><a href="javascript:;" onClick={() => { this.remove(index) }}>移除</a> </td>
+                                </tr>
+                            })}
+                        </tbody>
+                    </table>
+                    <h2>总价格为:￥{this.total()}</h2>
+                </div>)
+
+            }
+            renderTip() {
+                return (<div>  <h1  >购物车清空  </h1></div>)
+            }
+            changeCount(index, count) {
+                // 不能修改state里面的状态,这里用扩展运算符，来达到浅拷贝对象，不会改变state里面的数据
+                const newBooks = [...this.state.books]
+                newBooks[index].count += count
+                this.setState({
+                    books: newBooks
+                })
+            }
+            remove(index) {
+                // slice 返回的结果是被删除的元素 他不能返回删除后新的数组，所有这里用splice
+                // const { books } = this.state
+                // books.splice(index, 1)
+                // this.setState({
+                //     books
+                // })
+                this.setState({
+                    books: this.state.books.filter((item, indey) => {
+                        return index !== indey
+                    })
+                })
+            }
+            total() {
+                const { books } = this.state
+                // let sum = 0
+                // for (let item of books) {
+                //     sum +=item.price*item.count
+                // }
+                // return sum.toFixed(2)
+                return books.reduce((pre, item) => {
+                    return pre + item.price * item.count
+                }, 0).toFixed(2)
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('test'))
+    </script>
+
+</body>
+
+</html>

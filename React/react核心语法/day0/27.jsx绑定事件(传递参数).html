@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 准备好一个"容器" -->
+    <div id="test"></div>
+
+    <!-- 引入react核心库 -->
+    <script src="../js/react.development.js"></script>
+
+    <!-- 引入react-dom，用于支持react操作Dom -->
+    <script src="../js/react-dom.development.js"></script>
+
+    <!-- 引入babel，用于将jsx转化为js -->
+    <script src="../js/babel.min.js"></script>
+
+    <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
+    <script type="text/babel">
+        class App extends React.Component {
+            state = {
+                movies: ['大话西游', '流浪地球', '海王']
+            }
+            render() {
+                const { movies } = this.state
+                return (
+                    <div>
+                        <button onClick={(e) => { console.log(e.target); }}>按钮</button>
+                        <ul>
+                            {movies.map((ele, index) => {
+                                {/*外面包一个括号就可以换行*/}
+                                return (
+                                    <li
+                                        onClick={e => this.btnClick(e, index, ele)}
+                                        key={index}>
+                                        {ele}
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                )
+            }
+            btnClick(e, index, ele) {
+                console.log(e.target, index, ele);
+
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('test'))
+    </script>
+
+</body>
+
+</html>

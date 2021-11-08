@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 准备好一个"容器" -->
+    <div id="test"></div>
+
+    <!-- 引入react核心库 -->
+    <script src="../js/react.development.js"></script>
+
+    <!-- 引入react-dom，用于支持react操作Dom -->
+    <script src="../js/react-dom.development.js"></script>
+
+    <!-- 引入babel，用于将jsx转化为js -->
+    <script src="../js/babel.min.js"></script>
+
+    <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
+    <script type="text/babel">
+        class App extends React.Component {
+            state = {
+                firstName: 'kobe',
+                lastName: 'bryant',
+                isLogin: true
+            }
+            render() {
+                const { firstName, lastName, isLogin } = this.state
+                return (
+                    <div>
+                        {/*运算符表达式*/}
+                        <h2>{firstName + '' + lastName}</h2>
+                        <h2>{20 * 50}</h2>
+                        {/*三元表示式*/}
+                        <h2>{isLogin ? '欢迎回来' : '请先登录'}</h2>
+                        {/*函数调用*/}
+                        <h2>{this.getFullName()}</h2>
+
+                    </div>
+                )
+            }
+            getFullName() {
+                return this.state.firstName + '' + this.state.lastName
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('test'))
+    </script>
+
+</body>
+
+</html>

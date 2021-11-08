@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 准备好一个"容器" -->
+    <div id="test"></div>
+
+    <!-- 引入react核心库 -->
+    <script src="../js/react.development.js"></script>
+
+    <!-- 引入react-dom，用于支持react操作Dom -->
+    <script src="../js/react-dom.development.js"></script>
+
+    <!-- 引入babel，用于将jsx转化为js -->
+    <script src="../js/babel.min.js"></script>
+
+    <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
+    <script type="text/babel">
+        class App extends React.Component {
+            state = {
+                // 在{}会显示的
+                name: 'why',//String
+                age: 18,//Number
+                names: ['12', '123', '1234'],//Array
+                // 2.在{}中不能显示(忽略)
+                test1: null,//null
+                test2: undefined,//undefined
+                test3: true,//boolean
+                info: {
+                    name: 'kobe',
+                    age: 40
+                }
+            }
+            render() {
+                return (
+                    <div>
+                        <h2>{this.state.name}</h2>
+                        <h2>{this.state.age}</h2>
+                        <h2>{this.state.names}</h2>
+                        {/*加+''转换为字符串*/}
+                        <h2>{this.state.test1 + ''}</h2>
+                        <h2>{this.state.test2 + ''}</h2>
+                        <h2>{this.state.test3 ? '你好呀' : null}</h2>
+                        <h2>{this.state.test3 && '我很好'}</h2>
+                        <h2>{'你知道我还爱你吗'}</h2>
+                        {/*     <h2>{this.state.info}</h2>   报错  对象不能作为子类放在jsx里面*/}
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('test'))
+    </script>
+
+</body>
+
+</html>

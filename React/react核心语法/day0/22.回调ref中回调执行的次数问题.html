@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 准备好一个"容器" -->
+    <div id="test"></div>
+
+    <!-- 引入react核心库 -->
+    <script src="../js/react.development.js"></script>
+
+    <!-- 引入react-dom，用于支持react操作Dom -->
+    <script src="../js/react-dom.development.js"></script>
+
+    <!-- 引入babel，用于将jsx转化为js -->
+    <script src="../js/babel.min.js"></script>
+
+    <!-- 此处一定要写babel -->
+    <script type="text/babel">
+        //  创建组件
+        class Demo extends React.Component {
+            state = { isHot: true }
+            render() {
+                const { isHot } = this.state
+                return (
+                    <div>
+                        <h2>{isHot ? '炎热' : "凉爽"}</h2>
+
+                        {/*       JSX里面写注释的方法    <input ref={c => { this.input1 = c; console.log('@', c) }} type="text" placeholder='点击我提示数据' />&nbsp;*/}
+                        {/*还是写成内联的形式好，简介方便，下面是类绑定的方式*/}
+                        <input ref={this.saveInput} type="text" placeholder='点击我提示数据' />&nbsp;
+                        <button onClick={this.showData}>点我提示左侧的数据</button>&nbsp;
+                        <button onClick={this.changeWeather}>点我切换天气</button>
+                    </div>
+
+                )
+                // 状态更新，驱动页面重新调用render函数，也就是重新渲染组件，当重新渲染组件时，ref里面的函数会被释放，为了更好的释放，他会先设置函数为null，然后再重新赋值
+            }
+            showData = () => {
+                // 展示左侧输入框的数据
+
+                console.log(this.input1.value);
+            }
+            changeWeather = () => {
+                const { isHot } = this.state
+                this.setState({
+                    isHot: !isHot
+                })
+            }
+            saveInput = (c) => {
+                this.input1 = c
+                console.log('@', c);
+            }
+
+        }
+        ReactDOM.render(<Demo />, document.getElementById('test'))
+    </script>
+
+
+</body>
+
+</html>

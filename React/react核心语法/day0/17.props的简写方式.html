@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 准备好一个"容器" -->
+    <div id="test"></div>
+    <div id="test2"></div>
+    <div id="test3"></div>
+
+
+    <!-- 引入react核心库 -->
+    <script src="../js/react.development.js"></script>
+
+    <!-- 引入react-dom，用于支持react操作Dom -->
+    <script src="../js/react-dom.development.js"></script>
+
+    <!-- 引入babel，用于将jsx转化为js -->
+    <script src="../js/babel.min.js"></script>
+
+    <!-- 引入prop-types，用于对组件标签属性进行限制 -->
+    <script src="../js/prop-types.js"></script>
+
+    <!-- 此处一定要写babel -->
+    <script type="text/babel">
+        //  创建组件
+        class MyComponent extends React.Component {
+            render() {
+                const { name, age, sex } = this.props
+                // props是只读的
+                // this.props.name='jack'  此行代码会报错，因为props是只读的
+                return (
+                    <ul>
+                        <li>姓名：{name}</li>
+                        <li>性别：{sex}</li>
+                        <li>年龄：{age + 1}</li>
+                    </ul>
+                )
+            }
+            static propTypes = {
+                name: PropTypes.string.isRequired,//限制name必传，且为字符串
+                sex: PropTypes.string,//限制sex，且为字符串
+                age: PropTypes.number,//这个number是小写，和vue不同
+                speak: PropTypes.func//限制speak为函数
+            }
+            static defaultProps = {
+                sex: '男',//sex默认值为男
+                age: 18//age默认值为18
+            }
+        }
+
+        // 渲染组件到页面
+        ReactDOM.render(<MyComponent name='tom' sex='女' speak={speak} />, document.getElementById('test'))
+        ReactDOM.render(<MyComponent name='to' age={18} sex='男' />, document.getElementById('test2'))
+        const p = { name: '老刘', age: 18, sex: '女' }//这里采用批量传递props，也叫传递标签属性
+        ReactDOM.render(<MyComponent {...p} />, document.getElementById('test3'))
+        function speak() {
+            console.log('我说话了');
+        }
+    </script>
+
+
+</body>
+
+</html>

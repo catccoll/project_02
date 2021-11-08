@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 准备好一个"容器" -->
+    <div id="test"></div>
+
+    <!-- 引入react核心库 -->
+    <script src="../js/react.development.js"></script>
+
+    <!-- 引入react-dom，用于支持react操作Dom -->
+    <script src="../js/react-dom.development.js"></script>
+
+    <!-- 引入babel，用于将jsx转化为js -->
+    <script src="../js/babel.min.js"></script>
+
+    <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
+    <script type="text/babel">
+        class Demo extends React.Component {
+            state = {
+                username: '',
+                password: ''
+            }
+            render() {
+                return (
+                    <form onSubmit={this.handleSubmit}>
+                        用户名:<input onChange={this.saveUsername} type="text" name='user' /> <br />
+                        密码：<input onChange={this.savePassword} type="password" name="password" /><br />
+                        <button >登录</button>
+                    </form>
+                )
+            }
+            // 现用现取就是非受控组件
+            handleSubmit = () => {
+         const {username,password}=this.state
+           console.log(`${username}${password}`);
+
+                event.preventDefault()
+            }
+            // 保存用户名到状态中
+            saveUsername = (e) => {
+                this.setState({
+                    username: e.target.value
+                })
+            }
+            // 保存密码到状态中
+            savePassword = (e) => {
+                this.setState({
+                    password: e.target.value
+                })
+            }
+            // 保存到状态中就是受控组件
+        }
+        ReactDOM.render(<Demo />, document.getElementById('test'))
+    </script>
+
+
+</body>
+
+</html>
