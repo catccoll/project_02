@@ -11,8 +11,10 @@
 
 <body>
     <div id="app">
+     
         <h2>{{message}}</h2>
         <h1>{{name}} </h1>
+
     </div>
     <script>
         // let(变量)/const(常量)
@@ -25,8 +27,11 @@
                 name: 'zs'
             },
             methods:{
-                add:function(){}
-            }
+              add(){
+                  return this.name
+              }
+            },
+        
         })
         // 原生js的做法(编程范式：命令式编程)
 

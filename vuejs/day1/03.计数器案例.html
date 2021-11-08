@@ -24,14 +24,14 @@
         const app = new Vue({
             el: '#app',
             data: {
-                counter: '0'
+                counter: 0
             },
             methods: {
-                add: function () {
+                add() {
                     this.counter++
-                    console.log(11);
+                
                 },
-                sub: function () {
+                sub () {
                     this.counter--
                 }
             }

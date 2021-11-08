@@ -10,7 +10,9 @@
 
 <body>
     <div id="app">
-        <!-- Mustache语法 他的使用场景是在content上 -->
+        <!-- Mustache语法 他的使用场景是在content上
+        v-bind:绑定属性
+        -->
         <h2> {{message}}</h2>
         <img :src="imgUrl" alt="">
         <a v-bind:href="url">百 度 </a>
@@ -26,7 +28,7 @@
                 url: 'http://www.baidu.com'
             }
         })
-        //v-bind语法糖就是一个：
+        //v-bind语法糖就是一个    ：
     </script>
 </body>
 

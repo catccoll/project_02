@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+     
+        <input type="text" :value='title' @input='title=$event.target.value'>
+        <button @click='addList'>添加数据</button>
+        <ul>
+            <li v-for='item in list'>
+                <input type="checkbox" name="" id="" v-model='item.completed'>
+                <span>{{item.task}}</span>
+            </li>
+        </ul>
+    </div>
+    <script src="../JS/vue.js">
+    </script>
+    <script>
+        const app=new Vue({
+            el:'#app',
+            data:{
+                  title:'',
+                  list:[]
+            },
+            methods:{
+                addList(){
+                    this.list.push({
+                        task:this.title,
+                        completed:false
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
