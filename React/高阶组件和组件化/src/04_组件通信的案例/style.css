@@ -1,0 +1,22 @@
+.tab-control{
+    display: flex;
+ 
+    height: 44px;
+    line-height: 44px;
+}
+.tab-item{
+    flex: 1;
+   text-align: center;
+   
+}
+/* 为什么这里一定要跟一个tab-item */
+.tab-item.show{
+    color: pink;
+    
+}
+.tab-item.show span{
+  padding: 0 10px;
+    border-bottom: 5px solid red;
+  padding-bottom: 10px;
+    
+}

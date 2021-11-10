@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="" autofocus>
+    <input type="text" name="" id="" v-model='title'>
+    <script>
+         let obj ={
+             title:'12',
+             msg:'弄好'
+         }
+             Object.keys(obj).forEach(key=>{
+            let value=obj[key]
+            Object.defineProperty(obj,key,{
+                set(newValue){
+                   console.log('改变属性');
+                      value=newValue
+                      console.log('新的值'+ value);
+                          fn(key,value)
+                },
+                get(){
+                    console.log('得到属性');
+                    return value
+                }
+            })
+        })
+        document.querySelector('[v-model]').value=obj.title
+        function fn(key,value){
+               document.querySelector('[v-model]').value=value
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  是否是一个纯函数
+        function sum(num1, num2) {
+            return num1 + num2
+        }
+        sum(20, 30)
+
+
+
+        // 不是一个纯函数
+        let foo = 10
+        function add(num) {
+            return foo + num
+        }
+        add(5)//15
+        foo = 20
+        add(5)
+        // 能否将上面的函数改写成一个纯函数
+        const foo1 = 10
+        function add(num) {
+            return foo1 + num
+        }
+        function printInfo(info){
+            console.log(info.name,info.age);
+        }
+        // 纯函数   确定的参数只有唯一输出的值，且输出值的时候不会产生副作用，为什么会产生副作用的原因，是因为函数里面的变量依靠外部了外部的变量
+
+    </script>
+</body>
+
+</html>
