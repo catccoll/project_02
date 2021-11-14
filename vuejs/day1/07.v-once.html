@@ -11,7 +11,8 @@
         <!-- Mustache语法 -->
         <h2> {{message}}</h2>
         <h2 v-once> {{message}}</h2>
-        <!-- 第一次渲染玩之后，再修改他，想改变 ，就不可能改变 -->
+        <!--v-once 第一次渲染完之后，再修改他，想改变 ，就不可能改变 -->
+        <button @click='changeMessage'>修改内容</button>
     </div>
     <script src="../JS/vue.js">
     </script>
@@ -24,6 +25,11 @@
                 lastName: 'li',
                 counter:200,
              
+            },
+            methods:{
+                changeMessage(){
+                    this.message='我很好'
+                }
             }
         })
     </script>

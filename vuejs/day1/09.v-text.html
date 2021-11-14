@@ -11,8 +11,8 @@
         <!-- Mustache语法 -->
         <h2> {{message}}</h2>
       
-        <h2 v-text="message"></h2>
-       <!-- 一般这种形式不使用 -->
+        <h2 v-text="message">我很好</h2>
+       <!--v-text会把原标签里面的内容替换掉作用和mustache语法类似-->
     </div>
     <script src="../JS/vue.js">
     </script>
@@ -20,7 +20,7 @@
         const app = new Vue({
             el: '#app',
             data: {
-                message: '利银行',
+                message: '你好呀',
                 firstName: '22',
                 lastName: 'li',
                 counter:200,

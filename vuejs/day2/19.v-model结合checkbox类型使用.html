@@ -10,12 +10,14 @@
 
 <body>
     <div id="app">
-        <label for="license"> (这里有不懂)
-            <input type="checkbox" name="" id="license" v-model='isAgree'>同意协议
+        <label for="license"> 
+            <input type="checkbox" value='三'  id="license" v-model='isAgree'>同意协议
         </label>
         <h2>你选择的是{{isAgree}}</h2>
 
 
+
+                <!-- ：value=hobbies  @change=hobbies=$event.target.value -->
             <input type="checkbox" value="唱" v-model='hobbies'>唱
             <input type="checkbox" value="跳" v-model='hobbies'>跳
             <input type="checkbox" value="rap" v-model='hobbies'>rap

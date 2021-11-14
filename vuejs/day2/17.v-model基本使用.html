@@ -15,8 +15,8 @@
         <!-- <input type="text" name="" id="" v-model='message'> -->
         <!-- v-model:双向绑定 -->
         <!-- 原理 -->
-        <!-- <input type="text" v-bind:value='message' v-on:input='valueChange'> -->
-        <input type="text" v-bind:value='message' v-on:input='message=$event.target.value'>
+        <input type="text" v-bind:value='message' v-on:input='valueChange'>
+        <!-- <input type="text" v-bind:value='message' v-on:input='message=$event.target.value'> -->
     </div>
     <script src="../JS/vue.js">
     </script>
@@ -28,7 +28,7 @@
 
             },
             methods: {
-                valueChange(event) {
+                valueChange() {
                     this.message = event.target.value
                 }
             }

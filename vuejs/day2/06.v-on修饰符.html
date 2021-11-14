@@ -13,7 +13,7 @@
         <div v-on:click='divclick'>
             aaa
             <button @click.stop='btnclick'>按钮</button>
-            <!--1. .stop的修饰符的使用 =e.stopPropagation()-->
+            <!--1. .stop的修饰符的使用 =e.stopPropagation()停止冒泡-->
         </div>
         <br>
         <br>
@@ -29,11 +29,14 @@
         <br>
         <button @click.once='btn2click'>按钮3</button>
         <!-- 4.只触发一次回调 -->
-
+         
         <!--5. 鼠标按键修饰符 -->
         <!-- mousedown.left 
         mousedown.right
         mousedown.center -->
+
+
+        <!-- 6..native监听组件根元素的原生事件  这是在组件里面使用的 -->
     </div>
     <script src="../JS/vue.js">
     </script>

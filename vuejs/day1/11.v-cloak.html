@@ -17,7 +17,7 @@
     <div id="app">
         <!-- Mustache语法 -->
         <h2 v-cloak> {{message}}</h2>
-
+    
     </div>
 
     <script src="../JS/vue.js">
@@ -25,12 +25,11 @@
     <script>
         // 在vue解析之前，div中有一个属性v-cloak
         // 在vue解析之后，div中没有一个属性v-cloak
-       
+        //  这样界面就不会展示到还未解析的现象，
             const app = new Vue({
                 el: '#app',
                 data: {
                     message: '你好啊',
-
                 }
             })
      

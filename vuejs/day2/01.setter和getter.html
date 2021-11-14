@@ -31,8 +31,9 @@
                 // }
                 fullName: {
                     //计算属性一般是没有set方法，是一个只读属性
-                    set: function (newvalue) {
-                        const name = newvalue.split(',')
+                    set: function (newValue) {
+                        console.log(newValue);
+                        const name = newValue.split(',')
                         this.firstName = name[0]
                         this.lastName = name[1]
                     },
@@ -40,9 +41,7 @@
                         return this.firstName + ' ' + this.lastName
                     }
                 },
-                // fullName: function () {
-                //     return this.firstName + ' ' + this.lastName
-                // }
+       
             }
 
         })

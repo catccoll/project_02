@@ -31,6 +31,10 @@
                 movies: ['海王', '海贼王', '海尔兄弟'],
                 message: '我很好'
             },
+            created(){
+                            console.log(11);
+                            debugger
+                        },
             components: {
                 cpn: {
                     template: '#cpn',
@@ -49,6 +53,7 @@
 
                             required: true
                         },
+                      
                         // 类型是对象或者数组时，默认值必须是一个函数
                         c1: {
                             type: Array,

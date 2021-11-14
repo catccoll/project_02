@@ -11,7 +11,7 @@
 <body>
     <div id="app">
         <!-- 1.选择一个 -->
-        <select name="abc" id="" v-model='fruit'>
+        <select v-model='fruit'>
             <option value="香蕉">香蕉</option>
             <option value="苹果">苹果</option>
             <option value="葡萄">葡萄</option>
@@ -20,7 +20,7 @@
         <h2> 你选择的水果是 {{fruit}} </h2>
 
         <!-- 选择多个 -->
-        <select name="abc" id="" v-model='fruit1' multiple>
+        <select v-model='fruit1' multiple>
             <option value="香蕉">香蕉</option>
             <option value="苹果">苹果</option>
             <option value="葡萄">葡萄</option>

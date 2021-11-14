@@ -12,10 +12,10 @@
     <div id="app">
         <!-- Mustache语法 -->
         <h2>{{first}} {{last}} </h2>
-        <h2>{{first+' '+last}} </h2>
+        <h2>{{first+last}} </h2>
         <h2>{{getFullName()}} </h2>
         <h2> {{fullName}} </h2>
-        <!--  这里不需要加括号也不能加括号-->
+        <!--  这里不需要加括号也不能加括号,这里当做的是属性，不是方法-->
     </div>
     <script src="../JS/vue.js">
     </script>
@@ -30,12 +30,12 @@
             },
             computed: {//计算属性()
                 fullName: function () {
-                    return this.first + ' ' + this.last
+                    return this.first + this.last
                 }
             },
             methods: {
                 getFullName: function () {
-                    return this.first + ' ' + this.last
+                    return this.first +'' + this.last
                 }
             }
         })

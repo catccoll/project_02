@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {}
+    </style>
+</head>
+
+<body>
+    <div id="root">
+
+        <component :is="c"></component>
+        <ul>
+            <li @click='changeCpn(index)' v-for='(item,index) in movies'>{{item}}</li>
+        </ul>
+    </div>
+    <template id="app">
+        <div>
+            <h2>11</h2>
+        </div>
+    </template>
+    <template id="app1">
+        <div>
+            <h1>55</h1>
+        </div>
+    </template>
+    <template id="app2">
+        <div>
+            <h3>44</h3>
+        </div>
+    </template>
+    <script src="../JS/vue.js">
+
+    </script>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                movies: ['海王', '大海', '小朋友'],
+                cpn1: ["cpn", "cpn2", "cpn3"],
+                c:''
+            },
+            methods: {
+                changeCpn(index) {
+                  this.c=this.cpn1[index]
+                }
+            },
+            components: {
+                cpn: {
+                    template: "#app",
+
+                },
+                cpn2: { template: "#app1", },
+                cpn3: { template: "#app2", },
+            }
+        })
+    </script>
+</body>
+
+</html>

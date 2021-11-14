@@ -11,7 +11,7 @@
         <!-- Mustache语法 -->
         <h2> {{message}}</h2>
         <h2 v-html='url'> </h2>
-     
+         
     </div>
     <script src="../JS/vue.js">
     </script>
@@ -20,7 +20,7 @@
             el: '#app',
             data: {
                 message: '你好啊',
-            url:'<a href="http://www.baidu.com">百度一下 </a>',
+            url:'<a href="http://www.baidu.com">百度一下</a>',
               //一般字符串有标签就使用v-html
             }
         })

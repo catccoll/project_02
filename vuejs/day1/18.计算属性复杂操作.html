@@ -28,12 +28,11 @@
 
             },
             computed: {
-                TotalPrice: function () {
-                    var sum = 0
-                    for (let i = 0; i < this.books.length; i++) {
-                        sum += this.books[i].price
-                    }
-                    return sum
+                TotalPrice() {
+                    return this.books.reduce((preValue, item) => {
+                        return preValue + item.price
+                    }, 0)
+
                 }
             }
         })

@@ -10,14 +10,16 @@
 
 <body>
     <div id="app">
-        <cpn></cpn>
-        <cpn></cpn>
+
         <cpn ref='aa'></cpn>
         <button @click='btnClick'>按钮</button>
     </div>
     <template id="cpn">
         <div>
+            <p>
             <h2>我是子组件</h2>
+            </p>
+
         </div>
     </template>
     <script src="../JS/vue.js">
@@ -34,6 +36,7 @@
 
                     // 2.$refs=>默认是一个对象，必须在子组件上面加ref属性  这个用的非常多  尽量多掌握这个  $children了解
                     console.log(this.$refs.aa.name);
+                    console.log(this.$refs.aa.$el.innerHTML);
                 }
             },
             components: {

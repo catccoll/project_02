@@ -34,11 +34,11 @@
                 isLine: true
             },
             methods: {
-                fn: function () {
+                fn() {
                     this.isActive = !this.isActive
-                    this.Line = !this.isLine
+                    this.isLine = !this.isLine
                 },
-                getClass: function () {
+                getClass() {
                     return { active: this.isActive, line: this.isLine }
                 }
             }
@@ -47,3 +47,35 @@
 </body>
 
 </html>
+<!-- 对象形式的class： -->
+<!-- 用法一：直接通过{}绑定一个类
+<h2 :class="{'active': isActive}">Hello World</h2>
+
+用法二：也可以通过判断，传入多个值
+<h2 :class="{'active': isActive, 'line': isLine}">Hello World</h2>
+
+用法三：和普通的类同时存在，并不冲突
+注：如果isActive和isLine都为true，那么会有title/active/line三个类
+<h2 class="title" :class="{'active': isActive, 'line': isLine}">Hello World</h2>
+
+用法四：如果过于复杂，可以放在一个methods或者computed中
+注：classes是一个计算属性
+<h2 class="title" :class="classes">Hello World</h2> -->
+
+
+
+<!-- 数组形式的class： -->
+<!-- 用法一：直接通过[]绑定一个类
+<h2 :class="['active']">Hello World</h2>
+
+用法二：也可以传入多个值
+<h2 :class=“[‘active’, 'line']">Hello World</h2>
+
+用法三：和普通的类同时存在，并不冲突
+注：会有title/active/line三个类
+<h2 class="title" :class=“[‘active’, 'line']">Hello World</h2>
+
+用法四：如果过于复杂，可以放在一个methods或者computed中
+注：classes是一个计算属性
+<h2 class="title" :class="classes">Hello World</h2>
+ -->

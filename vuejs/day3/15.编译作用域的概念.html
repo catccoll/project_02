@@ -17,7 +17,7 @@
         <div>
             <h2>我是子组件</h2>
             <h1>哈哈哈</h1>
-            <button v-show='isShow'></button>
+            <button v-show='isShow'>按钮</button>
             <!-- 在自己的组件里面去使用变量，就去自己的组件里面去找 -->
         </div>
     </template>
@@ -34,7 +34,7 @@
                     template: '#cpn',
                     data() {
                         return {
-                            isShow:false
+                            isShow:true
                         }
                     }
                 }

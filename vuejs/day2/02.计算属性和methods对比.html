@@ -31,7 +31,7 @@
                 firstName: 'xu',
                 lastName: 'saiGao'
             },
-            computed: {//如果值不变的话，系统有缓存，这个函数只输出一次
+            computed: {//计算属性会进行缓存，如果值不变的话，系统有缓存，这个计算属性只调用一次
                 fullName: function () {
                     console.log(11);
                     return this.firstName + ' ' + this.lastName

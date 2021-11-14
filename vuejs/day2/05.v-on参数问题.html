@@ -15,7 +15,7 @@
         <button @click='btn3click'>按钮3</button>
         <!-- 在事件定义时，写方法时忽略了小括号，但是方法本身是需要一个参数的，这个时候Vue会默认将浏览器生产的even事件对象作为参数传入到方法 -->
 
-        <button @click='btn4click($event,456)'>按钮4</button>
+        <button @click='btn4click(456)'>按钮4</button>
         <!-- 方法定义式，我们需要event对象，同时又需要其他参数 -->
 
 
@@ -36,11 +36,14 @@
                 btn2click(abc) {
                     console.log(abc);
                 },
-                btn3click(event) {
+                btn3click() {
+                    // 即使你没有传值,你在方法里面也可以拿到event
                     console.log(event);
                 },
-                btn4click(event, abc) {
-                    console.log(event, abc);
+                btn4click(abc) {
+                    
+                    console.log(abc);
+                    console.log(event);
                 },
 
             }
