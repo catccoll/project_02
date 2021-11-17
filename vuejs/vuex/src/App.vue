@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     {{ message }}
-
     {{ $store.state.count }}
     <button @click="add">+</button>
     <button @click="sub">-</button>
@@ -9,7 +8,7 @@
     <button @click="addstudent(112, 'xsg', 23)">增加学生按钮</button>
     <Hello></Hello>
     <h2>App内容，info对象的内容是否是响应式的</h2>
-    <button @click="updateInfo">修改信息</button>
+    <button @click="updateInfo('沙雕')">修改信息</button>
     {{ $store.state.info }}
     <h2>响应式原理</h2>
     <button @click="update1info">响应式按钮</button>
@@ -58,15 +57,16 @@ export default {
       };
       this.$store.commit("incrementStudent", obj);
     },
-    updateInfo() {
+    updateInfo(payload) {
       // this.$store.commit({
       //   type: "update",
       //   name,
       //   age,
       // });
-     
-      this.$store.dispatch('aupdateifo',()=>{
-        console.log('里面已经完成了');
+      // action里面可以放new Promise，第二个参数可以使任何数据，也可以是函数
+      
+      this.$store.dispatch('aupdateifo',payload).then(res=>{
+        console.log(res);
       })
     },
     update1info() {

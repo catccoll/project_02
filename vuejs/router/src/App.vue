@@ -1,11 +1,14 @@
 <template>
   <div id="app">
     <h2>我是APP组件</h2>
-    <!-- tag属性可以将router-link编译的a标签转化为所设定的标签，比如button标签，a标签，且如果增加属性replace，就网页没有返回或前进，router-link-active，鼠标点击了哪个，哪一个就会添加这个class名，所以当点击他就生成红色字体，只要将这个类名设置属性字体为红色，嫌弃这个名字太长的话，可以修改类名 -->
-    <router-link to="/home" tag="button" replace active-class="active"
+    <!-- tag属性可以将router-link编译的a标签转化为所设定的标签，比如button标签，a标签，且如果增加属性replace，就网页没有返回或前进,active-class: 当<router-link>对应的路由匹配成功时, 会自动给当前元素设置一个router-link-active的class, 设置active-class可以修改默认的名称.
+所以当点击他就生成红色字体，只要将这个类名设置属性字体为红色，嫌弃这个名字太长的话，可以修改类名 -->
+    <router-link to="/home" tag="button" replace 
       >首页</router-link
     >
-    <router-link to="/about" tag="button" replace active-class="active"
+    <router-link :to="{
+      name:'cc'
+    }" tag="button" replace
       >关于</router-link
     >
     <!-- 传参数的事件，to前面都要动态绑定下 这里不要忘记了-->
@@ -15,12 +18,13 @@
       v-bind:to="`/user/${userId}`"
       tag="button"
       replace
-      active-class="active"
+ 
       >用户</router-link
     >
-    <router-link
+    <router-link    replace
       v-bind:to="{
-        path: '/profile',
+        path: '/bb',
+     
         query: { name: 'zs', age: 18, height: 1.88 },
       }"
       >档案</router-link
@@ -34,6 +38,8 @@
     <button @click='userClick'>用户</button> -->
 
     <keep-alive> <router-view></router-view> </keep-alive>
+        <!-- include - 字符串或正则表达，只有匹配的组件会被缓存
+exclude - 字符串或正则表达式，任何匹配的组件都不会被缓存 -->
 
     <!-- 组件渲染的位置 -->
   </div>

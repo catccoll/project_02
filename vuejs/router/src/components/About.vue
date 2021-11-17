@@ -11,10 +11,10 @@
     name: "About",
      activated(){//这两个函数只有在使用keep-alive被包裹中才有效，被包裹都不会被频繁的销毁组件
  
-   console.log(11);
+  //  console.log(11);
  },
  deactivated(){
-   console.log(33);
+  //  console.log(33);
  }
 
   }

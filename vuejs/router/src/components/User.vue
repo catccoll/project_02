@@ -12,6 +12,8 @@ export default {
 name:'User',
  computed:{
   userID(){
+    // 当是写在路由连接后面的参数，用$route.parmas.**
+    // 当是以对象传递过来的，用$route.query.***得到信息
     return this.$route.params.id
   }
 },

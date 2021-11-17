@@ -1,7 +1,7 @@
 <template>
   <div>
       <h1>我是profile</h1>
-  {{profile.name}}
+  {{profile.name}}{{this.$route.query}}
 
   </div>
 </template>

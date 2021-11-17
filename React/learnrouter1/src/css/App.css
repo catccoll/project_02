@@ -1,0 +1,15 @@
+/* a.active{
+    color: red;
+    font-size: 30px;
+} */
+a{padding: 10px;}
+a.link-active{
+    color:pink;
+    text-decoration: line-through;
+    padding: 0 20px;
+}
+.about-active{
+    font-size: 30px;
+    padding: 0 10px;
+    color:green
+}

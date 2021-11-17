@@ -67,16 +67,16 @@ const store = new Vuex.Store({//这里是大写，记住了
         incrementCount(state, payload) {
             state.count += payload.count
         },
-        incrementStudent(state, obj) {
-            state.students.push(obj)
+        incrementStudent(state, palload) {
+            state.students.push(palload)
         },
-        update(state) {
+        update(state,payload) {
             // 错误代码，不能在这里进行异步操作
             // setTimeout(()=>{
             //     state.info.name = payload.name
             // state.info.age = payload.age
             // },1000)
-            state.info.name = 'zs'
+            state.info.name = payload
         },
         // 这可以让外面的元素添加进来做到一个响应式原理
         updata2info(state) {
@@ -90,10 +90,15 @@ const store = new Vuex.Store({//这里是大写，记住了
     actions: {
         //定义方法 context 上下文的意思相当于store
         aupdateifo(context, payload) {
+            console.log(payload);
+          return new Promise((resolve,reject)=>{
             setTimeout(() => {
-                context.commit('update')
-                payload()
+                context.commit('update',payload)
+                
             }, 1000)
+            resolve('你好吗')
+          })
+          
         }
     },
     getters: {//当我们不能直接拿到数据，或者数据过于复杂，可以通过getters操作，写一遍获得数据的过程，后面就可以直接使用这个属性来获取

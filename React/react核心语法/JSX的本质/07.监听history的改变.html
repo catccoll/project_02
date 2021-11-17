@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <a href="/home">首页</a>
+        <a href="/about">关于</a>
+        <div class="router-view">
+
+        </div>
+    </div>
+    <script>
+        // 获取所有的a元素，自己来监听a元素的改变
+        const a1 = document.querySelectorAll('a')
+        a1.forEach((item) => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault()
+                let href1 = item.getAttribute('href')
+                // 这里加/和不加斜杠  url不同
+                history.pushState({}, '', href1)
+                console.log(location.pathname);
+                urlChange()
+            })
+        })
+        const routerview = document.getElementsByClassName('router-view')[0]
+        //   监听url的改变
+        function urlChange() {
+            switch (location.pathname) {
+                case '/home':
+                    routerview.innerHTML = '首页';
+                    break;
+                case '/about':
+                    routerview.innerHTML = '关于'
+                    break;
+                //  防止case穿透
+                default:
+                    routerview.innerHTML = ''
+
+            }
+        }
+  window.addEventListener('popstate',urlChange)
+    </script>
+</body>
+
+</html>
