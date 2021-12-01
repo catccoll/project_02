@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th,
+        td {
+            border: 1px solid #ccc;
+
+            padding: 20px 40px;
+
+        }
+
+        table {
+            text-align: center;
+            margin: 200px auto;
+            border-spacing: 0;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        th {
+            background-color: #f7f7f7;
+            color: #5c6b77;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>书籍名称</th>
+                    <th>出版日期</th>
+                    <th>价格</th>
+                    <th>购买数量</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for='(item,index) in books'>
+                    <td>{{index+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.data}}</td>
+                    <td>{{item.price.toFixed(2)}}</td>
+                    <td> <button :disabled='isDisabled' @click='sub(index)'>-</button> {{item.count}} <button
+                            @click='add(index)'>+</button> </td>
+                    <td><button @click='remove(index)'>移除</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>总价为：{{totalPrice}}</h2>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    books: [{
+                        id: 1,
+                        name: '《算法导论》',
+                        data: '2006-9',
+                        price: 85.00,
+                        count: 1
+                    },
+                    {
+                        id: 2,
+                        name: '《UNIX编程艺术》',
+                        data: '2006-2',
+                        price: 59.00,
+                        count: 1
+                    },
+                    {
+                        id: 3,
+                        name: '《编程珠玑》',
+                        data: '2008-10',
+                        price: 39.00,
+                        count: 1
+                    },
+                    {
+                        id: 4,
+                        name: '《算法导论》',
+                        data: '2006-9',
+                        price: 119.00,
+                        count: 1
+                    },
+                    ],
+                    isDisabled: false
+                }
+            },
+            methods: {
+                add(index) {
+                    this.books[index].count++
+                },
+                sub(index) {
+                    if (this.books[index].count <= 1) {
+                        alert('最小了')
+                        return
+                    }
+                    this.books[index].count--
+                }, remove(index) {
+                    this.books.splice(index, 1)
+                }
+            },
+            computed: {
+                totalPrice() {
+                    return "￥" +this.books.reduce((preValue, item) => {
+                        return (preValue + item.price * item.count)
+                    }, 0).toFixed(2)
+                   
+                }
+            }
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+知识点小节： vue3不在支持过滤器了，推荐两种做法：使用计算属性/使用全局的方法
+*/
+    </script>
+</body>
+
+</html>

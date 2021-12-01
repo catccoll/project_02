@@ -113,6 +113,8 @@ const store = new Vuex.Store({//这里是大写，记住了
         },
         moreage(state) {
             // 当我们想要的数据不是一个确定值得时候，可以返回一个函数传参，这样就做到拿到一个灵活的数据
+            // getters默认是不能传递参数的, 如果希望传递参数, 那么只能让getters本身返回另一个函数.
+
             return function (ag) {
                 return state.students.filter(s => s.age > ag)
             }

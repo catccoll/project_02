@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2>{{message}}</h2>
+            <a :href="link">百度一下</a>
+        </div>
+    </template>
+    <script>
+     
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    link:'http://www.baidu.com'
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+           知识点小节：在vue3中 ，现在允许template中有多个根元素，vue2是只允许一个根元素，加了v-bind就会把值当成变量，当数据是负载的时候，比如数组，对象，或者布尔值，或者数字，都要加v-bind
+           */
+    </script>
+</body>
+
+</html>

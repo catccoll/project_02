@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.core.js"></script>
+    <!-- 1.对象的引用赋值 -->
+    <!-- <script>
+        // 对象是引用赋值
+         const info ={name:'sai'}
+         const obj=info
+         info.name='gao'
+         console.log(obj.name);
+   </script>  -->
+    <!-- 2.对象的浅拷贝 -->
+    <script>
+        const info1 = { name: 'sai', friends: { age: 20 } }
+        const obj1 = _.clone(info1)
+        info1.name = 'gao'
+        info1.friends.age = 30
+        console.log(obj1.name);
+        console.log(obj1.friends.age);
+
+
+        // const info = { name: 'sai', friends: { age: 20 } }
+        // const obj = Object.assign({},info)
+        // info.name = 'gao'
+        // info.friends.age = 30
+        // console.log(obj.name);
+        // console.log(obj.friends.age);
+    </script>
+    <!-- 3.对象的深拷贝 -->
+    <script>
+        const info = { name: 'sai', friends: { age: 20 } }
+        const obj = JSON.parse(JSON.stringify(info))//深拷贝
+        info.name = 'gao'
+        info.friends.age = 30
+        console.log(obj.name);
+        console.log(obj.friends.age);
+//    深拷贝   _.cloneDeep(info)
+    </script>
+</body>
+
+</html>

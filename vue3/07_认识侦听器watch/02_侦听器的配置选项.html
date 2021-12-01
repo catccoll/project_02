@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2>{{message}}</h2>
+            <h2>{{info.name}}</h2>
+            <button @click='add'>changeInfo</button>
+            <button @click='sub'>changeInfoName</button>
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    info: { name: 'why', age: 18 }
+                }
+            },
+            watch: {
+                // info(newValue, oldValue) {
+                //     console.log(newValue, oldValue);
+                // }
+                //    侦听的元素后面可以跟函数  也可以跟对象
+                // 深度侦听/立即执行(不改变值，打开页面就要看到监听效果)
+                info: {
+                    handler(newInfo, oldInfo) {
+                        console.log(newInfo, oldInfo);
+                    },
+                    // 想要深度监听(监听内部的改变)，就必须要使用这样的情况，但是oldInfo的值会和newInfo的值一样，因为这里是引用类型，因为他们两个指向同一个地址，所以得到的值一样
+                    deep: true,//深度监听
+                    immediate: true//立即执行
+                }
+            },
+            methods: {
+                add() {
+
+                    this.info = { name: 'saigao' }
+                },
+                sub() {
+                    this.info.name = 'saiGao' // 这样watch根本监听不到
+                    // 默认情况下我们的侦听器只会针对监听的数据本身的改变(内部发生的改变是不能侦听的)
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+知识点小节：
+*/
+    </script>
+</body>
+
+</html>

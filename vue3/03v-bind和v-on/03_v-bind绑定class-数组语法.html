@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2>{{message}}</h2>
+            <h2 :class='["abc","cba",isActive?"active":""]'>哈哈</h2>
+            <h2 :class='["abc","cba",{active:isActive}]'>呵呵</h2>
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    isActive: true
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+     知识点小节：在数组里面，可以嵌套对象，也可以也三元表达式，但是没有对象这种写法简洁
+     */
+    </script>
+</body>
+
+</html>

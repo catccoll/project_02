@@ -1,9 +1,10 @@
 <template>
   <div>
     <h2>{{$store.state.count}}</h2>
-   {{$store.getters.powerCount}}
+   组件 {{$store.getters.powerCount}}
    {{$store.getters.age}}
    {{$store.getters.more20length}}
+   <!-- getters -->
   <h2>大于19对的对象有：{{$store.getters.moreage(19)}}</h2>
   {{$store.state.students}}
   <h2>这是组件的内容</h2>

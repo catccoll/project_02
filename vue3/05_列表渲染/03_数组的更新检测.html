@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <input type="text" v-model='newMovie'>
+            <h2>{{message}}</h2>
+            <button @click='addMovies'>添加电影</button>
+            <h2>电影列表</h2>
+            <ul>
+                <li v-for='item in movies'>{{item}}</li>
+            </ul>
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    newMovie: '',
+                    movies: ['星际穿越', '流氓', '教父', '星星点灯'],
+
+                }
+            },
+            methods: {
+                addMovies() {
+                    this.movies.push(this.newMovie)
+                    this.newMovie = ''
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+     知识点小节：数组好多方法是会直接修改原来的数组，但是某些方法不会替换原来的数组，而是会生成新的数组，比如 filter() contact() 和slice()
+     */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script type="x-template" id="sai">
+     <div>
+        <h2>当前计数为{{counter}}</h2>
+        <button @click='add'>+1</button>
+        <button @click='sub'>-1</button>
+     </div>
+    </script>
+    <script src="../js/Vue3.js">
+    </script>
+    <script>
+        const app = Vue.createApp({
+            template:'#sai',
+            data() {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                add() {
+                    this.counter += 1
+                },
+                sub() {
+                    this.counter -= 1
+                }
+            },
+
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <!-- 基本语法 -->
+            <h2>{{message}}</h2>
+            <!-- 2.是一个表达式 -->
+            <h2>{{message.split('').reverse().join('')}}</h2>
+            <!-- 3.可以调用函数 -->
+            <h2>{{add()}}</h2>
+            <!-- 4.三元运算符 -->
+            <h2>{{isShow?'哈哈':""}}</h2>
+            <button @click='changeIsShow'>修改isShow状态</button>
+        </div>
+    </template>
+    <script>
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    isShow: true
+                }
+            },
+            methods: {
+                add() {
+                    return this.message
+                },
+                changeIsShow() {
+                    this.isShow = !this.isShow
+                }
+            },
+            // 凡是在data里面的数据，都会被加入到响应式环境里面
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+知识点小节：1.学会如何用vscode代码片段快速生成所需要的代码  生成代码片段网址https://snippet-generator.app/
+2. mustache的基本使用方法：在双大括号里面可以写表达式，不能写其他的赋值语法或者条件语句
+*/
+    </script>
+</body>
+
+</html>

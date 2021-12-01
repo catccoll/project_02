@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2 v-if='isShow'>{{message}}</h2>
+            <h2 v-show='isShow'>哈哈</h2>
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    isShow: false
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+        知识点小节：v-show不支持template，意思是template标签上不能写v-show，v-show也不能和v-else一起使用，v-show是通过改变display属性，来改变他的显示与隐藏，
+        当他频繁的切换的使用的时候，使用v-show，否则使用v-if
+        */
+    </script>
+</body>
+
+</html>

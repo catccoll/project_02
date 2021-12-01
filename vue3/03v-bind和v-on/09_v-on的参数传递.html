@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2>{{message}}</h2>
+            <button @click='btnClick("赛高")'>按钮2</button>
+            <button @click='btnClick2($event,"赛高")'>按钮3</button>
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀'
+                }
+            },
+            methods: {
+                btnClick(name) {
+                    console.log(name);
+                    console.log(event);
+                },
+                btnClick2(event, name) {
+                    console.log(event, name);
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+        知识点小节：在事件当中，他隐式的帮我们把event传递了过来，
+        */
+    </script>
+</body>
+
+</html>

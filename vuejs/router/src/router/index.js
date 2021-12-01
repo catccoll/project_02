@@ -14,7 +14,7 @@ Vue.use(VueRouter);
 // 2.创建VueRouter对象
 const routes = [
   {
-    path: "",
+    path: "/",
     // redirect重定向,路由的默认路经，可以加/也可以不加 ,特殊的路经放在前面
     redirect: "/home"
   },
@@ -27,7 +27,7 @@ const routes = [
     meta: { title: "首页" }, //描述路由组件的数据meta
     children: [
       {
-        path: "",
+        path: "/",
         redirect: "news"
       },
       {

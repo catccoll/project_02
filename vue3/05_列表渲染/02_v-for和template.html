@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2>{{message}}</h2>
+            <ul>
+                <template v-for='(value,key) in info'>
+                    <li>{{value}}</li>
+                    <li> {{key}} </li>
+                    <hr>
+                </template>
+            </ul>
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    info: {
+                        name: 'sai',
+                        age: 18,
+                        height: 1.888
+                    }
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+知识点小节：在某些情况下,template起到辅助的作用，他不会为页面上添加多余的标签
+*/
+    </script>
+</body>
+
+</html>

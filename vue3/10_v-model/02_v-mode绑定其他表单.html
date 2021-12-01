@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <textarea cols='30' rows='10' v-model='message'></textarea>
+            <h2>{{message}}</h2>
+            <label for="c1">
+                <input type="checkbox" id='c1' v-model='c1'>同意协议
+            </label>
+            <h2>{{c1}}</h2>
+            <hr>
+            <label for="sex"><input id="sex" type="checkbox" value='足球' v-model='hobby'>篮球</label>
+            <label for="sex1"><input id='sex1' type="checkbox" value='难求' v-model='hobby'>足球</label>
+            <h2>{{hobby}}</h2>
+            <hr>
+            <label for="sex2"><input id="sex2" type="radio" value='女' v-model='sex'>女</label>
+            <label for="sex3"><input id='sex3' type="radio" value='男' v-model='sex'>男</label>
+            {{sex}}
+            <hr>
+            <select v-model='fruit' multiple size="20">
+                <option value="apple">平过</option>
+                <option value="banana">香蕉</option>
+            </select>
+            <h2>{{fruit}}</h2>
+            <hr>
+
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    c1: false,
+                    hobby: [],
+                    fruit: [],
+                    sex: ''
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+知识点小节：结合多个checkbox的时候，一定要结合value一起使用，radio也要一起绑定一个value，都要给一个value，不然不知道选的是谁
+*/
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            你的问题 <input type="text" v-model='message'>
+            <button @click='queryAnswer'>查找答案</button>
+        </div>
+    </template>
+    <script>
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀'
+                }
+            },
+            watch: {
+                // 侦听message的变化时，去进行一些逻辑的处理       (javaScript,网络请求)
+                // message   侦听data中的属性的名称
+                // newValue      变化后的新值
+                // oldValue      变化前的旧值
+                // 他一般是监听data(元数据)里面数据的变化
+                message(newValue, oldValue) {
+                    // 在
+                    console.log(newValue, oldValue);
+                    this.queryAnswer()
+                }
+            },
+            methods: {
+                queryAnswer() {
+                    console.log(`你的答案是${this.message}`);
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+知识点小节：
+*/
+    </script>
+</body>
+
+</html>

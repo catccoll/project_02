@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2>{{message}}</h2>
+            <div :style='{color:finallyColor,fontSize:"22px"}'>哈哈</div>
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    finallyColor: 'red'
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+        知识点小节：当你使用的值为常量的时候，一定要记得加双引号，不然会当成变量去使用
+        */
+    </script>
+</body>
+
+</html>

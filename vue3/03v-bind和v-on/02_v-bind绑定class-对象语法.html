@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .active {
+        color: red
+    }
+</style>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2>{{message}}</h2>
+            <!-- 对象语法：{'active':boolean} -->
+            <h2 :class='{active:isActive,title:true}'>哈哈哈</h2>
+            <h2  class="abc cba" :class='{active:isActive,title:true}'>嘻嘻嘻</h2>
+            <!-- 这个固定的class和动态绑定的class会结合拼凑起来 -->
+            
+            <button @click='changeIsActive'>改变class</button>
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    isActive: true, 
+                }
+            },
+            methods: {
+                changeIsActive() {
+                    this.isActive = !this.isActive
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+        知识点小节：对象里面的class类名可以不加引号 
+        */
+    </script>
+</body>
+
+</html>

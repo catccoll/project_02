@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2 v-pre>{{message}}</h2>
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀'
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+        知识点小节：这个指令会让vue不让他解析，跳过解析，呈现出标签内原来的内容
+        */
+    </script>
+</body>
+
+</html>

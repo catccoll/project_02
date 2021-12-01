@@ -29,7 +29,10 @@
 
         // es6语法糖  浅拷贝操作  推荐使用这种
         console.log('.................................................');
+        const o={}
         Object.assign(o, obj)
+        o.msg.age=19
+        console.log(obj);
         console.log(o);
     </script>
 </body>

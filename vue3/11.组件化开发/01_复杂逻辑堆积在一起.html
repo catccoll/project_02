@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <input type="text" v-model='message'>
+            <h2>{{message}}</h2>
+            <h2>{{title}}</h2>
+            <h2>{{dsc}}</h2>
+            <button @click='benClick'> 按钮点击</button>
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    title: '我很好',
+                    dsc: '哈哈'
+
+                }
+            },
+            methods: {
+                benClick() {
+                    console.log('按钮点击');
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+     知识点小节：
+     */
+    </script>
+</body>
+
+</html>

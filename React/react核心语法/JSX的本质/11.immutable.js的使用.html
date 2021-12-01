@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>+1</button>
+    <div>+2</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/4.0.0/immutable.min.js"></script>
+    <script>
+        const im = Immutable;
+
+        const info = {
+            name: 'sai',
+            age: 20,
+            counter: 0,
+            friends: {
+                name: 'hao',
+                age: 25
+            }
+        }
+        const infoIM = im.Map(info)
+        const obj = infoIM
+        const infoIM2 = infoIM.set("name", 'why')
+
+   
+        console.log(obj.get('name'));
+        console.log(infoIM2.get('name'));
+        // 他改变了数据，原来的对象不会改变，且会返回一个新的对象，返回的新对象会尽可能的用原来的对象，达到性能的优化
+  
+    
+        const names = ['aa', 'dd', 'dd']
+        // const arr=names
+        // names[0]='why'
+        // console.log(arr);
+        const namesIM = im.List(names)
+        const arrIM = namesIM.set(0, 'any')
+        console.log(namesIM.get(0));
+        console.log(arrIM.get(0));
+
+
+
+    </script>
+</body>
+
+</html>

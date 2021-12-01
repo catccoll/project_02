@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    [v-clock] {
+        display: none;
+    }
+</style>
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2 v-cloak>{{message}}</h2>
+        </div>
+    </template>
+    <script>
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀'
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+  知识点小节：作用：会让他解析完再呈现到页面，解析完成 v-cloak这个指令会消失
+  */
+    </script>
+</body>
+
+</html>

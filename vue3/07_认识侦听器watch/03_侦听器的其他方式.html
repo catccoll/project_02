@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2>{{message}}</h2>
+            <button @click='sub'>changeInfoName</button>
+
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                    info: { name: 'why', age: 18 },
+                }
+            },
+            watch: {
+                // 侦听某个对象的某个属性可以用这种办法
+                "info.name": function (newValue, oldValue) {
+                    console.log(newValue, oldValue);
+                },
+            },
+            methods: {
+                sub() {
+                    this.info.name = 'saiGao'
+                }
+            },
+            created() {
+                // 返回值可以调用，然后可以取消监听，三个参数，监听的对象，逻辑处理函数，然后就是配置项，有deep 和immediate
+                const unwatch = this.$watch('info', (newInfo, oldInfo) => {
+                    console.log(newInfo, oldInfo);
+                }, {
+                    deep: true,
+                    immediate: true
+                })
+            },
+        }
+
+        Vue.createApp(App).mount("#app")
+           /*
+知识点小节：当是数组的时候[{name:'sai'},{age,18}]当你真的想监听的时候，一般这数据都会是要遍历的，自然就会有子组件，在子组件里面的props里就会有一个一个的item对象，这时候你可以采取 监听对象的方法，来监听，相当于拆散数组，监听数组里面一个一个对象
+*/
+    </script>
+</body>
+
+</html>

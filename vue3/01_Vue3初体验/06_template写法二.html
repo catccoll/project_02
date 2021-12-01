@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <template id="sai">
+        <div>
+            <h2>当前计数为{{counter}}</h2>
+            <button @click='add'>+1</button>
+            <button @click='sub'>-1</button>
+            <button @click='name'>this指向的问题</button>
+        </div>
+    </template>
+    <!-- template也可以改成div，也可以起到效果，但是他会起到渲染两次的效果，自己渲染的效果不能用组件里面的东西，也就是不能解析mustache语法-->
+    <script src="../js/Vue3.js">
+    </script>
+    <script>
+        const app = Vue.createApp({
+            template: '#sai',
+            data() {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                // 当在vue中，涉及到this的时候 ，千万不要使用箭头函数  否则，this指向的不会是vue实例，而是window，为什么不是呢，因为你使用了this，点前作用域没有this，所以他会往上一级去找this，当然 不是methods里面，methods里不能称作为作用域，他都是在写一个对象，同理可得Vue也不是一个作用域，所以他就找到了最外层的 script作用域里面的 window,作用域分全局和局部，不是对象那种花括号之类的 。
+                add() {
+                    this.counter += 1
+                },
+                sub() {
+                    this.counter -= 1
+                },
+                name: () => {
+                    console.log(this);
+                }
+            },
+
+        }).mount('#app')
+  
+
+    </script>
+</body>
+
+</html>

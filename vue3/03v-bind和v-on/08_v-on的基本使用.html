@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2>{{message}}</h2>
+            <button @click='btnClick'>按钮1</button>
+            <button @mousemove='mousemove'>按钮2</button>
+            <button v-on='{click:btnClick,mousemove}'  >绑定多个事件</button>
+        </div>
+    </template>
+    <script>
+     
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀'
+                }
+            },
+            methods: {
+                btnClick(){
+                    console.log('按钮发生了点击');
+                },
+                mousemove(){
+                    console.log('鼠标移动');
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+           知识点小节：还可以同时操作多个事件 v-on='{事件1：事件函数，事件2：事件函数 }'
+           */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <input type="text" v-model='message'>
+            <h2>我是标题</h2>
+            <h2>哈哈哈</h2>
+            <h2>{{message}}</h2>
+            <button @click='benClick'> 按钮点击</button>
+        </div>
+        <cpn></cpn>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀',
+                }
+            },
+            methods: {
+                benClick() {
+                    console.log('按钮点击');
+                }
+            },
+        }
+        // 使用app注册一个全局组件，这个注册全局组件和vue2不同，且app.component要写在app.mount前面
+        // 全局组件：意味着注册的这个组件可以在任何的模板中使用
+        const app = Vue.createApp(App)
+
+        app.component('cpn', {
+            template: `<h2>你好呀</h2>`
+        })
+        app.mount('#app')
+        /*
+知识点小节：
+*/
+    </script>
+</body>
+
+</html>

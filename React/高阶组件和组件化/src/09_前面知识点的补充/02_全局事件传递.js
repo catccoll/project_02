@@ -24,7 +24,7 @@ class Home extends PureComponent {
   }
   componentWillUnmount(){
     // 取消事件监听
-    eventBus.removeListener('sayHello')
+    eventBus.removeListener('sayHello',this.handleSayHello)
   }
   handleSayHello(num,message){
          console.log(num,message);

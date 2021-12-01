@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <h2>{{message}}</h2>
+        </div>
+    </template>
+    <script>
+     
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀'
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+           知识点小节：VNode  虚拟节点  他是一个javascript对象  VDOM是多个VNode形成的VDOM树，为什么要虚拟设置虚拟dom  就是为了跨平台，也辅助diff
+           */
+    </script>
+</body>
+
+</html>

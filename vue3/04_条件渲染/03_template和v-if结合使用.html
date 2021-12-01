@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../js/Vue3.js"></script>
+    <template id="myApp">
+        <div>
+            <template v-if='false'>
+                <h2>哈哈哈</h2>
+                <h2>哈哈哈</h2>
+                <h2>哈哈哈</h2>
+            </template>
+
+
+
+            <template>
+                <h2>呵呵呵</h2>
+                <h2>呵呵呵</h2>
+                <h2>呵呵呵</h2>
+            </template>
+        </div>
+    </template>
+    <script>
+
+        const App = {
+            template: '#myApp',
+            data() {
+                return {
+                    message: '你好呀'
+                }
+            },
+        }
+        Vue.createApp(App).mount("#app")
+           /*
+     知识点小节：我们也可以使用div包裹，但是你包裹完之后呵呵呵外面会多一个div，这不是我们想要的结果，所以我们可以使用template包裹，这样就不会多出我们不想要的div
+     */
+    </script>
+</body>
+
+</html>
