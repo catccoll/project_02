@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { INCREMENT, DECREMENT, MULTIPLY, DiVIDE,createIncrementAsyncAction } from "./mystore/actionCreate";
+import { INCREMENT, DECREMENT, createIncrementAsyncAction } from "./mystore/actionCreate";
 import store from "./mystore/index";
 export default class App extends PureComponent {
   state = {

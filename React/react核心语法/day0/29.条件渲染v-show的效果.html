@@ -23,23 +23,43 @@
 
     <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
     <script type="text/babel">
-        class App extends React.Component {
-            state = {
-                isLogin: true
+        // class App extends React.Component {
+        //     state = {
+        //         isLogin: true
+        //     }
+        //     render() {
+        //         const { isLogin } = this.state
+        //         const displayShow = isLogin ? 'block' : 'none'
+        //         return (
+        //             <div>
+        //            <button onClick={() => { this.btnClick() }}>{isLogin ? '登录' : '退出'}</button>
+        //                 <h2 style={{ display: displayShow }}>你好呀</h2>
+        //             </div>
+        //         )
+        //     }
+        //     btnClick() {
+        //         this.setState({
+        //             isLogin: !this.state.isLogin
+        //         })
+        //     }
+        // }
+        class App extends React.Component{
+            state={
+                isLogin:true
             }
-            render() {
-                const { isLogin } = this.state
-                const displayShow = isLogin ? 'block' : 'none'
+            render(){
+                const {isLogin}=this.state
+                const isDisplay=isLogin?'block':'none'
                 return (
                     <div>
-                   <button onClick={() => { this.btnClick() }}>{isLogin ? '登录' : '退出'}</button>
-                        <h2 style={{ display: displayShow }}>你好呀</h2>
-                    </div>
+                        <button onClick={()=>{this.btnClick()}}>{isLogin?'登录':'退出'}</button>
+                        <h1 style={{display:isDisplay}}>你好呀</h1>
+                        </div>
                 )
             }
-            btnClick() {
+            btnClick(){
                 this.setState({
-                    isLogin: !this.state.isLogin
+                    isLogin:!this.state.isLogin
                 })
             }
         }

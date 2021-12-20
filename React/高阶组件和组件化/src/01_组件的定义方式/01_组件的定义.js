@@ -1,21 +1,17 @@
-import React, {
-    Component
-} from 'react'
+import React, { Component } from "react";
 export default class App extends Component {
-    state = {
-        message: '你好呀'
-    }
-    render() {
-        const {
-            message
-        } = this.state
-        return (
-             <div>
-             <h1> 我是组件 </h1>
-             <h2 > {message} </h2> 
-             </div>
-        )
-    }
+  state = {
+    message: "你好呀",
+  };
+  render() {
+    const { message } = this.state;
+    return (
+      <div>
+        <h1> 我是组件 </h1>
+        <h2> {message} </h2>
+      </div>
+    );
+  }
 }
 // export default function App(){
 //     return(
@@ -25,4 +21,3 @@ export default class App extends Component {
 
 //     )
 // }
- 

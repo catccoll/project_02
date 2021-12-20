@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var GlobalObject = {
+        //     String: "类",
+        //     Number: "类",
+        //     window: GlobalObject,
+        //     name: undefined,
+        //     foo:ax001
+        // }
+        var name = 'sai'
+        foo()
+
+        function foo() {
+            console.log(num1);
+            var num = 1
+            var num1 = 2
+            console.log('foo');
+
+        }
+        console.log(window);
+        // 当在解析的时候碰到函数的时候，函数也会被添加到go里面，并且会在内存当中开辟一块空间来保存函数的父级作用域和函数体，go里面的函数变量会指向这个内存地址，当执行函数的时候，会在执行上下文栈中创建一个函数执行上下文，但是被执行的函数里面又有变量其他的代码，然后在编译函数体的时候，在内存创建一个ao对象，ao里面包括函数的形参，变量等等，最先开始都会被添加到ao里面 ，且值为undefined ，当开始执行里面的函数体后，就ao对象就开始变量的赋值，要用到对象的变量，就会去查找，真实的查找路经是沿着作用域链来查找，当函数执行完毕，函数执行上下文就会弹出执行上下文栈，且内存当中的ao也会被回收
+    </script>
+</body>
+
+</html>

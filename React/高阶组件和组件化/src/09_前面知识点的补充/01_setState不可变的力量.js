@@ -49,6 +49,7 @@ export default class App extends Component {
     // })
 
     //2. 推荐的做法
+    // 先把state里面的数据浅拷贝出来
     const newInfo = [...this.state.info];
     const p = { name: "saiGao", age: 22 };
     this.setState({
@@ -71,3 +72,4 @@ export default class App extends Component {
     return false;
   }
 }
+

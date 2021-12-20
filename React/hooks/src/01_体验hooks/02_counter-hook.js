@@ -10,18 +10,40 @@ import React ,{useState}from "react";
  */
 
 
-export default function CounterHook() {
-  console.log(useState());
-   const arr=useState(0)
-    const state=arr[0]
-    const setState=arr[1]
-    console.log(state);
-  return (
+// export default function CounterHook() {
+//   console.log(useState());
+//    const arr=useState(0)
+//     const state=arr[0]
+//     const setState=arr[1]
+//     console.log(state);
+//   return (
     
-    <div>
-      <h2>当前计数：{state}</h2>
-      <button onClick={e=>setState(state+1)}>+1</button>
-      <button  onClick={e=>setState(state-1)}>-1</button>
-    </div>
-  );
+//     <div>
+//       <h2>当前计数：{state}</h2>
+//       <button onClick={e=>setState(state+1)}>+1</button>
+//       <button  onClick={e=>setState(state-1)}>-1</button>
+//     </div>
+//   );
+// }
+export default function CounterHook(){
+   console.log(useState());
+   const arr =useState(0)
+   console.log(arr);//useState(0)返回的是一个数组      第一个参数是初始值  第二个参数是设置值的函数
+   const state=arr[0]
+   const setState=arr[1]
+   console.log(state);
+   const add=()=>{
+        setState(state+1)
+  }
+  function sub(){
+   setState(state-1)
+  }
+     return(
+       <div>
+        <h2> 当前计数：{state}</h2>
+        <button onClick={()=>{add()}}>+1</button>
+        <button onClick={()=>{sub()}}>-1</button>
+       </div>
+     )
+    
 }

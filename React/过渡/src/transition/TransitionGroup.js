@@ -8,7 +8,7 @@ export default class TransitionGroupDemo extends PureComponent {
   };
   render() {
     return (
-        // n 当我们有一组动画时，需要将这些CSSTransition放入到一个TransitionGroup中来完成动画：
+        // n 当我们有一组动画时，需要将这些CSSTransition放入到一个TransitionGroup中来完成动画：且每个li标签都必须被cssTransition来进行包裹
       <TransitionGroup>
         {this.state.name.map((item, index) => {
           return (

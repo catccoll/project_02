@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 export default class App extends Component {
     state={
-        counter:0
+        counter:0,
+        name:'赛高'
     }
     render() {
         const {counter}=this.state
@@ -24,6 +25,7 @@ export default class App extends Component {
         // this.setState({
         //     counter:this.state.counter+1
         // })
+        // this.setState还可以接受一个回调函数
         // 2.setState合并时进行累加
         this.setState((pervState,props)=>{
             return{
@@ -40,5 +42,14 @@ export default class App extends Component {
                 counter:pervState.counter+1
             }
         })
+        this.setState((preState,props)=>{
+            console.log(preState);
+            console.log(props);
+            return {
+                counter:preState.counter+1
+              
+            }
+        })
+
     }
 }

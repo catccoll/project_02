@@ -14,7 +14,10 @@
         <ul>
             <li v-for='item in letters'>{{item}}</li>
         </ul>
+        <h1 v-show='info.age'>{{info.age}}</h1>
         <button @click='btnclick'>按钮</button>
+        <button @click='btnClick'>添加属性</button>
+        <button @click='btn1Click'>删除属性</button>
     </div>
     <script src="../JS/vue.js">
     </script>
@@ -23,7 +26,11 @@
             el: '#app',
             data: {
                 message: '你好啊',
-                letters: [1, 2, 3, 4, 5, 6]
+                letters: [1, 2, 3, 4, 5, 6],
+                info:{
+                    name:'sai',
+
+                }
             },
             methods: {
                 btnclick() {
@@ -60,6 +67,14 @@
                     // 9.set(要修改的对象，索引值，修改后的值)
                     Vue.set(this.letters, 0, 9)
 
+                },
+                btnClick(){
+                    console.log(this.info.age);
+                    Vue.set(this.info,"age",18)
+                    console.log(this.info.age);
+                },
+                btn1Click(){
+                    Vue.delete(this.info,'age')
                 }
             }
 

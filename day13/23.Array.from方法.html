@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Array.from方法</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		function foo() {
+
+			const arr = Array.from(arguments)
+			console.log(arr);
+		}
+
+		foo(1, 2, 3, 4)
+
+		// 		Array构造函数为大家提供了一个方法，专门用于将伪数组（类数组）转换为真正的数组。
+// 但仍可以使用对标准数组遍历的方法来遍历它们
+		// ​ from()方法用于通过拥有length属性的对象或可迭代的对象(必须是一个对象，且必须有一个length属性)来返回一个数组。可能有一点绕，简单来说就是，from()方法是将一个伪数组对象或者可迭代对象转换成一个正真的数组。
+	</script>
+</body>
+
+</html>

@@ -39,14 +39,14 @@ export default class About extends PureComponent {
                    <Route  path='/about/content' component={History}></Route>
                    <Route path='/about/join' component={Join}></Route>
                </Switch> */}
-        {/* 只能写了这个函数  才有this.props.routes  用了switch就没有这个this.props.rutes */}
+        {/* 只有写了这个函数  才有this.props.routes  用了switch就没有这个this.props.routes */}
         {renderRoutes(this.props.route.routes)}
         {/* renderRoutes(routes[1].routes) */}
       </div>
     );
   }
   join() {
-    console.log(this.props.history);
+    console.log(this.props);
     //  动态路由跳转
     this.props.history.push("/about/join");
     //  console.log(this.props.location);

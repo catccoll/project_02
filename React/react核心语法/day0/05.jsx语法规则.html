@@ -38,6 +38,7 @@
             <div>
                 <h2 className='title' id={myId.toLowerCase()}>
                     <span style={{ color: 'white', fontSize: '29px' }} >{myData.toLowerCase()}</span>
+                    // style {{}}
                 </h2>
                 <h1>{name}</h1>
                 <input type="text" name="" id="" />
@@ -48,7 +49,18 @@
         // 2.渲染虚拟DOM到页面
         ReactDOM.render(VDOM, document.querySelector('#test'))
 
-
+         const myId='qianfeng'
+         const myData='xusaiping'
+         const name='giegie'
+        //  1.创建虚拟DOM
+        const VDOM=(
+            <div>
+             <h2 className='title' id={myId}>
+              <span style={{color:red,fontSize:"20px"}}> {name} </span>
+             </h2>
+             <input type="text"/>
+            </div>
+        )
         /*
         JSX语法规则
         1.定义虚拟DOM时，不要写引号

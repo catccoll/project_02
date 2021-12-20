@@ -25,6 +25,7 @@ friends:[
         </div>
     </>;
     // Fragment短语法  就是不写任何标签  直接就是<></>
+    // fragment段语法    就是不写任何标签 直接就是<></>
   }
   add(){
       this.setState({

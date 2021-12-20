@@ -32,34 +32,33 @@
         //  创建组件
         class MyComponent extends React.Component {
             render() {
-                const { name, age, sex } = this.props
+                const { name,sex, age, speak } = this.props
                 // props是只读的
                 // this.props.name='jack'  此行代码会报错，因为props是只读的
+                // 默认值也要结构出来，不结构出来默认值不生效
                 return (
                     <ul>
                         <li>姓名：{name}</li>
                         <li>性别：{sex}</li>
-                        <li>年龄：{age + 1}</li>
+                        <li onClick={()=>speak()}>年龄：{age + 1}</li>
                     </ul>
                 )
             }
         }
-        // 对标签属性进行类型，必要性的限制
-        MyComponent.propTypes = {
-            name: PropTypes.string.isRequired,//限制name必传，且为字符串
-            sex: PropTypes.string,//限制sex，且为字符串
-            age: PropTypes.number,//这个number是小写，和vue不同
-            speak: PropTypes.func//限制speak为函数
-        }
-        // 指定默认标签属性值
-        MyComponent.defaultProps = {
-            sex: '男',//sex默认值为男
-            age: 18//age默认值为18
-        }
+          MyComponent.propTypes={
+              name:PropTypes.string.isRequired,
+         
+              age:PropTypes.number.isRequired,
+              speak:PropTypes.func
+          }
+          MyComponent.defaultProps={
+              sex:'女'
+              
+          }
         // 渲染组件到页面
-        ReactDOM.render(<MyComponent name='tom' sex='女' speak={speak} />, document.getElementById('test'))
-        ReactDOM.render(<MyComponent name='to' age={18} sex='男' />, document.getElementById('test2'))
-        const p = { name: '老刘', age: 18, sex: '女' }//这里采用批量传递props，也叫传递标签属性
+        // ReactDOM.render(<MyComponent name='tom' sex='女' speak={speak} />, document.getElementById('test'))
+        // ReactDOM.render(<MyComponent name='to' age={18} sex='男' />, document.getElementById('test2'))
+        const p = { name: '老刘', age: 18, speak }//这里采用批量传递props，也叫传递标签属性
         ReactDOM.render(<MyComponent {...p} />, document.getElementById('test3'))
         function speak() {
             console.log('我说话了');

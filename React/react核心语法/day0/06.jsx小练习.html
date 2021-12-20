@@ -23,33 +23,30 @@
 
     <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
     <script type="text/babel">
-        class App extends React.Component {
-            state = {
-                count: 0
-            }
-            render() {
-                return (
-                    
-                    <div>
-                        <h2>当前计数:{this.state.count}</h2>
-                        <button onClick={this.add}>+1</button>
-                        <button onClick={this.sub}>-1</button>
-                    </div>
-
-                )
-            }
-            add = () => {
-                this.setState({
-                    count: this.state.count + 1
-                })
-            }
-            sub = () => {
-                this.setState({
-                    count: this.state.count - 1
-                })
-            }
-        }
-        ReactDOM.render(<App />, document.getElementById('test'))
+        class App extends React.Component{
+state={
+    counter:0
+}
+render() {
+     return(
+         <div>
+           <h1>{this.state.counter}</h1>
+           <button onClick={()=>{this.add()}}>+1</button>
+           <button onClick={this.sub}>-1</button>
+           </div>
+     ) 
+}
+add(){
+    this.setState({
+        counter:this.state.counter+1    })
+}
+sub=()=>{
+    this.setState({
+        counter:this.state.counter-1
+    })
+}
+}
+ReactDOM.render(<App/>,document.getElementById('test'))
     </script>
 
 </body>

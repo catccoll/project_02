@@ -51,6 +51,7 @@ class App extends PureComponent {
         {/* <NavLink exact to='/' activeStyle={{color:'red'}}>首页</NavLink>
            <NavLink to='/about'  activeStyle={{color:'red'}}>关于</NavLink>
            <NavLink to='/profile'  activeStyle={{color:'red'}}>我的</NavLink> */}
+           {/* 凡是碰到'/'开头，都需要exact 精准匹配*/}
         <NavLink exact to="/" activeClassName="link-active">
           首页
         </NavLink>
@@ -63,13 +64,13 @@ class App extends PureComponent {
         <NavLink to="/user" activeClassName="link-active">
           用户
         </NavLink>
-        <NavLink to={`/detail/abc`} activeClassName="link-active">
+        <NavLink to="/detail/abc" activeClassName="link-active">
           详情1
         </NavLink>
         <NavLink to={"/detail2?age=18&name=why"} activeClassName="link-active">
           详情2
         </NavLink>
-        {/* 想要传递的信息复杂的话，需要用对象格式 */}
+        {/* 想要传递的信息复杂的话，需要用对象格式，且复杂的东西放在state里面 */}
         <NavLink
           to={{
             pathname: "/detail3",
@@ -80,8 +81,9 @@ class App extends PureComponent {
         >
           详情3
         </NavLink>
-        {/* 这个在当活跃的时候，系统会自动帮我们添加一个active类 也可以修改系统的自带的active类*/}
         <button onClick={(e) => this.jump()}>商品</button>
+        {/* 这个在当活跃的时候，系统会自动帮我们添加一个active类 也可以修改系统的自带的"active"类*  使用activeClassName进行修改  /}
+    
 
         {/* 当匹配“/”时  要添加exact 这样才能精准匹配路经*/}
         {/* Switch的作用 就是 匹配到了第一个就不会继续匹配了*/}
@@ -97,7 +99,7 @@ class App extends PureComponent {
           <Route path="/detail2" component={Detail2}></Route>
           <Route path="/detail3" component={Detail3}></Route>
           <Route component={NoMatch}></Route> */}
-        {/* 这个是要写到最后 别乱了顺序 这个生命都匹配不到  就匹配到这个组件*/}
+        {/* 这个是要写到最后 别乱了顺序 如果什么都匹配不到  就匹配到这个组件*/}
         {/* </Switch> */}
         {renderRoutes(routes)}
       </div>

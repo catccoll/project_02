@@ -24,15 +24,19 @@
     <!-- 此处一定要写babel -->
     <script type="text/babel">
 
-        // 1.创建虚拟DOM
-        const VDOM = (/* 此处一定不要写引号，因为不是字符串*/
-            <h1 id='title'>
-                <span>Hello,React</span>
-            </h1>)
+        // // 1.创建虚拟DOM
+        // const VDOM = (/* 此处一定不要写引号，因为不是字符串*/
+        //     <h1 id='title'>
+        //         <span>Hello,React</span>
+        //     </h1>)
+        
+        // // 2.渲染虚拟DOM页面
+        // ReactDOM.render(VDOM, document.getElementById('test'))
+       const VDOM=( <h1 id='title'>
+        <span>hello，React</span>
+        </h1> )
 
-        // 2.渲染虚拟DOM页面
-        ReactDOM.render(VDOM, document.getElementById('test'))
-
+        ReactDOM.render(VDOM,document.getElementById('test'))
     </script>
 
 

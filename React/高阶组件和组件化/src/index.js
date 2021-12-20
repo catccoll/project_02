@@ -6,7 +6,8 @@ import ReactDOM from 'react-dom'
 import './05_React实现slot/style.css'
 // import App from './05_React实现slot/App'
 // import "./04_组件通信的案例/style.css";
-import  App from './12_组件内容补充/04_strictMode的使用'
+import './14.echarts/mock/index'
+import  App from './15.异步组件/Father'
 // import './css/index.css'
 // 渲染App页面
 

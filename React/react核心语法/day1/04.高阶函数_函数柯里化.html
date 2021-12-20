@@ -33,26 +33,26 @@
                     <form onSubmit={this.handleSubmit}>
                         用户名:<input onChange={this.saveFormData("username")} type="text" name='user' /> <br />
                         密码：<input onChange={this.saveFormData('password')} type="password" name="password" /><br />
+                        <h1>{this.state.password}</h1>
                         <button >登录</button>
                     </form>
                 )
             }
 
-            handleSubmit = () => {
+            handleSubmit = (event) => {
                 const { username, password } = this.state
                 console.log(`${username}${password}`);
 
                 event.preventDefault()
             }
 
-
-            saveFormData = (dataType) => {
-                return (event) => {
+            saveFormData(dataType){
+                return (e)=>{
                     this.setState({
-                        [dataType]: event.target.value
+                        [dataType]:e.target.value
                     })
                 }
-            }
+            }    
             /*
             高阶函数:如果一个函数符合下面2个规范中的任何一个，那该函数就是高阶函数。
            1.若A函数，接收的参数是一个函数，那么A就可以称之为高阶函数。

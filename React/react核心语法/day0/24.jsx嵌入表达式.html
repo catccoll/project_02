@@ -23,29 +23,53 @@
 
     <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
     <script type="text/babel">
-        class App extends React.Component {
-            state = {
-                firstName: 'kobe',
-                lastName: 'bryant',
-                isLogin: true
-            }
-            render() {
-                const { firstName, lastName, isLogin } = this.state
-                return (
-                    <div>
-                        {/*运算符表达式*/}
-                        <h2>{firstName + '' + lastName}</h2>
-                        <h2>{20 * 50}</h2>
-                        {/*三元表示式*/}
-                        <h2>{isLogin ? '欢迎回来' : '请先登录'}</h2>
-                        {/*函数调用*/}
-                        <h2>{this.getFullName()}</h2>
+        // class App extends React.Component {
+        //     state = {
+        //         firstName: 'kobe',
+        //         lastName: 'bryant',
+        //         isLogin: true
+        //     }
+        //     render() {
+        //         const { firstName, lastName, isLogin } = this.state
+        //         return (
+        //             <div>
+        //                 {/*运算符表达式*/}
+        //                 <h2>{firstName + '' + lastName}</h2>
+        //                 <h2>{20 * 50}</h2>
+        //                 {/*三元表示式*/}
+        //                 <h2>{isLogin ? '欢迎回来' : '请先登录'}</h2>
+        //                 {/*函数调用*/}
+        //                 <h2>{this.getFullName()}</h2>
 
-                    </div>
+        //             </div>
+        //         )
+        //     }
+        //     getFullName() {
+        //         return this.state.firstName + '' + this.state.lastName
+        //     }
+        // }
+        class App extends React.Component{
+            state={
+                firstName:'kobe',
+                lastName:'bryant',
+                isLogin:true
+            }
+            render(){
+                const {firstName,lastName,isLogin}=this.state
+                return(
+                    <div>
+                        {/* 运算符表达式 */}
+                        <h2>{firstName+''+lastName}</h2>
+                        <h2>{20*50}</h2>
+                        {/* 三元表达式*/}
+                        <h2>{isLogin?'欢迎回来':'请先登录'}</h2>
+                        {/* 函数调用*/}
+                        <h2>{this.getFullName()}</h2>
+                        </div>
                 )
             }
-            getFullName() {
-                return this.state.firstName + '' + this.state.lastName
+            getFullName(){
+                return this.state.firstName+' '+this.state.lastName
             }
         }
         ReactDOM.render(<App />, document.getElementById('test'))

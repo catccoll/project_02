@@ -22,13 +22,17 @@
 
     <!-- 此处一定要写babel -->
     <script type="text/javascript">
-
         // 1.创建虚拟DOM
         //    const VDOM=React.createElement(标签名，标签属性，标签内容)
-        const VDOM = React.createElement('h1', { id: 'title' }, React.createElement('span',{},'Hello'))
-        // 2.渲染虚拟DOM页面
-        ReactDOM.render(VDOM, document.getElementById('test'))
+        // const VDOM = React.createElement('h1', { id: 'title' }, React.createElement('span',{},'Hello'))
+        // // 2.渲染虚拟DOM页面
+        // ReactDOM.render(VDOM, document.getElementById('test'))
 
+
+        const vdom = React.createElement('h1', {
+            id: 'title'
+        }, React.createElement('span', {}, 'hello react'))
+        ReactDOM.render(vdom, document.getElementById('test'))
     </script>
 
 

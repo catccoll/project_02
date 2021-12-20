@@ -35,7 +35,7 @@
 
     <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
     <script type="text/babel">
-    class NewsList extends React.Component{
+        class NewsList extends React.Component{
         myRef=React.createRef()
         state={
             newsList:[]
@@ -50,22 +50,69 @@
             )
         }
         componentDidMount(){
-            setInterval(()=>{
+            setTimeout(()=>{
                 const {newsList}=this.state
                 const p=`新闻${newsList.length+1}`
                 this.setState({
                     newsList:[p,...newsList]
                 })
-            },1000)
+            },10)
         }
         getSnapshotBeforeUpdate(){
-            console.log(this.myRef.current.scrollHeight);
+            // console.log(this.myRef.current.scrollHeight);
             return  this.myRef.current.scrollHeight
         }
         componentDidUpdate(p,s,h){
+            // console.log(h);
+            // console.log(p);
+            // console.log(s);
             this.myRef.current.scrollTop+=this.myRef.current.scrollHeight-h
         }
     }
+//   class NewsList extends React.Component{
+//       state={
+//           newsList:[]
+//       }
+//       ulRef=React.createRef()
+//       render(){
+//       return (
+//         <div>
+//             <ul ref={this.ulRef}>
+//                 {this.state.newsList.map(item=>{
+//                     return <li key={item}>{item}</li>
+//                 })}
+//                 </ul>
+//             </div>
+//             )
+//       }
+   
+//       componentDidMount(){
+//         let i=0
+//        this.timer=   setInterval(() => {
+               
+//                const p=`新闻${i}`
+//                i++
+//                this.setState({
+//                    newsList:[p,...this.state.newsList]
+//                })
+//           }, 300);
+//       }
+//       componentDidUpdated(preProps,preState,h){
+//         //   console.log(preProps);
+//         //   console.log(preState);
+//         //   console.log(h);
+//         //   this.ulRef.current.scrollTop+=this.preState.offSetHeight-h
+//       }
+//   }
+
+
+
+
+
+
+
+
+
     ReactDOM.render(<NewsList/>,document.getElementById('test'))
     </script>
 

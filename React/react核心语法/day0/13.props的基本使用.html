@@ -29,7 +29,7 @@
         //  创建组件
         class MyComponent extends React.Component {
             render() {
-                const { name, age, sex } = this.props
+                const {name,sex,age}=this.props
                 return (
                     <ul>
                         <li>姓名：{name}</li>
@@ -40,9 +40,8 @@
             }
         }
         // 渲染组件到页面
-        ReactDOM.render(<MyComponent name='tom' age="19" sex='女' />, document.getElementById('test'))
-        ReactDOM.render(<MyComponent name='to' age="18" sex='男' />, document.getElementById('test2'))
-        ReactDOM.render(<MyComponent name='tom2' age="20" sex='女' />, document.getElementById('test3'))
+        const info={name:"sai" ,sex:'男',age:18}
+         ReactDOM.render(<MyComponent {...info} />, document.getElementById('test') )
 
     </script>
 

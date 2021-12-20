@@ -23,37 +23,72 @@
 
     <!-- 此处一定要写babel 是目前前端使用非常广泛的编辑器、转移器 -->
     <script type="text/babel">
-        class App extends React.Component {
-            state = {
-                isLogin: true
-            }
-            render() {
-                const { isLogin } = this.state
-                //方案一、 通过if判断(适合逻辑代码非常多的情况下)
-                let welcome = null
-                if (isLogin) {
-                    welcome = <h2>欢迎回来</h2>
-                } else {
-                    welcome = <h2>请先登录</h2>
-                }
+        // class App extends React.Component {
+        //     state = {
+        //         isLogin: true
+        //     }
+        //     render() {
+        //         const { isLogin } = this.state
+        //         //方案一、 通过if判断(适合逻辑代码非常多的情况下)
+        //         let welcome = null
+        //         if (isLogin) {
+        //             welcome = <h2>欢迎回来</h2>
+        //         } else {
+        //             welcome = <h2>请先登录</h2>
+        //         }
 
-                return (
+        //         return (
+        //             <div>
+        //                 {welcome}
+        //                 {/*方案二、 三元运算符*/}
+        //                 <button onClick={() => { this.btnClick() }}>{isLogin ? '登录' : '退出'}</button>
+        //                 <br />
+        //                 {/*方案三、 逻辑与的写法*/}
+        //                 <h2>{isLogin && '你好呀'}</h2>
+        //             </div>
+        //         )
+        //     }
+        //     btnClick() {
+        //         this.setState({
+        //             isLogin: !this.state.isLogin
+        //         })
+        //     }
+        // }
+         class App  extends React.Component{
+             state={
+                 isLogin:true
+             }
+             render(){
+                const {isLogin} =this.state
+                  let welcome=null
+                  if(isLogin){
+                      welcome=<h1>欢迎光临</h1>
+
+                  }else{
+                      welcome=<h1>请登录</h1>
+                  }
+                  return (
                     <div>
                         {welcome}
-                        {/*方案二、 三元运算符*/}
-                        <button onClick={() => { this.btnClick() }}>{isLogin ? '登录' : '退出'}</button>
-                        <br />
-                        {/*方案三、 逻辑与的写法*/}
-                        <h2>{isLogin && '你好呀'}</h2>
-                    </div>
-                )
-            }
-            btnClick() {
-                this.setState({
-                    isLogin: !this.state.isLogin
-                })
-            }
-        }
+                         <h1>{isLogin?'欢迎光临':'请登录'}</h1>
+                           <h1>{isLogin&&'请登录'}</h1>
+                           <button onClick={()=>this.btnClick()}>改变状态</button>
+
+                        </div>
+
+              )
+             }
+             btnClick(){
+                 this.setState({
+                     isLogin:!this.state.isLogin
+                 })
+             }
+          
+         
+             
+         }
+
+
         ReactDOM.render(<App />, document.getElementById('test'))
     </script>
 

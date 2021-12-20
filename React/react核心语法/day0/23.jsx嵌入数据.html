@@ -44,12 +44,14 @@
                         <h2>{this.state.name}</h2>
                         <h2>{this.state.age}</h2>
                         <h2>{this.state.names}</h2>
+                   {  /*     // 是数组的话，会自动帮你遍历出来*/ }
                         {/*加+''转换为字符串*/}
                         <h2>{this.state.test1 + ''}</h2>
                         <h2>{this.state.test2 + ''}</h2>
                         <h2>{this.state.test3 ? '你好呀' : null}</h2>
                         <h2>{this.state.test3 && '我很好'}</h2>
-                        <h2>{'你知道我还爱你吗'}</h2>
+                        <h2>你知道我还爱你吗</h2>
+                        <h2>{this.state.info.name}</h2>
                         {/*     <h2>{this.state.info}</h2>   报错  对象不能作为子类放在jsx里面*/}
                     </div>
                 )

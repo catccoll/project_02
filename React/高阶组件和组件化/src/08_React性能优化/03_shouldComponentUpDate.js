@@ -23,6 +23,7 @@ export default class App extends Component {
         >
           改变文本
         </button>
+        <h1>{this.state.message}</h1>
       </div>
     );
   }

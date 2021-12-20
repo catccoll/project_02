@@ -4,11 +4,12 @@ export default function UseCallback() {
   const [counter, setCounter] = useState(0);
   const increment = () => {
     setCounter(counter + 1);
+    console.log(22);
   };
   const increment2 = useCallback(() => {
     console.log(11);
     setCounter(counter + 1);
-  }, [counter]);
+  }, []);
 
   return (
     <div>

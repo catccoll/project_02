@@ -53,11 +53,34 @@
                 })
             }
         }
+        class MyComponent extends React.Component{
+            // 构造器调用一次
+             constructor(props){
+                 super(props)
+                 this.state={
+                     isHot:false,
+                     windy:true
+                 }
+                //  .bind返回的是一个新的函数
+                 this.changeWeather=this.changeWeather.bind(this)
+             }
+            //  render调用1+n次
+             render(){
+                 return <h1 onClick={()=>this.changeWeather}>今天天气很{this.state.isHot?'炎热':'凉爽'}</h1>
+
+             }
+            //  更新几次调用几次
+             changeWeather(){
+                 this.setState({
+                     isHot:!this.state.isHot
+                 })
+             }
+         }  
         ReactDOM.render(<MyComponent />, document.getElementById('test'))
-        // function changeWeather() {
+ 
 
 
-        // }
+
     // 一定要实例对象本身自己去调用方法，this中的指向才会是实例对象，否则都不是实例对象
     </script>
 
