@@ -1,0 +1,17 @@
+· hash 模式：
+
+o #后面 hash 值的变化，不会导致浏览器向服务器发出请求，浏览器不发出请求，就不会刷新页面
+
+o 通过监听 hashchange 事件可以知道 hash 发生了哪些变化，然后根据 hash 变化来实现更新页面部分内容的操作。
+
+· history 模式：
+
+o history 模式的实现，主要是 HTML5 标准发布的两个 API，pushState 和 replaceState，这两个 API 可以在改变 url，但是不会发送请求。这样就可以监听 url 变化来实现更新页面部分内容的操作
+
+· 区别
+
+o url 展示上，hash 模式有“#”，history 模式没有
+
+
+
+o 兼容性，hash 可以支持低版本浏览器和 IE。

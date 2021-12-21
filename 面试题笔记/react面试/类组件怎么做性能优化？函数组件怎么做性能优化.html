@@ -1,0 +1,17 @@
+类组件：
+    （1）使用shouldComponentUpdate：这个生命周期可以让我们决定当前状态或属性的改变是否重新渲染组件，默认返回ture，返回false时不会执行render，在初始化渲染或使用forceUpdate()时不会调用；如果在shouldComponentUpdate比较的值是引用类型的话，可能达不到我们想要的效果，因为引用类型指向同一个地址；
+        当将旧的state的值原封不动赋值给新的state（即不改变state的值，但是调用了setState）和 无数据交换的父组件的重新渲染都会导致组件重新渲染，这时候都可以通过shouldComponentUpdate来优化；
+    （2）React.PureComponent：基本上和Component用法一致，不同之处在于 PureComponent不需要开发者自己设置shouldComponentUpdate，因为PureComponent自带通过props和state的浅对比来实现 shouldComponentUpate；但是如果props和state对象包含复杂的数据结构，它可能会判断错误(表现为对象深层的数据已改变，视图却没有更新）；
+    （4）使用Immutable：immutable是一种持久化数据，一旦被创建就不会被修改，修改immutable对象的时候返回新的immutable；也就是说在使用旧数据创建新数据的时候，会保证旧数据同时可用且不变；为了避免深度复制所有节点的带来的性能损耗，immutable使用了结构共享，即如果对象树中的一个节点发生变化，只修改这个节点和受他影响的父节点，其他节点仍然共享；
+
+
+函数组件：
+    （1）useCallback：接收一个函数作为参数，接收第二个参数作为依赖列表，返回值为函数，有助于避免在每次渲染时都进行高开销的计算，仅会在某个依赖项改变时才重新计算；可以使用useCallback把要传递给子组件的函数包裹起来，这样父组件刷新的时候，传递给子组件的函数指向不会发生改变，可以减少子组件的渲染次数；
+            const handleUseCallback=useCallback(handleClick,[])
+            <Child handleClick={handleUseCallback} />
+    （2）useMemo：useMemo的使用和useCallback差不多，只是useCallback返回的是一个函数，useMemo返回值可以是函数、对象等都可以；
+
+两者都可使用：
+    （1）React.memo：React.memo 功能同React.PureComponent，但React.memo是高阶组件，既可以用在类组件中也可以用在函数组件中；memo还可以接收第二个参数，是一个可定制化的比较函数，其返回值与 shouldComponentUpdate的相反；
+    （2）使用key：在列表渲染时使用key，这样当组件发生增删改、排序等操作时，diff运算后可以根据key值直接调整DOM顺序，避免不必要的渲染而避免性能的浪费；
+    （3）不要滥用props：尽量只传需要的数据，避免多余的更新，尽量避免使用{…props}；

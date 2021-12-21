@@ -1,0 +1,30 @@
+Hooks 是React在16.8版本中出的一个新功能，本质是一种函数，可以实现组件逻辑复用，让我们在函数式组件中使用类组件中的状态、生命周期等功能，hooks的名字都是以use开头。
+
+react：
+1、useState——创建状态
+        接收一个参数作为初始值；返回一个数组，第一个值为状态，第二个值为改变状态的函数
+2、useEffect——副作用（数据获取、dom操作影响页面——在渲染结束之后执行
+        (1)第一个参数为函数，第二个参数为依赖列表，只有依赖更新时才会执行函数；返回一个函数，当页面刷新的时候先执行返回函数再执行参数函数
+        (2)如果不接受第二个参数，那么在第一次渲染完成之后和每次更新渲染页面的时候，都会调用useEffect的回调函数
+3、useRef
+返回一个可变的ref对象，此索引在整个生命周期中保持不变。可以用来获取元素或组件的实例，用来做输入框的聚焦或者动画的触发。    
+4、useMemo——优化函数组件中的功能函数——在渲染期间执行
+（1）接收一个函数作为参数，同样接收第二个参数作为依赖列表，返回值可以是任何，函数、对象等都可以
+（2）这种优化有助于避免在每次渲染时都进行高开销的计算，仅会在某个依赖项改变时才重新计算            
+5、useContext——获取上下文注入的值    
+        (1)接受一个context 对象，并返回该对象<MyContext.Provider> 元素的 value值；
+                const value = useContext(MyContext)；        
+6、useLayoutEffect——有DOM操作的副作用——在DOM更新之后执行
+        和useEffet类似，但是执行时机不同，useLayoutEffect在DOM更新之后执行，useEffect在render渲染结束后执行，也就是说useLayoutEffect比useEffect先执行，这是因为DOM更新之后，渲染才结束或者渲染还会结束         
+7、useCallback——与useMemo类似
+        useMemo与useCallback相同，接收一个函数作为参数，也同样接收第二个参数作为依赖列表；useCallback是对传过来的回调函数优化，返回的是一个函数
+
+react-router:
+被route包裹的组件，可以直接使用props进行路由相关操作，但是没有被route包裹的组件只能用withRouter高阶组件修饰或者使用hooks进行操作
+1、useHistory——跳转路由
+2、useLocation——得到url对象
+3、useParams——得到url上的参数
+
+react-redux:
+1、useSelector——共享状态——从redux的store中提取数据
+2、useDispatch——共享状态——返回redux的store中对dispatch的引用    

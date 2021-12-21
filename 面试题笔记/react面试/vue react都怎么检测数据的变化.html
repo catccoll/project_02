@@ -1,0 +1,6 @@
+React
+React默认是通过比较引用的方式（diff）进行的，不精确监听数据变化，如果不优化可能导致大量不必要的VDOM重新渲染
+
+
+Vue
+vue监听变量变化依靠 watch Object.defineProperty，Vue通过“getter/setter”以及一些函数的劫持，能精确知道数据变化

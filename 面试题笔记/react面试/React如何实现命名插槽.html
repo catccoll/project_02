@@ -1,0 +1,2 @@
+通过属性的方式传递给子组件 通过this.props拿取到
+通过在子组件的中间书写传递的元素，通过this.props.children，但是元素的个数决定 this.props.children的类型，比如他可能是个undefined，可能是个对象，也可能是个数组，通过Children这个api中的map方法转为统一的格式，然后进行遍历渲染

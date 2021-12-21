@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { Component , Children } from "react";
 
 export default class NavBar extends Component {
   render() {
+    console.log(Children);
     console.log(this.props.children);
     return (
       <div className="NavBar">

@@ -1,0 +1,27 @@
+1. vue2和vue3双向数据绑定原理发生了改变
+2.Vue3支持碎片(Fragments)，也就是vue3允许存在多个根节点
+3. Composition API
+Vue2与Vue3 最大的区别 — Vue2使用选项类型API（Options API）对比Vue3合成型API（Composition API）这样代码会更加简洁与方面，有关某个数据的逻辑可以单独的抽取出来，能够更加通读
+4.建立数据 data
+5.生命周期钩子 — Lifecyle Hooks
+Vue2--------------vue3
+beforeCreate  -> setup()
+created       -> setup()
+beforeMount   -> onBeforeMount
+mounted       -> onMounted
+beforeUpdate  -> onBeforeUpdate
+updated       -> onUpdated
+beforeDestroy -> onBeforeUnmount
+destroyed     -> onUnmounted
+activated     -> onActivated
+deactivated   -> onDeactivated
+setup() :开始创建组件之前，在beforeCreate和created之前执行。创建的是data和method
+onBeforeMount() : 组件挂载到节点上之前执行的函数。
+onMounted() : 组件挂载完成后执行的函数。
+onBeforeUpdate(): 组件更新之前执行的函数。
+onUpdated(): 组件更新完成之后执行的函数。
+onBeforeUnmount(): 组件卸载之前执行的函数。
+onUnmounted(): 组件卸载完成后执行的函数
+
+vue3全部用ts重写，性能提升、代码量减少
+但是Proxy存在浏览器兼容性问题，且不能polyfill，polyfill是一段代码的插件，处理浏览器兼容的问题

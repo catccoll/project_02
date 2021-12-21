@@ -1,6 +1,12 @@
 import React, { PureComponent } from "react";
 import { matchRoutes, renderRoutes } from "react-router-config";
-import { NavLink, Switch, Route } from "react-router-dom";
+import {
+  NavLink,
+  Switch,
+  Route,
+  useParams,
+  useHistory,
+} from "react-router-dom";
 import routes from "../router";
 export function Culture() {
   return <h2>企业历史文化</h2>;

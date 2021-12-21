@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: 'sai',
+            age: 18,
+            title: {
+                message: '哈哈'
+            }
+        }
+
+        //   浅拷贝
+        // const o = {}
+        // for (let key in obj) {
+        //     o[key] = obj[k]
+        // }
+        //     // 2.第二种方法 
+        //     Object.assign(o,obj)
+    //    o={...obj}  第三种方法
+    //    console.log(o);
+
+        // 深拷贝
+        function foo(oldValue,newValue){
+             for(let i in oldValue  ){
+                let item =oldValue[i]
+
+                if(item instanceof Array){
+                    newValue[i]=[]
+                    foo( item, newValue[i] )
+                }
+                else if(item instanceof Object){
+                        newValue[i]={}
+                        foo(item,newValue[i])
+                }else{
+                    newValue[i]=item
+                }
+             }
+        }
+        foo(obj,o)
+      
+        // o.title.message='呵呵'
+        // console.log(o);
+        // console.log(obj);
+        // 这也是深拷贝的一种写法
+        const o =JSON.parse(JSON.stringify(obj))
+        console.log(o);
+        // 
+    </script>
+
+
+</body>
+
+</html>

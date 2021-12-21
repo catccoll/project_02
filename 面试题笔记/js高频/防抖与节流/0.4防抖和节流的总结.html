@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 什么事件该用什么方式：
+        1.防抖和节流各有特点，在不同的场景要根据需求合理的选择策略。如果事件触发是高频但是有停顿时，可以选择防抖；
+        典型的应用场景：1.1监听浏览器窗口的resize事件（不管窗口怎么变化，只执行最后一次，所以每次触发浏览器的resize事件时，应该重新触发回调函数，即响应事件）1.2搜索栏等
+
+
+
+
+        2. 在事件连续不断高频触发时，只能选择节流，因为防抖可能会导致动作只被执行一次，界面出现跳,典型的应用场景：2.1下拉加载更多（无限滚动）事件(onscroll)，2.2拖拽框(onmousemove)等等
+    -->
+
+    <!-- 都是用定时器来实现 -->
+</body>
+
+</html>

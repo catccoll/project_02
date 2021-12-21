@@ -1,0 +1,27 @@
+NEXTtICK
+1.异步渲染，$nextTick待DOM渲染在执行nextTick中的回调函数
+2.页面渲染时会将data的修改做整合，多次data的修改只会渲染一次
+
+
+
+
+
+
+
+
+vue是异步执行 DOM 更新的，也就是vue解析模板是一个异步的操作，此时我们如果想立马拿到更新后的DOM元素，是拿不到的。
+要通过nextTick来获取，nextTick是在下次DOM更新循环结束之后执行延迟回调，所以可以在修改数据之后使用 nextTick 来获取更新后的 DOM。
+
+
+
+
+
+
+
+
+
+nextTick他是一个异步的任务，且在异步任务中他又属于微任务，
+而宏任务一般是：包括整体代码Dom操作，setTimeout，setInterval。
+微任务：Promise，process.nextTick。
+且宏任务的执行顺序在微任务之后
+在vue中watch任务  组件更新任务，生命周期回调任务 都会被添加到微任务里面，vue又把nextTick任务安排在这些微任务的后面  ，所以就可以获得更新完后的DOM

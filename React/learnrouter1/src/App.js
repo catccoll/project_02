@@ -115,5 +115,5 @@ class App extends PureComponent {
     this.props.history.push("/products");
   }
 }
-// 如果不是通过路由跳转调到对应的组件的话，就不能在组件里面使用this.props.history，要通过一个高阶组件函数 ，包裹你要操作DOM的组件，这个组件在其他地方用的时候 要再次用BrowserRouter包裹一下子 然后就会获得和跳转那样得到很多方法
+// 如果不是通过路由跳转调到对应的组件的话，就不能在组件里面使用this.props.history，要通过withRouter高阶组件函数 ，包裹你要操作DOM的组件，这个组件在其他地方用的时候 要再次用BrowserRouter包裹一下子 然后就会获得和跳转那样得到很多方法
 export default withRouter(App);

@@ -1,0 +1,1 @@
+ES6 要求，子类的构造函数必须执行一次super函数。这是必须的，否则 JavaScript 引擎会报错。ES6 中在调用 super()方法之前，子类构造函数无法使用this引用，在react的类组件中也是如此；将 props 参数传递给 super() 调用的主要原因是在子构造函数中能够通过this.props来获取传入的 props。

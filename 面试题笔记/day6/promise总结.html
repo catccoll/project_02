@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    首先 promise的出现就是为了解决异步编程的一种解决方案，使得代码更加清晰，promise提供统一的，规范的api，使得操作变得容易
+    他有三个状态，两个过程 ，一旦状态发生改变就不能更改状态，
+    Pending（进行中）
+    Resolved（已完成）
+    Rejected（已拒绝）
+
+    两个过程
+    pending -> fulfilled : Resolved（已完成）
+    pending -> rejected：Rejected（已拒绝）
+    promise是一个构造函数，自己身上有all、reject、resolve这几个熟悉的方法，原型上有.then .catch等同样很眼熟的方法
+  
+    promise的精髓‘状态’，就是用维护状态、传递状态的方式来使得回调函数能够及时调用，当我们把状态设置成resolved，也就是调用了resolve方法，在promise对象then方法中就能捕捉到 然后执行成功的回调，也就是then中第一个参数的回调函数，当把状态设置成rejected，也就是调用了reject方法，在then中就能捕捉到，然后执行失败的回调，也就是then中第二个参数的回调，但是一般我们执行失败的回调函数，会用catch方法，使得代码更加的清晰明了，且在then方法第一个参数中，如果代码出错了，他并不会卡死，而是会来到catch方法中，且把错误原因传递到catch方法的性形参中，可以打印出来错误。
+    <script>
+        //     const promise1 = new Promise((resolve, reject) => {
+        //   console.log('promise1')
+        //   resolve('resolve1')
+        // })
+        // const promise2 = promise1.then(res => {
+        //   console.log(res)
+        // })
+        // console.log('1', promise1);
+        // console.log('2', promise2);
+        // 'promise1'
+        // '1' Promise{<resolved>: 'resolve1'}
+        // '2' Promise{<pending>}
+        // 'resolve1'
+
+
+        console.log('---------------------------------');
+        // const promise = new Promise((resolve, reject) => {
+        //   console.log(1);
+        //   setTimeout(() => {
+        //     console.log("timerStart");
+        //     resolve("success");
+        //     console.log("timerEnd");
+        //   }, 0);
+        //   console.log(2);
+        // });
+        // promise.then((res) => {
+        //   console.log(res);
+        // });
+        // console.log(4);
+        //    1,2 ,4 timerStart timerEnd success
+
+        console.log('---------------------------------');
+
+        // Promise.resolve().then(() => {//第一轮的微任务
+        //     console.log('promise1');
+        //     const timer2 = setTimeout(() => {
+        //         console.log('timer2')
+        //     }, 0)
+        // });
+        // const timer1 = setTimeout(() => {//第一轮的宏任务
+        //     console.log('timer1')
+        //     Promise.resolve().then(() => {
+        //         console.log('promise2')
+        //     })
+        // }, 0)
+        // console.log('start');//同步任务
+        //   第一轮结束就来执行微任务   把微任务里面的代码执行完，再去执行第一轮放进去的宏任务 
+        // 所以是 打印promise1 碰到timer2放到第二轮的宏任务去 ，然后执行第一轮的宏任务 ，打印timer1
+        // 又碰到微任务 ，就放进第二轮的微任务 ，然后第二轮执行完了，就执行第二轮的异步任务，所以是执行第二轮的微任务，就是打印promise2 在执行第二轮的宏任务 打印 timer2
+
+        // start promise1  timer1 promise2 timer2
+        console.log('---------------------------------');
+        //         const promise = new Promise((resolve, reject) => {
+        //     resolve('success1');
+        //     reject('error');
+        //     resolve('success2');
+        // });
+        // promise.then((res) => {
+        //     console.log('then:', res);
+        // }).catch((err) => {
+        //     console.log('catch:', err);
+        // })
+        // then success1  
+        // 这个题目考察的就是Promise的状态在发生变化之后，就不会再发生变化。开始状态由pending变为resolve，说明已经变为已完成状态，下面的两个状态的就不会再执行，同时下面的catch也不会捕获到错误。
+
+        const promise1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('success')
+            }, 1000)
+        })
+        const promise2 = promise1.then(() => {
+            throw new Error('error!!!')
+        })
+        console.log('promise1', promise1)
+        console.log('promise2', promise2)
+        setTimeout(() => {
+            console.log('promise1', promise1)
+            console.log('promise2', promise2)
+        }, 2000)
+        // promise1 Promise{<pending>}
+        // promise2 Promise{<pending>}
+        // throw new Error('error!!!')
+        // promise1 Promise{<resolved>:'success'}
+        // promise1 Promise{<rejected>:Error:error!!}
+    </script>
+</body>
+
+</html>

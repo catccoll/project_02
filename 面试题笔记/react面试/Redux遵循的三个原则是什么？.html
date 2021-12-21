@@ -1,0 +1,8 @@
+单一数据源
+保存的状态在redux的只存在于唯一一个 store 中
+
+State是只读的
+唯一改变state的方法就是派送 action触发reducer，action是一个描述已发生事件的普通对象 这样确保视图和网络请求不能直接修改state
+
+使用纯函数来执行修改
+为了描述action如何改变state tree，你需要编写reducers

@@ -40,6 +40,3 @@ export const recommendAxios = (dispatch) => {
     dispatch(changeBanners(res.data.data.recommend.list));
   });
 };
-
-
-

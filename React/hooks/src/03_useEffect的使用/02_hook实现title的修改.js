@@ -6,7 +6,10 @@ export default function App() {
   useEffect(()=>{
     document.title=counter
     console.log(22);
-  })
+    return ()=>{
+      console.log(11);
+    }
+  },[counter])
   return (
     <div>
       <h2>当前计数:{counter}</h2>

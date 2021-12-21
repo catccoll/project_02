@@ -1,0 +1,45 @@
+/*
+第一阶段：装载阶段3
+    constructor()
+    render()
+    componentDidMount()
+第二阶段：更新阶段2
+    [shouldComponentUpdate()]
+    render()
+    componentDidUpdate()
+第三阶段：卸载阶段1
+    componentWillUnmount()
+
+constructor生命周期：
+    (1)当react组件实例化时，是第一个运行的生命周期；
+    (2)在这个生命周期中，不能使用this.setState()；
+    (3)在这个生命周期中，不能使用副作用(调接口、dom操作、定时器、长连接等)；
+    (4)不能把props和state交叉赋值；
+
+componentDidMount生命周期：
+    (1)相当于是vue中的mounted；
+    (2)它表示DOM结构在浏览器中渲染已完成；
+    (3)在这里可以使用任何的副作用；
+
+shouldComponentUpdate(nextProps,nextState)生命周期：
+    (1)相当于一个开关，如果返回true则更新机制正常执行，如果为false则更新机制停止；
+    (2)在vue中是没有的；
+    (3)存在的意义：可以用于性能优化，但是不常用，最新的解决方案是使用PureComponent；
+    (4)理论上，这个生命周期的作用，用于精细地控制声明式变量的更新问题，如果变化的声明式变量参与了视图渲染则返回true，如果被变化的声明式变量没有直接或间接参与视图渲染，则返回false；
+
+componentDidUpdate生命周期：
+    (1)相当于vue中的updated()；
+    (2)它表示DOM结构渲染更新已完成，只发生在更新阶段；
+    (3)在这里，可以执行大多数的副作用，但是不建议；
+    (4)在这里，可以使用this.setState()，但是要有终止条件判断。
+
+componentWillUnmount生命周期：
+    (1)一般在这里清除定时器、长连接等其他占用内存的构造器；
+
+render生命周期：
+    (1)render是类组件中唯一必须有的生命周期，同时必须有return（return 返回的jsx默认只能是单一根节点，但是在fragment的语法支持下，可以返回多个兄弟节点）；
+    (2)Fragment碎片写法: <React.Fragment></React.Fragment> 简写成<></>；
+    (3)return之前，可以做任意的业务逻辑，但是不能使用this.setState()，会造成死循环；
+    (4)render()在装载阶段和更新阶段都会运行；
+    (5)当render方法返回null的时候，不会影响生命周期函数的正常执行。
+*/

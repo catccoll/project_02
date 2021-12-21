@@ -1,0 +1,43 @@
+1、单例模式
+单例模式就是一个实例在整个网页的生命周期里只创建一次，后续再调用实例创建函数的时候，返回的仍是之前创建的实例。也就是你不管创建多少个对象都只有一个实例
+var Single = (function () {
+  var instance = null
+  function Single(name) {
+    this.name = name
+  }
+  return function (name) {
+    if (!instance) {
+      instance = new Single(name)
+    }
+    return instance
+  }
+})()
+
+var oA = new Single('hi')
+var oB = new Single('hello')
+console.log(oA);
+console.log(oB);
+console.log(oB === oA);
+
+2、策略模式
+策略模式是指将策略（算法）封装起来，策略的目的是将算法和使用分离开。
+3、代理模式
+代理模式很好理解，我们不能直接使用目标函数，而是通过调用代理函数来实现对目标函数的使用。
+4、发布订阅模式
+发布订阅模式在实际应用中非常常见，例如，我们在微信App上关注了某个公众号，当该公众号有新文章发布时，就会通知我们。
+发布订阅模式定义了一种一对多的依赖关系，当“一”发生变化，通知多个依赖。
+5.工厂模式
+代替new创建一个对象，且这个对象像工厂制作一样，批量制作属性相同的实例对象（指向不同）
+
+    function Animal(o) {
+      var instance = new Object()
+      instance.name = o.name
+      instance.age = o.age
+      instance.getAnimal = function () {
+        return "name:" + instance.name + " age:" + instance.age
+      }
+      return instance
+    }
+
+    var cat = Animal({name:"cat", age:3})
+    console.log(cat);

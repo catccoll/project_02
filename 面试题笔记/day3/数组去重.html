@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 第一种
+        let arr = [1, 1, 2, 2, 5, 6, 7, 1, 2, 10]
+        let newArr = []
+        for (let i in arr) {
+            if (newArr.indexOf(arr[i]) === -1) {
+                debugger
+                newArr.push(arr[i])
+            }
+        }
+        console.log(newArr);
+        //    第二种
+        function unique(arr) {
+
+            return [...new Set(arr)]
+        }
+        arr2 = [1, 2, 5, 4, 5, 5, 5, 6, 2, 1, , 6, , 6]
+        console.log(unique(arr2));
+    </script>
+</body>
+
+</html>

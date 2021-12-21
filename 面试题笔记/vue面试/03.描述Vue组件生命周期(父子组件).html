@@ -1,0 +1,24 @@
+
+执行beforeCreate生命周期函数
+vue实例的挂载元素 
+el 和 ‘ 数据对象 ‘ data methods等都 为 undefined，还未 初始化。
+ 在 created 阶 段 ， vue实例的数据对象data和方法等初始化了，可以拿到数据和方法但是还没有el
+之后将模板转化为render函数，到了beforeMount时，开始渲染render函数，首先我们会先生产一个虚拟dom（用于后续数据发生变化时，新老虚拟dom对比计算），进行保存，然后再开始将render渲染成为真实的dom。
+之后再调用beforMount， 也就是说实际从creted到beforeMount之间，最主要的工作就是将模板或者el转换为render函数。并且我们可以看出一点，就是你不管是用el，还是用template, 或者是用我们最常用的.vue文件(如果是.vue文件，他其实是会先编译成为template)，最终他都是会被转换为render函数的。
+之后再调用mounted，所以mounted函数内，我们是可以操作dom的，因为这个时候dom已经渲染完成了。
+再之后，只有当我们状态数据发生变化时,我们在触发beforeUpdate，
+beforeUpdate调用之后，我们又会重新生成一个新的虚拟dom(Vnode)，然后会拿这个最新的Vnode和原来的Vnode去做一个diff算，这里就涉及到一系列的计算，算出最小的更新范围，从而更新render函数中的最新数据，再将更新后的render函数渲染成真实dom。也就完成了我们的数据更新
+然后再执行updated，所以updated里面也可以操作dom，并拿到最新更新后的dom。不过这里我要插一句话了，mouted和updated的执行，并不会等待所有子组件都被挂载完成后再执行，所以如果你希望所有视图都更新完毕后再做些什么事情，那么你最好在mouted或者updated中加一个$nextTick（），然后把要做的事情放在$netTick()中去做（至于为什么，以后讲到$nextTick再说吧）
+再之后beforeDestroy没啥说的，实例销毁前，也就是说在这个函数内，你还是可以操作实例的
+之后会做一系列的销毁动作，解除各种数据引用，移除事件监听，删除组件_watcher，删除子实例，删除自身self等。消除定时器，
+销毁完成后，再执行destroyed
+Vue 的父组件和子组件生命周期钩子函数执行顺序可以归类为以下 4 部分：
+加载渲染过程
+父 beforeCreate -> 父 created -> 父 beforeMount -> 子 beforeCreate -> 子 created -> 子 beforeMount -> 子 mounted -> 父 mounted
+<!-- 他会等子组件挂载完毕之后在父组件挂载 -->
+子组件更新过程
+父 beforeUpdate -> 子 beforeUpdate -> 子 updated -> 父 updated
+父组件更新过程
+父 beforeUpdate -> 父 updated
+销毁过程
+父 beforeDestroy -> 子 beforeDestroy -> 子 destroyed -> 父 destroyed

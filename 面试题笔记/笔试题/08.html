@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 2.2现有一个数组的结构如下:需要把它改造成
+        // [{
+        //     id: '1 ',
+        //     children: [{
+        //         id: '1-1'
+        //     }, {
+        //         id: '1-2 ',
+        //         children: [{
+        //             id: '1-2-1'
+        //         }]
+        //     }]
+        // }, {
+        //     id: '2'
+        // }]
+        const arr = [{
+            id: "1"
+        }, {
+            id: '1-1',
+            parentId: "1"
+        }, {
+            id: '1-2',
+            parentId: '1'
+        }, {
+            id: '1-2-1',
+            parentId: '1-2'
+        }, {
+            id: '1-2-2',
+            parentId: '1-2'
+        }, {
+            id: '1-2-2-1',
+            parentId: '1-2'
+        }, {
+            id: '2'
+        }, {
+            id: '2-1',
+            parentId: '2'
+        }, {
+            id: '2-2',
+            parentId: '2'
+        }, {
+            id: '3'
+        }]          
+    </script>
+</body>
+
+</html>
