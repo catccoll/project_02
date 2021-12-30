@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3075307 */
+  src: url('iconfont.woff2?t=1640601020541') format('woff2'),
+       url('iconfont.woff?t=1640601020541') format('woff'),
+       url('iconfont.ttf?t=1640601020541') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-weibiaoti-2_fuzhi_aixin:before {
+  content: "\e659";
+}
+
+.icon-weibiaoti-2_fuzhi_shoutao:before {
+  content: "\e65a";
+}
+
+.icon-weibiaoti-2_fuzhi_beizi:before {
+  content: "\e65d";
+}
+
+.icon-weibiaoti-2_fuzhi_lutou:before {
+  content: "\e65e";
+}
+

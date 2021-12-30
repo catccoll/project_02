@@ -15,11 +15,11 @@ const mapStateToProps = (state) => ({
   counter: state.counter,
 });
 const mapDispatchToProps = (dispatch) => ({
-    increment: function () {
-      dispatch(addAction(1));
-    },
-    addNumber: function (num) {
-      dispatch(addAction(num));
-    },
+  increment: function () {
+    dispatch(addAction(1));
+  },
+  addNumber: function (num) {
+    dispatch(addAction(num));
+  },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

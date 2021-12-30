@@ -86,9 +86,10 @@ class App extends PureComponent {
     
 
         {/* 当匹配“/”时  要添加exact 这样才能精准匹配路经*/}
-        {/* Switch的作用 就是 匹配到了第一个就不会继续匹配了*/}
+        {/* Switch的作用 就是 匹配到了第一个就不会继续匹配了,React是包容性匹配*/}
         {/* <Switch>
           <Route exact path="/" component={Home} />
+          <><>
           <Route path="/about" component={About} />
           <Route path="/profile" component={Profile} /> */}
         {/* <Route path='/:id' component={User}></Route> */}

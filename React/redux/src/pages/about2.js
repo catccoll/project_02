@@ -36,7 +36,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     sendAxiosRecommend() {
       //   异步是函数，同步是对象  所有这里传入的是一个函数，没有括号 理解咯  兄弟
-      dispatch(recommendAxios);
+      dispatch({type:'GET_RECOMMEND'});
     },
   };
 };

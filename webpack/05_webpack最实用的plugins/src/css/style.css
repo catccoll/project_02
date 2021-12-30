@@ -1,0 +1,14 @@
+@import url('./test.css');
+@import url('../iconfont/font_3075307_3cdu9ii0owb/iconfont.css');
+.title{
+ 
+    user-select:none;
+    transition:all 1s
+}
+.sai{
+    width: 20px;
+    height: 20px;
+}
+.icon-weibiaoti-2_fuzhi_aixin::before{
+    content: "\e659";
+}
