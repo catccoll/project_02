@@ -1,12 +1,13 @@
 module.exports={
     presets:[
-        ['@babel/preset-env',{
+        ['@babel/preset-env',{//将js语法转化为浏览器能识别的语法
             // 三个值:false(不使用任何的polyfill相关的代码)/usage(代码中需要哪些polyfill，就引用相关的api,按需导入)/entry(就是导入全部的polyfill，但是这个需要在入口文件导入core-js/stable,generator-runtime)
             // useBuiltIns:false
             // useBuiltIns:'usage',
             // corejs:3//默认情况下使用corejs的2版本，但是我们下的时候是3的版本，所以要指定corejs 3的版本
             useBuiltIns:'entry'
-        }]
+        }],
+        ['@babel/preset-react']//编译JSX语法
     ]
 }
 

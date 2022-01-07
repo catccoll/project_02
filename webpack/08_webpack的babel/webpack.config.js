@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { DefinePlugin } = require("webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
-  entry: "./src/common_index.js", //这里是相对路经
+  entry: "./src/js/react_main.js", //这里是相对路经，入口的文件
   output: {
     path: path.resolve(__dirname, "./build"), //这里必须是绝对路经
     // path.resolve(__dirname)//获取到绝对路经
@@ -42,7 +42,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude:/node_modules/,//这个文件不使用babel
+        exclude: /node_modules/, //这个文件不需要使用babel
         use: [
           {
             loader: "babel-loader",
@@ -54,7 +54,7 @@ module.exports = {
             //       {
             //         targets: ["chrome 88"],
             //         esmodules:true
-                    
+
             //       },
             //     ],
             //   ],

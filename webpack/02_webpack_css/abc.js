@@ -6,6 +6,7 @@ module.exports = {
     // path.resolve(__dirname)//获取到绝对路经
     filename: "bundle.js",
   },
+
   module: {
     rules: [
       {

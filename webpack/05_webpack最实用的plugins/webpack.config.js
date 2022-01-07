@@ -5,11 +5,16 @@ const { DefinePlugin } = require("webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: "./src/index.js", //这里是相对路经
+  mode:'production',
   output: {
     path: path.resolve(__dirname, "./build"), //这里必须是绝对路经
     // path.resolve(__dirname)//获取到绝对路经
     filename: "js/bundle.js", //将js代码抽离到js文件下  所以是js/
     // assetModuleFilename: "img/[name].[hash:3][ext]", //在这里ext前面就不需要加.了因为这里默认给我们加了  url-loader和file-loader是没有帮我们添加，但是这种写法了解，因为我们会创建多个文件夹，这样创建就写死了
+  },
+  devServer:{
+    hot:true,
+   
   },
   module: {
     rules: [

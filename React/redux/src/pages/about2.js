@@ -18,6 +18,7 @@ class About extends PureComponent {
   }
 }
 // 你想在这个组件上依赖(用什么)什么数据，就写在这里，然后通过高阶组价，props拿到就可以用，就跟饶了一个圈子一样
+
 const mapStateToProps = (state) => {
   return {
     counter: state.counterInfo.counter,

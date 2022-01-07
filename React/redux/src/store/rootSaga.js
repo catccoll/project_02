@@ -1,4 +1,4 @@
-import { takeEvery, put, call, takeLatest } from "redux-saga/effects";
+import { takeEvery, put, call,  } from "redux-saga/effects";
 import { CHANGE_RECOMMEND, CHANGE_BANNERS } from "./constants";
 import axios from "axios";
 function* rootSaga() {
